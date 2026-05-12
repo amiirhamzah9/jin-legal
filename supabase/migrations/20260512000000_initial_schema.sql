@@ -78,3 +78,15 @@ create policy "contact_leads insert" on contact_leads for insert to anon with ch
 create index idx_practice_areas_order on practice_areas(display_order);
 create index idx_team_members_order on team_members(display_order) where is_active = true;
 create index idx_blog_posts_published on blog_posts(published_at desc) where is_published = true;
+
+-- Added in Phase 3b
+alter table contact_leads add column if not exists is_read boolean not null default false;
+create index if not exists idx_contact_leads_unread on contact_leads(created_at desc) where is_read = false;
+
+-- Storage bucket for blog cover images (Phase 3b)
+-- (Bucket creation must be done via Supabase dashboard or SQL editor;
+--  policies are listed here for reference and idempotent re-runs.)
+-- insert into storage.buckets (id, name, public) values ('blog-covers', 'blog-covers', true);
+-- create policy "Authenticated users can upload blog covers" on storage.objects for insert to authenticated with check (bucket_id = 'blog-covers');
+-- create policy "Public can read blog covers" on storage.objects for select to anon, authenticated using (bucket_id = 'blog-covers');
+-- create policy "Authenticated users can delete blog covers" on storage.objects for delete to authenticated using (bucket_id = 'blog-covers');

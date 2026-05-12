@@ -74,9 +74,12 @@ export type Database = {
           company: string | null;
           subject: string | null;
           message: string;
+          is_read: boolean;
           created_at: string;
         };
-        Insert: Omit<Database["public"]["Tables"]["contact_leads"]["Row"], "id" | "created_at">;
+        Insert: Omit<Database["public"]["Tables"]["contact_leads"]["Row"], "id" | "created_at" | "is_read"> & {
+          is_read?: boolean;
+        };
         Update: Partial<Database["public"]["Tables"]["contact_leads"]["Insert"]>;
         Relationships: [];
       };
