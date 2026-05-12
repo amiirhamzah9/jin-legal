@@ -1,8 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/constants";
 
 export function Nav() {
+  const pathname = usePathname();
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 h-[70px] px-[72px] flex items-center justify-between bg-forest-deep/96 backdrop-blur-xl border-b border-gold/20">
       <Link href="/" className="block">
@@ -16,15 +20,20 @@ export function Nav() {
         />
       </Link>
       <div className="flex gap-10 items-center">
-        {NAV_LINKS.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="relative font-sans text-[11px] font-medium tracking-[2px] uppercase text-white/55 hover:text-white/90 transition-colors"
-          >
-            {link.label}
-          </Link>
-        ))}
+        {NAV_LINKS.map((link) => {
+          const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`relative font-sans text-[11px] font-medium tracking-[2px] uppercase transition-colors ${
+                isActive ? "text-gold" : "text-white/55 hover:text-white/90"
+              }`}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
       </div>
       <Link
         href="/contact"
