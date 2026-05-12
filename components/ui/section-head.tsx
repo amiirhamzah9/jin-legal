@@ -13,10 +13,10 @@ export function SectionHead({
   viewAllLabel?: string;
 }) {
   return (
-    <div className="flex justify-between items-end mb-12">
+    <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4 md:gap-0 mb-8 md:mb-12">
       <div>
         <Eyebrow className="mb-2.5">{eyebrow}</Eyebrow>
-        <h2 className="font-serif text-4xl font-normal text-forest">{title}</h2>
+        <h2 className="font-serif text-3xl md:text-4xl font-normal text-forest">{title}</h2>
       </div>
       {viewAllHref && viewAllLabel && (
         <Link

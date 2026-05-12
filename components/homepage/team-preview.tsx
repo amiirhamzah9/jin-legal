@@ -25,12 +25,12 @@ const FEATURED = [
 
 export function TeamPreview() {
   return (
-    <section className="bg-forest-deep px-[72px] py-24">
+    <section className="bg-forest-deep px-5 py-16 md:px-[72px] md:py-24">
       <Eyebrow className="mb-2.5">Our People</Eyebrow>
-      <h2 className="font-serif text-[40px] font-light text-white mb-12">
+      <h2 className="font-serif text-[28px] md:text-[40px] font-light text-white mb-12">
         Meet the <em className="italic text-gold">Partners</em>
       </h2>
-      <div className="grid grid-cols-3 gap-[3px] mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[3px] mb-8">
         {FEATURED.map((partner) => (
           <div key={partner.name} className="relative overflow-hidden group">
             <Image
@@ -38,7 +38,7 @@ export function TeamPreview() {
               alt={partner.name}
               width={600}
               height={720}
-              className="w-full h-[360px] object-cover object-top transition-all duration-[550ms] grayscale-[30%] brightness-[.85] saturate-[.9] group-hover:grayscale-0 group-hover:brightness-100 group-hover:saturate-100 group-hover:scale-[1.04]"
+              className="w-full h-[320px] md:h-[360px] object-cover object-top transition-all duration-[550ms] grayscale-[30%] brightness-[.85] saturate-[.9] group-hover:grayscale-0 group-hover:brightness-100 group-hover:saturate-100 group-hover:scale-[1.04]"
             />
             <div className="absolute bottom-0 left-0 right-0 px-5 pt-14 pb-5 [background:linear-gradient(0deg,rgba(10,24,18,.97)_0%,transparent_100%)] translate-y-5 group-hover:translate-y-0 transition-transform duration-400">
               <div className="font-sans text-[9px] tracking-[3px] text-gold font-bold uppercase mb-1">

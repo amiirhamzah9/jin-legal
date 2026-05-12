@@ -3,7 +3,7 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 
 export function Hero() {
   return (
-    <section className="min-h-screen bg-forest-deep relative overflow-hidden flex items-center px-[72px]">
+    <section className="min-h-screen bg-forest-deep relative overflow-hidden flex items-center px-5 md:px-[72px]">
       <div
         className="absolute inset-0 opacity-[0.08]"
         style={{
@@ -24,7 +24,7 @@ export function Hero() {
       />
       <div className="relative z-10 max-w-[740px]">
         <Eyebrow withLine className="mb-8">PT Juris International Network</Eyebrow>
-        <h1 className="font-serif text-[clamp(48px,6.5vw,82px)] font-light text-white leading-[1.18] tracking-tight mb-7">
+        <h1 className="font-serif text-[clamp(36px,8vw,82px)] font-light text-white leading-[1.18] tracking-tight mb-7">
           Legal Excellence,
           <em className="block not-italic">
             <span
@@ -55,7 +55,7 @@ export function Hero() {
           </Link>
         </div>
       </div>
-      <div className="absolute right-[72px] bottom-[52px] z-10 border border-gold/20 px-7 py-5 text-right bg-forest-deep/60 backdrop-blur">
+      <div className="hidden md:block absolute right-[72px] bottom-[52px] z-10 border border-gold/20 px-7 py-5 text-right bg-forest-deep/60 backdrop-blur">
         <div className="font-serif text-[44px] font-light text-white leading-none">11</div>
         <div className="font-sans text-[9px] tracking-[3px] text-gold uppercase mt-1.5">Practice Areas</div>
       </div>

@@ -19,7 +19,7 @@ export function AdminShell({
 }) {
   return (
     <div className="min-h-screen flex bg-ivory">
-      <aside className="w-64 bg-forest-deep flex flex-col">
+      <aside className="w-48 md:w-64 bg-forest-deep flex flex-col">
         <div className="px-6 py-7 border-b border-white/5">
           <Link
             href="/admin"
@@ -37,13 +37,13 @@ export function AdminShell({
           <div className="font-sans text-[10px] text-white/35 mb-2">
             Signed in as
           </div>
-          <div className="font-sans text-[12px] text-white/70 mb-4 break-all">
+          <div className="font-sans text-[10px] md:text-[12px] text-white/70 mb-4 break-all">
             {userEmail}
           </div>
           <SignOutButton />
         </div>
       </aside>
-      <main className="flex-1 px-12 py-10 overflow-x-hidden">{children}</main>
+      <main className="flex-1 px-5 py-8 md:px-12 md:py-10 overflow-x-hidden">{children}</main>
     </div>
   );
 }

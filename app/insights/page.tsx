@@ -26,7 +26,7 @@ export default async function InsightsPage() {
           title="Legal Perspectives"
           subtitle="Analysis, regulatory updates, and practical guidance from our practice areas across Indonesian law."
         />
-        <section className="bg-white px-[72px] py-20">
+        <section className="bg-white px-5 py-12 md:px-[72px] md:py-20">
           <InsightsGrid posts={posts} />
         </section>
         <CtaBanner />

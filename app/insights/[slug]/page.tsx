@@ -49,7 +49,7 @@ export default async function InsightDetailPage({
     <>
       <Nav />
       <main>
-        <section className="bg-forest-deep pt-[120px] pb-16 px-[72px]">
+        <section className="bg-forest-deep pt-[100px] pb-12 px-5 md:pt-[120px] md:pb-16 md:px-[72px]">
           <div className="max-w-[800px] mx-auto">
             {post.category && (
               <Eyebrow withLine className="mb-6">
@@ -66,7 +66,7 @@ export default async function InsightDetailPage({
         </section>
         {post.cover_image_url && (
           <div className="bg-forest-deep">
-            <div className="max-w-[1100px] mx-auto px-[72px] -mb-20 relative z-10">
+            <div className="max-w-[1100px] mx-auto px-5 md:px-[72px] -mb-12 md:-mb-20 relative z-10">
               <Image
                 src={post.cover_image_url}
                 alt={post.title}
@@ -77,7 +77,7 @@ export default async function InsightDetailPage({
             </div>
           </div>
         )}
-        <section className="bg-ivory pt-32 pb-24 px-[72px]">
+        <section className="bg-ivory pt-20 pb-16 px-5 md:pt-32 md:pb-24 md:px-[72px]">
           <div className="max-w-[760px] mx-auto">
             <MarkdownContent source={post.content} />
           </div>

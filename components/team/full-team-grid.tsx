@@ -6,7 +6,7 @@ export function FullTeamGrid({ filter }: { filter: PracticeGroup }) {
     filter === "all" ? PARTNERS : PARTNERS.filter((p) => p.practiceGroup === filter);
 
   return (
-    <div className="grid grid-cols-3 gap-[3px]">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[3px]">
       {visible.map((partner) => (
         <div key={partner.slug} className="relative overflow-hidden group cursor-pointer">
           <Image
@@ -14,7 +14,7 @@ export function FullTeamGrid({ filter }: { filter: PracticeGroup }) {
             alt={partner.name}
             width={600}
             height={720}
-            className="w-full h-[420px] object-cover object-top transition-all duration-[550ms] grayscale-[40%] brightness-[.85] saturate-[.9] group-hover:grayscale-0 group-hover:brightness-100 group-hover:saturate-100 group-hover:scale-[1.04]"
+            className="w-full h-[360px] md:h-[420px] object-cover object-top transition-all duration-[550ms] grayscale-[40%] brightness-[.85] saturate-[.9] group-hover:grayscale-0 group-hover:brightness-100 group-hover:saturate-100 group-hover:scale-[1.04]"
           />
           <div className="absolute bottom-0 left-0 right-0 px-5 pt-16 pb-5 [background:linear-gradient(0deg,rgba(10,24,18,.97)_0%,transparent_100%)] translate-y-7 group-hover:translate-y-0 transition-transform duration-400">
             <div className="font-sans text-[9px] tracking-[3px] text-gold font-bold uppercase mb-1.5">

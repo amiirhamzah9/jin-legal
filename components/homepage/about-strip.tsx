@@ -4,13 +4,13 @@ import { VALUES } from "@/lib/constants";
 
 export function AboutStrip() {
   return (
-    <section className="bg-forest px-[72px] py-24 grid grid-cols-2 gap-24 items-center relative overflow-hidden">
-      <div className="absolute -top-20 -right-20 w-80 h-80 border border-gold/20 rounded-full pointer-events-none" />
-      <div className="absolute top-5 right-5 w-44 h-44 border border-gold/10 rounded-full pointer-events-none" />
+    <section className="bg-forest px-5 py-16 md:px-[72px] md:py-24 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center relative overflow-hidden">
+      <div className="hidden md:block absolute -top-20 -right-20 w-80 h-80 border border-gold/20 rounded-full pointer-events-none" />
+      <div className="hidden md:block absolute top-5 right-5 w-44 h-44 border border-gold/10 rounded-full pointer-events-none" />
 
       <div>
         <Eyebrow className="mb-4">About the Firm</Eyebrow>
-        <h2 className="font-serif text-[42px] font-light text-white leading-tight mb-7">
+        <h2 className="font-serif text-[32px] md:text-[42px] font-light text-white leading-tight mb-7">
           A <strong className="font-semibold text-gold">Modern Legal Partner</strong> for a Complex World
         </h2>
         <p className="font-sans text-sm font-light text-white/50 leading-[1.9] mb-4 tracking-wide">

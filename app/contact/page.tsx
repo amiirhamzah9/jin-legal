@@ -22,8 +22,8 @@ export default function ContactPage() {
           title="Let's Discuss Your Legal Needs"
           subtitle="Tell us about your matter — we typically respond within 1–2 business days."
         />
-        <section className="bg-ivory px-[72px] py-20">
-          <div className="max-w-[1100px] mx-auto grid grid-cols-[2fr_1fr] gap-16">
+        <section className="bg-ivory px-5 py-12 md:px-[72px] md:py-20">
+          <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10 md:gap-16">
             <Suspense fallback={<div>Loading form…</div>}>
               <ContactForm />
             </Suspense>

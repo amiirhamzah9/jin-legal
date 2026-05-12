@@ -51,7 +51,7 @@ export function ContactForm() {
               <p className="font-sans text-[13px] text-red-700">{state.message}</p>
             </div>
           )}
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label
                 htmlFor="name"

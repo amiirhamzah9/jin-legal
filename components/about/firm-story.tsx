@@ -3,14 +3,14 @@ import { VALUES } from "@/lib/constants";
 
 export function FirmStory() {
   return (
-    <section className="bg-ivory px-[72px] py-24">
+    <section className="bg-ivory px-5 py-12 md:px-[72px] md:py-24">
       <div className="max-w-[1100px] mx-auto">
         <Eyebrow className="mb-5">Who We Are</Eyebrow>
-        <h2 className="font-serif text-[42px] font-light text-forest leading-tight mb-12">
+        <h2 className="font-serif text-[32px] md:text-[42px] font-light text-forest leading-tight mb-12">
           Our Story
         </h2>
 
-        <div className="grid grid-cols-[1fr_1fr] gap-20 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-10 md:gap-20 mb-12 md:mb-20">
           <div className="space-y-5">
             <p className="font-sans text-[15px] font-light text-ink leading-[1.85]">
               Jin Legal — the practice of <strong className="font-semibold">PT Juris International Network</strong> — was founded on a simple principle: exceptional legal counsel must be both strategically sharp and deeply human.
@@ -41,10 +41,10 @@ export function FirmStory() {
 
         <div>
           <Eyebrow className="mb-5">What We Stand For</Eyebrow>
-          <h3 className="font-serif text-[28px] font-light text-forest leading-tight mb-10">
+          <h3 className="font-serif text-[22px] md:text-[28px] font-light text-forest leading-tight mb-10">
             Our Core Values
           </h3>
-          <div className="grid grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
             {VALUES.map((val) => (
               <div
                 key={val.title}

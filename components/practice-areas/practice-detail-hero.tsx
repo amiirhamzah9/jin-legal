@@ -4,7 +4,7 @@ import type { PracticeArea } from "@/lib/constants";
 
 export function PracticeDetailHero({ area }: { area: PracticeArea }) {
   return (
-    <section className="bg-forest-deep pt-[120px] pb-20 px-[72px] relative overflow-hidden">
+    <section className="bg-forest-deep pt-[100px] pb-12 px-5 md:pt-[120px] md:pb-20 md:px-[72px] relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-50"
         style={{
@@ -21,7 +21,7 @@ export function PracticeDetailHero({ area }: { area: PracticeArea }) {
           <span className="text-gold/50">/</span>
           <span className="text-gold">{area.title}</span>
         </nav>
-        <div className="grid grid-cols-[auto_1fr] gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-8 items-start">
           <div className="border border-gold/30 p-5">
             <PracticeIcon name={area.icon} className="w-12 h-12 text-gold" />
           </div>

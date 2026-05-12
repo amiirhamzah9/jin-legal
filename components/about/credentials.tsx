@@ -25,17 +25,17 @@ const ITEMS = [
 
 export function Credentials() {
   return (
-    <section className="bg-forest-deep px-[72px] py-24">
+    <section className="bg-forest-deep px-5 py-12 md:px-[72px] md:py-24">
       <div className="max-w-[1100px] mx-auto">
         <Eyebrow className="mb-5">Trusted & Verified</Eyebrow>
-        <h2 className="font-serif text-[42px] font-light text-white leading-tight mb-3">
+        <h2 className="font-serif text-[32px] md:text-[42px] font-light text-white leading-tight mb-3">
           Credentials & Registrations
         </h2>
         <p className="font-sans text-[14px] font-light text-white/50 leading-[1.8] max-w-[600px] mb-14">
           Fully registered and licensed to practice law in Indonesia, with all
           required regulatory clearances and active professional memberships.
         </p>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {ITEMS.map((item) => (
             <div
               key={item.code}

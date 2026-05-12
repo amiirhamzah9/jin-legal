@@ -10,7 +10,7 @@ export function PageHero({
   subtitle?: string;
 }) {
   return (
-    <section className="bg-forest-deep pt-[120px] pb-20 px-[72px] relative overflow-hidden">
+    <section className="bg-forest-deep pt-[100px] pb-12 px-5 md:pt-[120px] md:pb-20 md:px-[72px] relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-50"
         style={{

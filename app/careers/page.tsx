@@ -25,7 +25,7 @@ export default async function CareersPage() {
           title="Build a Career at Jin Legal"
           subtitle="We're looking for sharp, strategic, and curious legal professionals who want to do meaningful work."
         />
-        <section className="bg-ivory px-[72px] py-20">
+        <section className="bg-ivory px-5 py-12 md:px-[72px] md:py-20">
           <CareersList careers={careers} />
         </section>
         <CtaBanner />

@@ -16,7 +16,7 @@ export function InsightsGrid({ posts }: { posts: BlogPost[] }) {
 
   if (posts.length < 3) {
     return (
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {posts.map((post) => (
           <InsightCard key={post.id} post={post} featured />
         ))}
@@ -26,7 +26,7 @@ export function InsightsGrid({ posts }: { posts: BlogPost[] }) {
 
   const [featured, ...rest] = posts;
   return (
-    <div className="grid grid-cols-[2fr_1fr_1fr] gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-6">
       <InsightCard post={featured} featured />
       {rest.slice(0, 2).map((post) => (
         <InsightCard key={post.id} post={post} />

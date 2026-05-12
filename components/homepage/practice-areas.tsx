@@ -5,14 +5,14 @@ import { PRACTICE_AREAS } from "@/lib/constants";
 
 export function PracticeAreas() {
   return (
-    <section className="bg-ivory px-[72px] py-24">
+    <section className="bg-ivory px-5 py-16 md:px-[72px] md:py-24">
       <SectionHead
         eyebrow="What We Do"
         title="Our Practice Areas"
         viewAllHref="/practice-areas"
         viewAllLabel="View All Areas"
       />
-      <div className="grid grid-cols-4 gap-2.5">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
         {PRACTICE_AREAS.map((area) => (
           <Link
             key={area.slug}

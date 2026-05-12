@@ -17,7 +17,7 @@ export function CareersList({ careers }: { careers: Career[] }) {
     );
   }
   return (
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {careers.map((career) => (
         <CareerCard key={career.id} career={career} />
       ))}

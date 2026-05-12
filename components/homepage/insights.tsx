@@ -6,7 +6,7 @@ export async function Insights() {
   const posts = await getRecentBlogPosts(3);
 
   return (
-    <section className="bg-white px-[72px] py-24">
+    <section className="bg-white px-5 py-16 md:px-[72px] md:py-24">
       <SectionHead
         eyebrow="Latest Insights"
         title="Legal Perspectives"

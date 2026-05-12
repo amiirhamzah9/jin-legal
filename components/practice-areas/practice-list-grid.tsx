@@ -4,8 +4,8 @@ import { PracticeIcon } from "@/components/icons/practice-icons";
 
 export function PracticeListGrid() {
   return (
-    <section className="bg-ivory px-[72px] py-20">
-      <div className="grid grid-cols-3 gap-5">
+    <section className="bg-ivory px-5 py-12 md:px-[72px] md:py-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
         {PRACTICE_AREAS.map((area) => (
           <Link
             key={area.slug}

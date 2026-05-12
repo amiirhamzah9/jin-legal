@@ -19,8 +19,8 @@ const COMPANY_LINKS = [
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-forest-deep px-[72px] pt-[72px] pb-7 border-t border-gold/20">
-      <div className="grid grid-cols-[2fr_1fr_1fr_1fr] gap-14 mb-14">
+    <footer className="bg-forest-deep px-5 pt-12 md:px-[72px] md:pt-[72px] pb-7 border-t border-gold/20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-14 mb-10 md:mb-14">
         <div>
           <Image
             src="/logo/jin-logo.png"
@@ -83,7 +83,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/5 pt-5 flex justify-between items-center">
+      <div className="border-t border-white/5 pt-5 flex flex-col md:flex-row md:justify-between md:items-center gap-3">
         <p className="font-sans text-[11px] text-white/20">
           © {year} <span className="text-gold">PT Juris International Network</span>. All rights reserved.
         </p>
