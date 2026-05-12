@@ -1,12 +1,19 @@
 import Link from "next/link";
-import { PRACTICE_AREAS } from "@/lib/constants";
 import { PracticeIcon } from "@/components/icons/practice-icons";
+import type { Database } from "@/lib/supabase/types";
+import type { IconName } from "@/lib/constants";
 
-export function PracticeListGrid() {
+type PracticeArea = Database["public"]["Tables"]["practice_areas"]["Row"];
+
+function formatNum(order: number): string {
+  return String(order).padStart(2, "0");
+}
+
+export function PracticeListGrid({ areas }: { areas: PracticeArea[] }) {
   return (
     <section className="bg-ivory px-5 py-12 md:px-[72px] md:py-20">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-        {PRACTICE_AREAS.map((area) => (
+        {areas.map((area) => (
           <Link
             key={area.slug}
             href={`/practice-areas/${area.slug}`}
@@ -14,8 +21,8 @@ export function PracticeListGrid() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-gold-pale to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative z-10">
-              <PracticeIcon name={area.icon} className="w-8 h-8 text-forest mb-5" />
-              <div className="font-serif text-[14px] text-gold mb-2">{area.num}</div>
+              <PracticeIcon name={area.icon_name as IconName} className="w-8 h-8 text-forest mb-5" />
+              <div className="font-serif text-[14px] text-gold mb-2">{formatNum(area.display_order)}</div>
               <h3 className="font-serif text-[20px] font-medium text-forest leading-tight mb-3">
                 {area.title}
               </h3>

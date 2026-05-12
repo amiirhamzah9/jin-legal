@@ -1,11 +1,9 @@
 import Image from "next/image";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { PARTNERS } from "@/lib/constants";
+import { getTeamMembersForPracticeArea } from "@/lib/data/queries";
 
-export function RelatedPartners({ practiceSlug }: { practiceSlug: string }) {
-  const relevant = PARTNERS.filter((p) =>
-    (p.practiceAreas as readonly string[]).includes(practiceSlug)
-  );
+export async function RelatedPartners({ practiceSlug }: { practiceSlug: string }) {
+  const relevant = await getTeamMembersForPracticeArea(practiceSlug);
   if (relevant.length === 0) return null;
 
   return (
@@ -17,14 +15,16 @@ export function RelatedPartners({ practiceSlug }: { practiceSlug: string }) {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[3px]">
           {relevant.map((partner) => (
-            <div key={partner.slug} className="relative overflow-hidden group">
-              <Image
-                src={partner.photo}
-                alt={partner.name}
-                width={500}
-                height={600}
-                className="w-full h-[300px] md:h-[340px] object-cover object-top grayscale-[40%] brightness-[.85] saturate-[.9] transition-all duration-500 group-hover:grayscale-0 group-hover:brightness-100 group-hover:saturate-100 group-hover:scale-[1.04]"
-              />
+            <div key={partner.id} className="relative overflow-hidden group">
+              {partner.photo_url && (
+                <Image
+                  src={partner.photo_url}
+                  alt={partner.name}
+                  width={500}
+                  height={600}
+                  className="w-full h-[300px] md:h-[340px] object-cover object-top grayscale-[40%] brightness-[.85] saturate-[.9] transition-all duration-500 group-hover:grayscale-0 group-hover:brightness-100 group-hover:saturate-100 group-hover:scale-[1.04]"
+                />
+              )}
               <div className="absolute bottom-0 left-0 right-0 px-5 pt-12 pb-5 [background:linear-gradient(0deg,rgba(10,24,18,.96)_0%,transparent_100%)]">
                 <div className="font-sans text-[9px] tracking-[3px] text-gold font-bold uppercase mb-1">
                   {partner.role}

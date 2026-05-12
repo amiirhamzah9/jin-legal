@@ -19,9 +19,14 @@ vi.mock("react-dom", async () => {
   };
 });
 
+const PRACTICE_OPTIONS = [
+  { slug: "business-corporate-law", title: "Business & Corporate Law" },
+  { slug: "litigation-dispute-resolution", title: "Litigation & Dispute Resolution" },
+];
+
 describe("ContactForm", () => {
   it("renders all required form fields", () => {
-    render(<ContactForm />);
+    render(<ContactForm practiceAreaOptions={PRACTICE_OPTIONS} />);
     expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/phone/i)).toBeInTheDocument();
@@ -31,12 +36,12 @@ describe("ContactForm", () => {
   });
 
   it("renders submit button", () => {
-    render(<ContactForm />);
+    render(<ContactForm practiceAreaOptions={PRACTICE_OPTIONS} />);
     expect(screen.getByRole("button", { name: /send message/i })).toBeInTheDocument();
   });
 
   it("renders subject dropdown with practice areas + general inquiry", () => {
-    render(<ContactForm />);
+    render(<ContactForm practiceAreaOptions={PRACTICE_OPTIONS} />);
     const subjectSelect = screen.getByLabelText(/subject/i) as HTMLSelectElement;
     const optionTexts = Array.from(subjectSelect.options).map((o) => o.textContent);
     expect(optionTexts).toContain("General Inquiry");

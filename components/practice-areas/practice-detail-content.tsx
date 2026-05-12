@@ -1,5 +1,7 @@
 import { Eyebrow } from "@/components/ui/eyebrow";
-import type { PracticeArea } from "@/lib/constants";
+import type { Database } from "@/lib/supabase/types";
+
+type PracticeArea = Database["public"]["Tables"]["practice_areas"]["Row"];
 
 export function PracticeDetailContent({ area }: { area: PracticeArea }) {
   return (
@@ -11,14 +13,14 @@ export function PracticeDetailContent({ area }: { area: PracticeArea }) {
             Our Approach
           </h2>
           <p className="font-sans text-[15px] font-light text-ink leading-[1.85]">
-            {area.fullContent}
+            {area.full_content || area.description}
           </p>
         </div>
         <aside>
           <Eyebrow className="mb-5">How We Help</Eyebrow>
           <h2 className="sr-only">How We Help</h2>
           <ul className="space-y-3 list-none p-0 m-0">
-            {area.services.map((svc) => (
+            {(area.services ?? []).map((svc) => (
               <li
                 key={svc}
                 className="flex items-start gap-3 font-sans text-[13px] font-light text-ink-muted leading-[1.6] pb-3 border-b border-ivory-dark"

@@ -6,14 +6,21 @@ import { PracticeDetailHero } from "@/components/practice-areas/practice-detail-
 import { PracticeDetailContent } from "@/components/practice-areas/practice-detail-content";
 import { RelatedPartners } from "@/components/practice-areas/related-partners";
 import { CtaBanner } from "@/components/homepage/cta-banner";
-import { PRACTICE_AREAS } from "@/lib/constants";
+import { getAllPracticeAreas, getPracticeAreaBySlug } from "@/lib/data/queries";
 
-export function generateStaticParams() {
-  return PRACTICE_AREAS.map((area) => ({ slug: area.slug }));
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  const areas = await getAllPracticeAreas();
+  return areas.map((area) => ({ slug: area.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const area = PRACTICE_AREAS.find((a) => a.slug === params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const area = await getPracticeAreaBySlug(params.slug);
   if (!area) return { title: "Not Found — Jin Legal" };
   return {
     title: `${area.title} — Jin Legal | PT Juris International Network`,
@@ -21,8 +28,12 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function PracticeAreaDetailPage({ params }: { params: { slug: string } }) {
-  const area = PRACTICE_AREAS.find((a) => a.slug === params.slug);
+export default async function PracticeAreaDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const area = await getPracticeAreaBySlug(params.slug);
   if (!area) notFound();
 
   return (

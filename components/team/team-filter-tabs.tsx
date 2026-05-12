@@ -1,11 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { FullTeamGrid } from "./full-team-grid";
-import { PRACTICE_GROUPS, type PracticeGroup } from "@/lib/constants";
+import type { Database } from "@/lib/supabase/types";
 
-export function TeamPageBody() {
-  const [active, setActive] = useState<PracticeGroup>("all");
+type TeamMember = Database["public"]["Tables"]["team_members"]["Row"];
+
+const PRACTICE_GROUPS = [
+  { id: "all", label: "All Partners" },
+  { id: "corporate-business", label: "Corporate & Business" },
+  { id: "litigation", label: "Litigation" },
+  { id: "specialties", label: "Specialties" },
+] as const;
+
+export function TeamPageBody({ partners }: { partners: TeamMember[] }) {
+  const [active, setActive] = useState<string>("all");
+
+  const visible = useMemo(() => {
+    if (active === "all") return partners;
+    return partners.filter((p) => p.practice_group === active);
+  }, [active, partners]);
 
   return (
     <section className="bg-forest-deep px-5 py-12 md:px-[72px] md:py-20">
@@ -28,7 +42,7 @@ export function TeamPageBody() {
           );
         })}
       </div>
-      <FullTeamGrid filter={active} />
+      <FullTeamGrid partners={visible} />
     </section>
   );
 }

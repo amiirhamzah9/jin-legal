@@ -90,3 +90,14 @@ create index if not exists idx_contact_leads_unread on contact_leads(created_at 
 -- create policy "Authenticated users can upload blog covers" on storage.objects for insert to authenticated with check (bucket_id = 'blog-covers');
 -- create policy "Public can read blog covers" on storage.objects for select to anon, authenticated using (bucket_id = 'blog-covers');
 -- create policy "Authenticated users can delete blog covers" on storage.objects for delete to authenticated using (bucket_id = 'blog-covers');
+
+-- Added in Phase 3c
+alter table team_members add column if not exists slug text unique;
+alter table team_members add column if not exists practice_group text;
+alter table practice_areas add column if not exists services text[];
+
+-- Storage bucket for team photos (Phase 3c)
+-- insert into storage.buckets (id, name, public) values ('team-photos', 'team-photos', true);
+-- create policy "Authenticated users can upload team photos" on storage.objects for insert to authenticated with check (bucket_id = 'team-photos');
+-- create policy "Public can read team photos" on storage.objects for select to anon, authenticated using (bucket_id = 'team-photos');
+-- create policy "Authenticated users can delete team photos" on storage.objects for delete to authenticated using (bucket_id = 'team-photos');

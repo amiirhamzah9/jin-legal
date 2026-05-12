@@ -8,6 +8,7 @@ export type Database = {
           slug: string;
           description: string;
           full_content: string | null;
+          services: string[] | null;
           icon_name: string;
           display_order: number;
           created_at: string;
@@ -25,6 +26,8 @@ export type Database = {
           bio: string | null;
           photo_url: string | null;
           practice_areas: string[] | null;
+          slug: string | null;
+          practice_group: string | null;
           display_order: number;
           is_active: boolean;
           created_at: string;

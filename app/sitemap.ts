@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-import { PRACTICE_AREAS } from "@/lib/constants";
-import { getAllPublishedSlugs } from "@/lib/data/queries";
+import { getAllPracticeAreas, getAllPublishedSlugs } from "@/lib/data/queries";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jin-legal.vercel.app";
 
@@ -19,12 +18,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.7 },
   ];
 
-  const practiceAreaRoutes: MetadataRoute.Sitemap = PRACTICE_AREAS.map((area) => ({
-    url: `${SITE_URL}/practice-areas/${area.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  // Pull practice area slugs from Supabase
+  let practiceAreaRoutes: MetadataRoute.Sitemap = [];
+  try {
+    const areas = await getAllPracticeAreas();
+    practiceAreaRoutes = areas.map((area) => ({
+      url: `${SITE_URL}/practice-areas/${area.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }));
+  } catch (err) {
+    console.error("[sitemap] failed to load practice areas:", err);
+  }
 
   // Pull blog slugs from Supabase
   let blogRoutes: MetadataRoute.Sitemap = [];

@@ -3,7 +3,6 @@
 import { useFormState, useFormStatus } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import { submitContactForm, type ContactFormState } from "@/app/contact/actions";
-import { PRACTICE_AREAS } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
@@ -21,7 +20,11 @@ function SubmitButton() {
 const FIELD_BASE =
   "w-full bg-white border border-ivory-dark px-4 py-3 font-sans text-[13px] text-ink focus:border-gold focus:outline-none transition-colors";
 
-export function ContactForm() {
+export function ContactForm({
+  practiceAreaOptions,
+}: {
+  practiceAreaOptions: { slug: string; title: string }[];
+}) {
   const searchParams = useSearchParams();
   const presetSubject = searchParams.get("subject") ?? "";
   const [state, formAction] = useFormState(submitContactForm, INITIAL);
@@ -100,13 +103,13 @@ export function ContactForm() {
               className={FIELD_BASE}
             >
               <option value="">General Inquiry</option>
-              {PRACTICE_AREAS.map((area) => (
+              {practiceAreaOptions.map((area) => (
                 <option key={area.slug} value={area.title}>
                   {area.title}
                 </option>
               ))}
               {presetSubject &&
-                !PRACTICE_AREAS.find((a) => a.title === presetSubject) && (
+                !practiceAreaOptions.find((a) => a.title === presetSubject) && (
                   <option value={presetSubject}>{presetSubject}</option>
                 )}
             </select>

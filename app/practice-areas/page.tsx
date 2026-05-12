@@ -4,6 +4,9 @@ import { Footer } from "@/components/layout/footer";
 import { PageHero } from "@/components/ui/page-hero";
 import { PracticeListGrid } from "@/components/practice-areas/practice-list-grid";
 import { CtaBanner } from "@/components/homepage/cta-banner";
+import { getAllPracticeAreas } from "@/lib/data/queries";
+
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Practice Areas — Jin Legal | PT Juris International Network",
@@ -11,7 +14,8 @@ export const metadata: Metadata = {
     "Eleven practice areas spanning corporate law, litigation, regulatory advisory, intellectual property, and specialized domains.",
 };
 
-export default function PracticeAreasPage() {
+export default async function PracticeAreasPage() {
+  const areas = await getAllPracticeAreas();
   return (
     <>
       <Nav />
@@ -21,7 +25,7 @@ export default function PracticeAreasPage() {
           title="Our Practice Areas"
           subtitle="Eleven focused practice areas spanning corporate transactions, dispute resolution, regulatory advisory, and specialized industry expertise."
         />
-        <PracticeListGrid />
+        <PracticeListGrid areas={areas} />
         <CtaBanner />
       </main>
       <Footer />
