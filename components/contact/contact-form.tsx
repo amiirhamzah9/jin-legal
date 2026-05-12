@@ -4,6 +4,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import { submitContactForm, type ContactFormState } from "@/app/contact/actions";
 import { PRACTICE_AREAS } from "@/lib/constants";
+import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
 const INITIAL: ContactFormState = { status: "idle" };
@@ -11,13 +12,9 @@ const INITIAL: ContactFormState = { status: "idle" };
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="bg-gold text-forest-deep font-sans text-[10px] font-bold tracking-[2.5px] uppercase px-9 py-4 hover:bg-gold-light disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-    >
+    <Button variant="gold" type="submit" disabled={pending} className="px-9 py-4">
       {pending ? "Sending…" : "Send Message"}
-    </button>
+    </Button>
   );
 }
 

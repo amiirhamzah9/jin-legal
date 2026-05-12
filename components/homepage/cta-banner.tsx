@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export function CtaBanner() {
   return (
@@ -13,12 +13,9 @@ export function CtaBanner() {
           Schedule a consultation with one of our partners today.
         </p>
       </div>
-      <Link
-        href="/contact"
-        className="bg-white text-forest font-sans text-[10px] font-bold tracking-[2.5px] uppercase no-underline px-9 py-4 whitespace-nowrap hover:bg-forest hover:text-white transition-all relative z-10"
-      >
+      <Button variant="white" href="/contact" className="whitespace-nowrap relative z-10">
         Get in Touch
-      </Link>
+      </Button>
     </div>
   );
 }

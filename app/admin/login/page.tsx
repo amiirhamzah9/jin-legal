@@ -3,6 +3,7 @@
 import { Suspense } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import { loginAction, type LoginState } from "./actions";
 
 const INITIAL: LoginState = { status: "idle" };
@@ -10,13 +11,9 @@ const INITIAL: LoginState = { status: "idle" };
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="w-full bg-gold text-forest-deep font-sans text-[11px] font-bold tracking-[2.5px] uppercase py-4 hover:bg-gold-light disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-    >
+    <Button variant="gold" type="submit" disabled={pending} className="w-full py-4 text-[11px]">
       {pending ? "Signing in…" : "Sign In"}
-    </button>
+    </Button>
   );
 }
 

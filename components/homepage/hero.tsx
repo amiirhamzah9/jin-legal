@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
 export function Hero() {
@@ -41,18 +41,8 @@ export function Hero() {
           A full-service legal consultancy serving corporations, institutions, and individuals across 11 practice areas throughout Indonesia and beyond.
         </p>
         <div className="flex gap-3.5 flex-wrap">
-          <Link
-            href="/contact"
-            className="bg-gold text-forest-deep font-sans text-[10px] font-bold tracking-[2.5px] uppercase no-underline px-[34px] py-3.5 hover:bg-gold-light transition-colors"
-          >
-            Consult With Us
-          </Link>
-          <Link
-            href="/practice-areas"
-            className="bg-transparent border border-white/20 text-white/65 font-sans text-[10px] font-medium tracking-[2px] uppercase no-underline px-[34px] py-3.5 hover:border-gold hover:text-gold transition-colors"
-          >
-            Explore Practice Areas
-          </Link>
+          <Button variant="gold" href="/contact">Consult With Us</Button>
+          <Button variant="ghost" href="/practice-areas">Explore Practice Areas</Button>
         </div>
       </div>
       <div className="hidden md:block absolute right-[72px] bottom-[52px] z-10 border border-gold/20 px-7 py-5 text-right bg-forest-deep/60 backdrop-blur">

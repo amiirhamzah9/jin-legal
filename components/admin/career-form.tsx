@@ -6,6 +6,7 @@ import {
   updateCareer,
   type CareerFormState,
 } from "@/app/admin/careers/actions";
+import { Button } from "@/components/ui/button";
 import type { Database } from "@/lib/supabase/types";
 
 type Career = Database["public"]["Tables"]["careers"]["Row"];
@@ -18,13 +19,9 @@ const FIELD_BASE =
 function SaveButton({ mode }: { mode: "create" | "edit" }) {
   const { pending } = useFormStatus();
   return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="bg-gold text-forest-deep font-sans text-[10px] font-bold tracking-[2.5px] uppercase px-9 py-3.5 hover:bg-gold-light disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-    >
+    <Button variant="gold" type="submit" disabled={pending} className="px-9 py-3.5">
       {pending ? "Saving…" : mode === "create" ? "Create Career" : "Save Changes"}
-    </button>
+    </Button>
   );
 }
 
