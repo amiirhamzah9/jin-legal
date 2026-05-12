@@ -13,13 +13,78 @@ export const VALUES = [
 ] as const;
 
 export const PARTNERS = [
-  { name: "Muhammad Subuh Rezki", credentials: "S.H.", role: "Managing Partner" },
-  { name: "Ryan Tampubolon", credentials: "S.H.", role: "Partner" },
-  { name: "Abi Rafdi", credentials: "S.H.", role: "Partner" },
-  { name: "Achmad Firmansyah", credentials: "S.H.", role: "Partner" },
-  { name: "Amir Hamzah", credentials: "S.H.", role: "Partner" },
-  { name: "Aditya Muriza", credentials: "S.H.", role: "Partner" },
+  {
+    name: "Muhammad Subuh Rezki",
+    credentials: "S.H.",
+    role: "Managing Partner",
+    slug: "muhammad-subuh-rezki",
+    photo: "https://images.unsplash.com/photo-1614023342667-6f060e9d1e04?w=800&h=960&fit=crop&q=85",
+    bio: "Managing Partner with extensive experience in corporate transactions, restructuring, and cross-border deals. Leads the firm's strategic direction.",
+    practiceGroup: "corporate-business",
+    practiceAreas: ["business-corporate-law", "insolvency-restructuring-pkpu", "advisory-regulatory-compliance"],
+  },
+  {
+    name: "Ryan Tampubolon",
+    credentials: "S.H.",
+    role: "Partner",
+    slug: "ryan-tampubolon",
+    photo: "https://images.unsplash.com/photo-1618077360395-f3068be8e001?w=800&h=960&fit=crop&q=85",
+    bio: "Head of Litigation with a proven track record in commercial disputes, arbitration, and complex criminal defense matters.",
+    practiceGroup: "litigation",
+    practiceAreas: ["litigation-dispute-resolution", "criminal-defense-white-collar"],
+  },
+  {
+    name: "Abi Rafdi",
+    credentials: "S.H.",
+    role: "Partner",
+    slug: "abi-rafdi",
+    photo: "https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?w=800&h=960&fit=crop&q=85",
+    bio: "Leads the firm's IP and TMT practice. Advises on patents, trademarks, digital platform regulation, and emerging technology.",
+    practiceGroup: "specialties",
+    practiceAreas: ["intellectual-property", "technology-media-telecommunications"],
+  },
+  {
+    name: "Achmad Firmansyah",
+    credentials: "S.H.",
+    role: "Partner",
+    slug: "achmad-firmansyah",
+    photo: "https://images.unsplash.com/photo-1622902046580-2b47f47f5471?w=800&h=960&fit=crop&q=85",
+    bio: "Banking, finance, and FinTech specialist. Advises financial institutions, payment providers, and digital asset platforms.",
+    practiceGroup: "corporate-business",
+    practiceAreas: ["banking-finance-fintech", "business-corporate-law"],
+  },
+  {
+    name: "Amir Hamzah",
+    credentials: "S.H.",
+    role: "Partner",
+    slug: "amir-hamzah",
+    photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=960&fit=crop&q=85",
+    bio: "Employment law counsel serving major corporations on workforce restructuring, labor disputes, and HR compliance.",
+    practiceGroup: "litigation",
+    practiceAreas: ["employment-law", "consumer-protection"],
+  },
+  {
+    name: "Aditya Muriza",
+    credentials: "S.H.",
+    role: "Partner",
+    slug: "aditya-muriza",
+    photo: "https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=800&h=960&fit=crop&q=85",
+    bio: "Regulatory advisory and compliance specialist across financial services, sports, and consumer industries.",
+    practiceGroup: "specialties",
+    practiceAreas: ["advisory-regulatory-compliance", "sport-entertainment"],
+  },
 ] as const;
+
+export type Partner = (typeof PARTNERS)[number];
+
+export const PRACTICE_GROUPS = [
+  { id: "all", label: "All Partners" },
+  { id: "corporate-business", label: "Corporate & Business" },
+  { id: "litigation", label: "Litigation" },
+  { id: "specialties", label: "Specialties" },
+] as const;
+
+export type PracticeGroup = (typeof PRACTICE_GROUPS)[number]["id"];
 
 export const PRACTICE_AREAS = [
   {
