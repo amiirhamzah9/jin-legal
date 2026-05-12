@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 async function getCounts() {
   const supabase = createClient();
-  const [postsAll, postsPublished, leadsAll, leadsUnread, careersAll] = await Promise.all([
+  const [postsAll, postsPublished, leadsAll, leadsUnread, careersAll, teamAll, practiceAll] = await Promise.all([
     supabase.from("blog_posts").select("id", { count: "exact", head: true }),
     supabase
       .from("blog_posts")
@@ -22,6 +22,11 @@ async function getCounts() {
       .from("careers")
       .select("id", { count: "exact", head: true })
       .eq("is_active", true),
+    supabase
+      .from("team_members")
+      .select("id", { count: "exact", head: true })
+      .eq("is_active", true),
+    supabase.from("practice_areas").select("id", { count: "exact", head: true }),
   ]);
   return {
     postsTotal: postsAll.count ?? 0,
@@ -29,6 +34,8 @@ async function getCounts() {
     leadsTotal: leadsAll.count ?? 0,
     leadsUnread: leadsUnread.count ?? 0,
     careersActive: careersAll.count ?? 0,
+    teamActive: teamAll.count ?? 0,
+    practiceAreas: practiceAll.count ?? 0,
   };
 }
 
@@ -47,7 +54,7 @@ export default async function AdminDashboardPage() {
         </h1>
       </div>
 
-      <div className="grid grid-cols-4 gap-5 mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-5 mb-12">
         <StatCard
           label="Blog Posts"
           value={counts.postsTotal}
@@ -59,10 +66,15 @@ export default async function AdminDashboardPage() {
           helper={`${counts.leadsUnread} unread`}
         />
         <StatCard
+          label="Team Members"
+          value={counts.teamActive}
+          helper="active"
+        />
+        <StatCard
           label="Active Careers"
           value={counts.careersActive}
         />
-        <StatCard label="Practice Areas" value={11} helper="managed in code" />
+        <StatCard label="Practice Areas" value={counts.practiceAreas} />
       </div>
 
       <div className="grid grid-cols-3 gap-5">
