@@ -1,6 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
+import { notifyNewLead } from "@/lib/email/notify-new-lead";
 
 export type ContactFormState = {
   status: "idle" | "success" | "error";
@@ -55,6 +56,9 @@ export async function submitContactForm(
       message: "Something went wrong submitting your message. Please try again.",
     };
   }
+
+  // Fire-and-forget email notification — don't block or fail the form on email errors
+  void notifyNewLead({ name, email, phone, company, subject, message });
 
   return {
     status: "success",
