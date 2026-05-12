@@ -1,21 +1,37 @@
-import { createServerClient } from "@supabase/ssr";
+import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import type { Database } from "./types";
 
 export function createClient() {
+  let cookieStore: ReturnType<typeof cookies> | null = null;
+  try {
+    cookieStore = cookies();
+  } catch {
+    // Called outside a request context (e.g., generateStaticParams)
+    cookieStore = null;
+  }
+
   return createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         get(name: string) {
-          // Lazy cookie access — `cookies()` throws outside a request scope
-          // (e.g. inside generateStaticParams at build time). For anon reads
-          // we can safely fall back to no cookie.
+          return cookieStore?.get(name)?.value;
+        },
+        set(name: string, value: string, options: CookieOptions) {
           try {
-            return cookies().get(name)?.value;
+            cookieStore?.set({ name, value, ...options });
           } catch {
-            return undefined;
+            // Read-only contexts (e.g., Server Components) — Next.js doesn't
+            // allow cookie writes; middleware handles refresh in those cases.
+          }
+        },
+        remove(name: string, options: CookieOptions) {
+          try {
+            cookieStore?.set({ name, value: "", ...options });
+          } catch {
+            // Same as set
           }
         },
       },
