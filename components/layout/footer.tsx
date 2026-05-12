@@ -78,8 +78,8 @@ export function Footer() {
           </h4>
           <ul className="list-none p-0 m-0">
             <li className="mb-2.5"><span className="font-sans text-xs font-light text-white/40">Jakarta, Indonesia</span></li>
-            <li className="mb-2.5"><a href="mailto:info@jinlegal.co.id" className="font-sans text-xs font-light text-white/40 hover:text-gold transition-colors">info@jinlegal.co.id</a></li>
-            <li className="mb-2.5"><span className="font-sans text-xs font-light text-white/40">+62 21 XXX XXXX</span></li>
+            <li className="mb-2.5"><a href="mailto:hamzah@jin-legal.com" className="font-sans text-xs font-light text-white/40 hover:text-gold transition-colors">hamzah@jin-legal.com</a></li>
+            <li className="mb-2.5"><a href="tel:+6281187800078" className="font-sans text-xs font-light text-white/40 hover:text-gold transition-colors">+62 811-8780-078</a></li>
           </ul>
         </div>
       </div>

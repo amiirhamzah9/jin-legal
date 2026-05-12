@@ -8,7 +8,7 @@ test.describe("Contact page", () => {
     await expect(page.getByLabel(/^email/i)).toBeVisible();
     await expect(page.getByLabel(/^message/i)).toBeVisible();
     await expect(page.getByRole("button", { name: /send message/i })).toBeVisible();
-    await expect(page.getByText(/info@jinlegal\.co\.id/i).first()).toBeVisible();
+    await expect(page.getByText(/hamzah@jin-legal\.com/i).first()).toBeVisible();
   });
 
   test("shows validation error for empty submission", async ({ page }) => {

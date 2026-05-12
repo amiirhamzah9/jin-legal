@@ -7,11 +7,11 @@ const INFO_BLOCKS = [
   },
   {
     label: "Email",
-    lines: ["info@jinlegal.co.id"],
+    lines: ["hamzah@jin-legal.com"],
   },
   {
     label: "Phone",
-    lines: ["+62 21 XXX XXXX"],
+    lines: ["+62 811-8780-078"],
   },
   {
     label: "Working Hours",

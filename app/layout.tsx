@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { cormorant, jost } from "./fonts";
 import "./globals.css";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 
 export const metadata: Metadata = {
   title: "Jin Legal — PT Juris International Network",
@@ -21,7 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
-      <body className="grain-overlay">{children}</body>
+      <body className="grain-overlay">
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   );
 }
