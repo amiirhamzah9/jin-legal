@@ -3,9 +3,10 @@ import { render, screen } from "@testing-library/react";
 import { Footer } from "@/components/layout/footer";
 
 describe("Footer", () => {
-  it("renders firm legal name", () => {
+  it("renders firm legal name in brand and copyright", () => {
     render(<Footer />);
-    expect(screen.getByText(/PT Juris International Network/i)).toBeInTheDocument();
+    const occurrences = screen.getAllByText(/PT Juris International Network/i);
+    expect(occurrences).toHaveLength(2);
   });
 
   it("renders four column headings", () => {

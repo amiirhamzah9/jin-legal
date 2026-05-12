@@ -33,7 +33,7 @@ export function Footer() {
             Strategic legal counsel for the modern world — delivered with precision, integrity, and results.
           </p>
           <div className="text-[10px] text-gold/55 mt-3.5 tracking-wide">
-            Juris International Network
+            PT Juris International Network
           </div>
         </div>
         <div>
