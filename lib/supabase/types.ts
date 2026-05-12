@@ -14,6 +14,7 @@ export type Database = {
         };
         Insert: Omit<Database["public"]["Tables"]["practice_areas"]["Row"], "id" | "created_at">;
         Update: Partial<Database["public"]["Tables"]["practice_areas"]["Insert"]>;
+        Relationships: [];
       };
       team_members: {
         Row: {
@@ -30,6 +31,7 @@ export type Database = {
         };
         Insert: Omit<Database["public"]["Tables"]["team_members"]["Row"], "id" | "created_at">;
         Update: Partial<Database["public"]["Tables"]["team_members"]["Insert"]>;
+        Relationships: [];
       };
       blog_posts: {
         Row: {
@@ -47,6 +49,7 @@ export type Database = {
         };
         Insert: Omit<Database["public"]["Tables"]["blog_posts"]["Row"], "id" | "created_at">;
         Update: Partial<Database["public"]["Tables"]["blog_posts"]["Insert"]>;
+        Relationships: [];
       };
       careers: {
         Row: {
@@ -60,6 +63,7 @@ export type Database = {
         };
         Insert: Omit<Database["public"]["Tables"]["careers"]["Row"], "id" | "created_at">;
         Update: Partial<Database["public"]["Tables"]["careers"]["Insert"]>;
+        Relationships: [];
       };
       contact_leads: {
         Row: {
@@ -74,7 +78,10 @@ export type Database = {
         };
         Insert: Omit<Database["public"]["Tables"]["contact_leads"]["Row"], "id" | "created_at">;
         Update: Partial<Database["public"]["Tables"]["contact_leads"]["Insert"]>;
+        Relationships: [];
       };
     };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
   };
 };
