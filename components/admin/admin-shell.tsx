@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { AdminNavLink } from "./admin-nav-link";
 import { SignOutButton } from "./sign-out-button";
 
@@ -23,11 +24,18 @@ export function AdminShell({
     <div className="min-h-screen flex bg-ivory">
       <aside className="w-48 md:w-64 bg-forest-deep flex flex-col">
         <div className="px-6 py-7 border-b border-white/5">
-          <Link
-            href="/admin"
-            className="font-serif text-[20px] font-medium text-white"
-          >
-            JIN<span className="text-gold">.</span> Admin
+          <Link href="/admin" className="flex items-center gap-2.5">
+            <Image
+              src="/logo/jin-logo.png"
+              alt="JIN Legal"
+              width={86}
+              height={28}
+              priority
+              className="h-6 w-auto brightness-0 invert"
+            />
+            <span className="font-sans text-[10px] font-bold tracking-[2.5px] uppercase text-gold/70">
+              Admin
+            </span>
           </Link>
         </div>
         <nav className="flex-1 py-6 px-2 space-y-1">
