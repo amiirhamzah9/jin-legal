@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JIN Legal Counsel — Letterhead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 210mm; height: 297mm; }
+  body {
+    font-family: 'Jost', sans-serif;
+    color: #1a2420;
+    background: #fff;
+    padding: 18mm 18mm 18mm 18mm;
+    display: flex; flex-direction: column;
+  }
+
+  .header { display: flex; align-items: flex-start; justify-content: space-between; gap: 14mm; }
+  .header-logo { height: 18mm; width: auto; }
+  .brand-right { text-align: right; }
+  .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22pt; font-weight: 500; color: #0e2820;
+    letter-spacing: 0.5pt; line-height: 1;
+  }
+  .brand-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10pt; color: #c9a84c;
+    margin-top: 1.5mm; letter-spacing: 0.4pt;
+  }
+  .gold-line {
+    height: 0.8pt; background: #c9a84c; margin: 6mm 0;
+  }
+
+  .body { flex: 1; }
+
+  .footer { margin-top: auto; }
+  .footer-line { height: 0.6pt; background: #c9a84c; margin-bottom: 4mm; }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 14mm;
+    align-items: flex-end;
+  }
+  .footer-address {
+    font-size: 8.5pt; line-height: 1.5;
+    color: #1a2420; font-weight: 400;
+  }
+  .footer-address .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10pt; font-weight: 600;
+    color: #0e2820; margin-bottom: 1mm; letter-spacing: 0.3pt;
+  }
+  .footer-contact {
+    font-size: 8pt; line-height: 1.7;
+    text-align: right; color: #1a2420;
+  }
+  .footer-contact .label {
+    font-size: 6.5pt; letter-spacing: 1.2pt; color: #c9a84c;
+    font-weight: 600; text-transform: uppercase; display: inline-block;
+    width: 12mm; text-align: left;
+  }
+  .legal-name {
+    margin-top: 4mm; padding-top: 3mm; border-top: 0.3pt solid #d8d0c4;
+    font-size: 7pt; letter-spacing: 0.5pt; color: #6b7f78;
+    text-align: center; font-style: italic;
+  }
+</style>
+</head>
+<body>
+  <header class="header">
+    <img class="header-logo" src="../logo/jin-logo-crop.png" alt="JIN Legal Counsel">
+    <div class="brand-right">
+      <div class="brand-name">JIN Legal Counsel</div>
+      <div class="brand-tag">Legal Excellence, Strategic Results.</div>
+    </div>
+  </header>
+
+  <div class="gold-line"></div>
+
+  <main class="body"></main>
+
+  <footer class="footer">
+    <div class="footer-line"></div>
+    <div class="footer-grid">
+      <div class="footer-address">
+        <div class="name">JIN LEGAL COUNSEL</div>
+        Komp. BMS 1 Lt. 2, Jl. Timbul No. 2<br>
+        Pejaten Barat, Jakarta Selatan&nbsp;&middot;&nbsp;12510<br>
+        Indonesia
+      </div>
+      <div class="footer-contact">
+        <div><span class="label">T</span> +62 811-8780-078</div>
+        <div><span class="label">E</span> center@jin-legal.com</div>
+        <div><span class="label">W</span> jin-legal.com</div>
+      </div>
+    </div>
+    <div class="legal-name">PT Juris International Network</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Cap (Stamp) — JIN Legal Counsel
+  Round ⌀ 40mm (standard legal stamp size in Indonesia)
+  Vector — opens in Adobe Illustrator, CorelDRAW, Inkscape for print
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="40mm" height="40mm"
+     viewBox="0 0 600 600"
+     font-family="'Cormorant Garamond', Georgia, serif">
+
+  <defs>
+    <!-- Top arc: starts bottom-left, curves through top, ends bottom-right.
+         radius 240, centered at (300,300). Arc spans 270° from 195° to 345°. -->
+    <path id="topArc"
+          d="M 76,420 A 240,240 0 1,1 524,420"
+          fill="none"/>
+    <!-- Bottom arc: starts top-left, curves through bottom, ends top-right.
+         Same radius, opposite arc. -->
+    <path id="bottomArc"
+          d="M 76,420 A 240,240 0 0,0 524,420"
+          fill="none"/>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="300" cy="300" r="290" fill="none" stroke="#0e2820" stroke-width="5"/>
+  <!-- Inner ring -->
+  <circle cx="300" cy="300" r="270" fill="none" stroke="#0e2820" stroke-width="2"/>
+
+  <!-- Top arc text -->
+  <text fill="#0e2820" font-size="36" font-weight="600" letter-spacing="4">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">
+      ★ PT JURIS INTERNATIONAL NETWORK ★
+    </textPath>
+  </text>
+
+  <!-- Bottom arc text -->
+  <text fill="#0e2820" font-size="32" font-weight="600" letter-spacing="8">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">
+      JAKARTA · INDONESIA
+    </textPath>
+  </text>
+
+  <!-- Center divider lines -->
+  <line x1="120" y1="270" x2="180" y2="270" stroke="#0e2820" stroke-width="2"/>
+  <line x1="420" y1="270" x2="480" y2="270" stroke="#0e2820" stroke-width="2"/>
+  <line x1="120" y1="330" x2="180" y2="330" stroke="#0e2820" stroke-width="2"/>
+  <line x1="420" y1="330" x2="480" y2="330" stroke="#0e2820" stroke-width="2"/>
+
+  <!-- Center: "JIN" wordmark + "Legal Counsel" subtitle -->
+  <g transform="translate(300, 300)" text-anchor="middle" fill="#0e2820">
+    <text y="-5" font-size="110" font-weight="700" letter-spacing="-3">JIN</text>
+    <text y="40" font-size="22" font-weight="600" letter-spacing="6">LEGAL COUNSEL</text>
+  </g>
+</svg>
