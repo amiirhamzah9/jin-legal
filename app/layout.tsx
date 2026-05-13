@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cormorant, jost } from "./fonts";
 import "./globals.css";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
@@ -47,6 +49,8 @@ export default function RootLayout({
       <body className="grain-overlay">
         {children}
         <WhatsAppButton />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
