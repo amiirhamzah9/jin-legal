@@ -101,3 +101,18 @@ alter table practice_areas add column if not exists services text[];
 -- create policy "Authenticated users can upload team photos" on storage.objects for insert to authenticated with check (bucket_id = 'team-photos');
 -- create policy "Public can read team photos" on storage.objects for select to anon, authenticated using (bucket_id = 'team-photos');
 -- create policy "Authenticated users can delete team photos" on storage.objects for delete to authenticated using (bucket_id = 'team-photos');
+
+-- Admin RLS policies (Phase 3c bugfix): authenticated role needs to read+write all content
+-- Without these, the admin dashboard counts come back as 0 because the existing anon-only
+-- policies don't apply to logged-in users.
+create policy if not exists "authenticated read all blog_posts" on blog_posts for select to authenticated using (true);
+create policy if not exists "authenticated read all team_members" on team_members for select to authenticated using (true);
+create policy if not exists "authenticated read all careers" on careers for select to authenticated using (true);
+create policy if not exists "authenticated read all practice_areas" on practice_areas for select to authenticated using (true);
+create policy if not exists "authenticated read all contact_leads" on contact_leads for select to authenticated using (true);
+create policy if not exists "authenticated write blog_posts" on blog_posts for all to authenticated using (true) with check (true);
+create policy if not exists "authenticated write team_members" on team_members for all to authenticated using (true) with check (true);
+create policy if not exists "authenticated write careers" on careers for all to authenticated using (true) with check (true);
+create policy if not exists "authenticated write practice_areas" on practice_areas for all to authenticated using (true) with check (true);
+create policy if not exists "authenticated delete contact_leads" on contact_leads for delete to authenticated using (true);
+create policy if not exists "authenticated update contact_leads" on contact_leads for update to authenticated using (true) with check (true);
