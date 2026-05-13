@@ -11,7 +11,7 @@ export function CareersList({ careers }: { careers: Career[] }) {
           No openings right now.
         </p>
         <p className="font-sans text-[12px] font-light text-ink-faint">
-          Want to introduce yourself anyway? Reach out to careers@jinlegal.co.id.
+          Want to introduce yourself anyway? Reach out to careers@jin-legal.com.
         </p>
       </div>
     );

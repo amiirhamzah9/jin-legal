@@ -10,7 +10,7 @@ describe("ContactInfo", () => {
 
   it("renders email and phone", () => {
     render(<ContactInfo />);
-    expect(screen.getByText(/hamzah@jin-legal\.com/i)).toBeInTheDocument();
+    expect(screen.getByText(/center@jin-legal\.com/i)).toBeInTheDocument();
     expect(screen.getByText(/\+62/)).toBeInTheDocument();
   });
 

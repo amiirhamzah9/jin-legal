@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const NOTIFY_TO = "hamzah@jin-legal.com";
+const NOTIFY_TO = "center@jin-legal.com";
 const FROM = "Jin Legal <onboarding@resend.dev>";
 
 export type LeadNotification = {

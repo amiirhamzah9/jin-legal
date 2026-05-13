@@ -7,7 +7,7 @@ const INFO_BLOCKS = [
   },
   {
     label: "Email",
-    lines: ["hamzah@jin-legal.com"],
+    lines: ["center@jin-legal.com"],
   },
   {
     label: "Phone",
