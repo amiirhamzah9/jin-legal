@@ -10,7 +10,7 @@ describe("WhatsAppButton", () => {
   it("renders a link to wa.me with correct phone number", () => {
     render(<WhatsAppButton />);
     const link = screen.getByRole("link", { name: /whatsapp/i });
-    expect(link).toHaveAttribute("href", expect.stringContaining("wa.me/6281187800078"));
+    expect(link).toHaveAttribute("href", expect.stringContaining("wa.me/628118780078"));
   });
 
   it("opens in a new tab", () => {

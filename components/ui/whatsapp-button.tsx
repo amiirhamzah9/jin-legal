@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 
-const WHATSAPP_PHONE = "6281187800078"; // PT Juris International Network
+const WHATSAPP_PHONE = "628118780078"; // PT Juris International Network
 const DEFAULT_MESSAGE = "Hello Jin Legal, I'd like to inquire about your legal services.";
 
 export function WhatsAppButton() {
