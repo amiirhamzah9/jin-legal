@@ -32,10 +32,7 @@ export const metadata: Metadata = {
     description: "Strategic legal counsel across 12 practice areas in Indonesia.",
     images: ["/og-image.png"],
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/logo/jin-logo.png",
-  },
+  manifest: "/manifest.webmanifest",
 };
 
 export default function RootLayout({
