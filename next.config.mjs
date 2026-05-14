@@ -13,6 +13,16 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        // Preserve old practice area URL after slug rename
+        source: "/practice-areas/criminal-defense-white-collar",
+        destination: "/practice-areas/general-special-criminal-law",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -31,7 +31,7 @@ export const PARTNERS = [
     photo: "https://images.unsplash.com/photo-1618077360395-f3068be8e001?w=800&h=960&fit=crop&q=85",
     bio: "Head of Litigation with a proven track record in commercial disputes, arbitration, and complex criminal defense matters.",
     practiceGroup: "litigation",
-    practiceAreas: ["litigation-dispute-resolution", "criminal-defense-white-collar"],
+    practiceAreas: ["litigation-dispute-resolution", "general-special-criminal-law"],
   },
   {
     name: "Abi Rafdi",
@@ -234,7 +234,7 @@ export const PRACTICE_AREAS = [
   {
     num: "09",
     title: "General & Special Criminal Law",
-    slug: "criminal-defense-white-collar",
+    slug: "general-special-criminal-law",
     icon: "lock",
     description:
       "Defense across general criminal matters and special offenses — including corruption, money laundering, tax crimes, and narcotics.",
