@@ -3,7 +3,7 @@ import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
 import { PageHero } from "@/components/ui/page-hero";
 import { FirmStory } from "@/components/about/firm-story";
-import { Credentials } from "@/components/about/credentials";
+// import { Credentials } from "@/components/about/credentials"; // hidden temporarily
 import { CtaBanner } from "@/components/homepage/cta-banner";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function AboutPage() {
           subtitle="Founded on the principle that exceptional legal counsel must be both strategically sharp and deeply human."
         />
         <FirmStory />
-        <Credentials />
+        {/* <Credentials /> */}
         <CtaBanner />
       </main>
       <Footer />
