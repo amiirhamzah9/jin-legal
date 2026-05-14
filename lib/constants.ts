@@ -1,6 +1,6 @@
 export const STATS = [
-  { num: "11", suffix: "+", label: "Practice Areas" },
-  { num: "6", suffix: "", label: "Senior Partners" },
+  { num: "12", suffix: "+", label: "Practice Areas" },
+  { num: "7", suffix: "", label: "Senior Partners" },
   { num: "200", suffix: "+", label: "Clients Served" },
   { num: "10", suffix: "+", label: "Years of Excellence" },
 ] as const;
@@ -18,7 +18,7 @@ export const PARTNERS = [
     credentials: "S.H.",
     role: "Managing Partner",
     slug: "muhammad-subuh-rezki",
-    photo: "https://images.unsplash.com/photo-1614023342667-6f060e9d1e04?w=800&h=960&fit=crop&q=85",
+    photo: "/team/subuh-rezki.jpg",
     bio: "Managing Partner with extensive experience in corporate transactions, restructuring, and cross-border deals. Leads the firm's strategic direction.",
     practiceGroup: "corporate-business",
     practiceAreas: ["business-corporate-law", "insolvency-restructuring-pkpu", "advisory-regulatory-compliance"],
@@ -58,7 +58,7 @@ export const PARTNERS = [
     credentials: "S.H.",
     role: "Partner",
     slug: "amir-hamzah",
-    photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=960&fit=crop&q=85",
+    photo: "/team/amir-hamzah.jpg",
     bio: "Employment law counsel serving major corporations on workforce restructuring, labor disputes, and HR compliance.",
     practiceGroup: "litigation",
     practiceAreas: ["employment-law", "consumer-protection"],
@@ -283,6 +283,24 @@ export const PRACTICE_AREAS = [
       "Payment Systems Regulation",
       "Digital Asset & Crypto",
       "Project Finance",
+    ],
+  },
+  {
+    num: "12",
+    title: "Oil, Gas & Energy",
+    slug: "oil-gas-energy",
+    icon: "droplet",
+    description:
+      "Strategic counsel for upstream, midstream, and downstream operations across Indonesia's oil, gas, and energy sectors.",
+    fullContent:
+      "We advise energy companies, contractors, and investors on the full spectrum of oil, gas, and broader energy matters — from PSC negotiations and joint operating agreements to SKK Migas and ESDM regulatory compliance, EPC contracts, and decommissioning. Our team supports both Indonesian operators and foreign investors navigating the sector's evolving regulatory and commercial landscape.",
+    services: [
+      "PSC & Cost Recovery Advisory",
+      "Joint Operating Agreements",
+      "SKK Migas & ESDM Compliance",
+      "EPC & Service Contracts",
+      "Energy M&A & Joint Ventures",
+      "Decommissioning & Asset Transfer",
     ],
   },
 ] as const;

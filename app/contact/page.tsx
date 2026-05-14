@@ -10,9 +10,9 @@ import { getAllPracticeAreas } from "@/lib/data/queries";
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "Contact — Jin Legal | PT Juris International Network",
+  title: "Contact — JIN Legal Counsel",
   description:
-    "Reach out to Jin Legal for a consultation. Office in Jakarta, Indonesia.",
+    "Reach out to JIN Legal Counsel for a consultation. Office in Jakarta, Indonesia.",
 };
 
 export default async function ContactPage() {

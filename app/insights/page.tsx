@@ -9,9 +9,9 @@ import { getRecentBlogPosts } from "@/lib/data/queries";
 export const revalidate = 300; // 5-minute ISR
 
 export const metadata: Metadata = {
-  title: "Insights — Jin Legal | PT Juris International Network",
+  title: "Insights — JIN Legal Counsel",
   description:
-    "Legal perspectives, regulatory updates, and analysis from Jin Legal's practice areas.",
+    "Legal perspectives, regulatory updates, and analysis from JIN Legal Counsel's practice areas.",
 };
 
 export default async function InsightsPage() {

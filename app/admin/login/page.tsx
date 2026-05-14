@@ -75,7 +75,7 @@ export default function LoginPage() {
     <main className="min-h-screen bg-forest-deep flex items-center justify-center px-6">
       <div className="w-full max-w-[420px] bg-white p-12">
         <div className="font-sans text-[9px] tracking-[3px] text-gold font-bold uppercase mb-3">
-          Jin Legal Admin
+          JIN Legal Counsel Admin
         </div>
         <h1 className="font-serif text-[34px] font-light text-forest leading-tight mb-10">
           Sign In

@@ -5,10 +5,10 @@ test.describe("Static pages", () => {
     await page.goto("/about");
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Modern Legal Partner");
     await expect(page.getByRole("heading", { name: "Integrity" })).toBeVisible();
-    await expect(page.getByText(/PT Juris International Network/i).first()).toBeVisible();
+    await expect(page.getByText(/JIN Legal Counsel/i).first()).toBeVisible();
   });
 
-  test("Team page loads with all 6 partners visible", async ({ page }) => {
+  test("Team page loads with all 7 partners visible", async ({ page }) => {
     await page.goto("/team");
     await expect(page.getByText("Muhammad Subuh Rezki")).toBeVisible();
     await expect(page.getByText("Ryan Tampubolon")).toBeVisible();

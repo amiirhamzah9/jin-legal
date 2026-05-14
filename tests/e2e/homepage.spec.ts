@@ -23,10 +23,10 @@ test.describe("Homepage", () => {
   test("scrolls to footer and verifies legal name", async ({ page }) => {
     await page.goto("/");
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    await expect(page.getByText("PT Juris International Network").first()).toBeVisible();
+    await expect(page.getByText("JIN Legal Counsel").first()).toBeVisible();
   });
 
-  test("all 11 practice areas are rendered", async ({ page }) => {
+  test("all 12 practice areas are rendered", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByText("Business & Corporate Law")).toBeVisible();
     await expect(page.getByText("Banking, Finance & FinTech")).toBeVisible();

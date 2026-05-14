@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/footer";
 describe("Footer", () => {
   it("renders firm legal name in brand and copyright", () => {
     render(<Footer />);
-    const occurrences = screen.getAllByText(/PT Juris International Network/i);
+    const occurrences = screen.getAllByText(/JIN Legal Counsel/i);
     expect(occurrences).toHaveLength(2);
   });
 

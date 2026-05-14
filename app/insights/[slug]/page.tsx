@@ -21,10 +21,32 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata> {
   const post = await getBlogPostBySlug(params.slug);
-  if (!post) return { title: "Not Found — Jin Legal" };
+  if (!post) return { title: "Not Found — JIN Legal Counsel" };
+  const ogImage = post.cover_image_url ?? "/og-image.png";
   return {
-    title: `${post.title} — Jin Legal`,
+    title: `${post.title} — JIN Legal Counsel`,
     description: post.excerpt ?? undefined,
+    keywords: post.category
+      ? [post.category, "Indonesia", "Jin Legal", "JIN Legal Counsel", "legal insights"]
+      : undefined,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt ?? undefined,
+      type: "article",
+      publishedTime: post.published_at ?? undefined,
+      siteName: "JIN Legal Counsel",
+      images: [{ url: ogImage, width: 1200, height: 675, alt: post.title }],
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt ?? undefined,
+      images: [ogImage],
+    },
+    alternates: {
+      canonical: `/insights/${post.slug}`,
+    },
   };
 }
 

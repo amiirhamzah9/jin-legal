@@ -13,10 +13,10 @@ export function FirmStory() {
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-10 md:gap-20 mb-12 md:mb-20">
           <div className="space-y-5">
             <p className="font-sans text-[15px] font-light text-ink leading-[1.85]">
-              Jin Legal — the practice of <strong className="font-semibold">PT Juris International Network</strong> — was founded on a simple principle: exceptional legal counsel must be both strategically sharp and deeply human.
+              <strong className="font-semibold">JIN Legal Counsel</strong> was founded on a simple principle: exceptional legal counsel must be both strategically sharp and deeply human.
             </p>
             <p className="font-sans text-[15px] font-light text-ink-muted leading-[1.85]">
-              We bring together six partners with deep expertise across corporate law, dispute resolution, emerging technologies, and specialized practice areas that define today&apos;s business landscape in Indonesia. Our team has advised clients ranging from venture-backed startups to established multinationals.
+              We bring together seven partners with deep expertise across corporate law, dispute resolution, emerging technologies, and specialized practice areas that define today&apos;s business landscape in Indonesia. Our team has advised clients ranging from venture-backed startups to established multinationals.
             </p>
             <p className="font-sans text-[15px] font-light text-ink-muted leading-[1.85]">
               What sets us apart isn&apos;t just our technical expertise — it&apos;s our commitment to understanding each client&apos;s commercial reality before we ever open a statute book. We measure success by the outcomes we achieve, not the hours we bill.

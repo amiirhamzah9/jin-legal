@@ -4,7 +4,7 @@ const ITEMS = [
   {
     label: "Business Identification Number",
     code: "NIB",
-    description: "Officially registered business entity under PT Juris International Network.",
+    description: "Officially registered business entity under JIN Legal Counsel.",
   },
   {
     label: "Tax Registration",

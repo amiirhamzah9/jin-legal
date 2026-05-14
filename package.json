@@ -2,7 +2,7 @@
   "name": "jin-legal",
   "version": "0.1.0",
   "private": true,
-  "description": "Jin Legal — PT Juris International Network official website",
+  "description": "Jin Legal — JIN Legal Counsel official website",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

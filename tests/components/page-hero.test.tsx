@@ -14,10 +14,10 @@ describe("PageHero", () => {
       <PageHero
         eyebrow="Our People"
         title="Meet the Partners"
-        subtitle="Six dedicated professionals committed to delivering strategic counsel."
+        subtitle="Seven dedicated professionals committed to delivering strategic counsel."
       />
     );
-    expect(screen.getByText(/six dedicated professionals/i)).toBeInTheDocument();
+    expect(screen.getByText(/seven dedicated professionals/i)).toBeInTheDocument();
   });
 
   it("omits subtitle when not provided", () => {

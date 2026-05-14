@@ -18,6 +18,6 @@ describe("FirmStory", () => {
 
   it("mentions the full legal name", () => {
     render(<FirmStory />);
-    expect(screen.getByText(/PT Juris International Network/i)).toBeInTheDocument();
+    expect(screen.getByText(/JIN Legal Counsel/i)).toBeInTheDocument();
   });
 });

@@ -23,22 +23,22 @@ export function Hero() {
         }}
       />
       <div className="relative z-10 max-w-[740px]">
-        <Eyebrow withLine className="mb-8">PT Juris International Network</Eyebrow>
+        <Eyebrow withLine className="mb-8">JIN Legal Counsel</Eyebrow>
         <h1 className="font-serif text-[clamp(36px,8vw,82px)] font-light text-white leading-[1.18] tracking-tight mb-7">
           Legal Excellence,
-          <em className="block not-italic">
+          <span className="block">
             <span
-              className="italic font-normal bg-clip-text text-transparent pt-1.5 inline-block"
+              className="font-normal bg-clip-text text-transparent pt-1.5 inline-block"
               style={{
                 backgroundImage: "linear-gradient(135deg, #c9a84c 0%, #e2c97e 100%)",
               }}
             >
               Strategic Results.
             </span>
-          </em>
+          </span>
         </h1>
         <p className="text-[15px] font-light text-white/50 leading-[1.8] max-w-[480px] mb-11 tracking-[0.3px]">
-          A full-service legal consultancy serving corporations, institutions, and individuals across 11 practice areas throughout Indonesia and beyond.
+          A full-service legal consultancy serving corporations, institutions, and individuals across 12 practice areas throughout Indonesia and beyond.
         </p>
         <div className="flex gap-3.5 flex-wrap">
           <Button variant="gold" href="/contact">Consult With Us</Button>
@@ -46,7 +46,7 @@ export function Hero() {
         </div>
       </div>
       <div className="hidden md:block absolute right-[72px] bottom-[52px] z-10 border border-gold/20 px-7 py-5 text-right bg-forest-deep/60 backdrop-blur">
-        <div className="font-serif text-[44px] font-light text-white leading-none">11</div>
+        <div className="font-serif text-[44px] font-light text-white leading-none">12</div>
         <div className="font-sans text-[9px] tracking-[3px] text-gold uppercase mt-1.5">Practice Areas</div>
       </div>
     </section>

@@ -87,5 +87,11 @@ export function PracticeIcon({ name, className }: { name: IconName; className?: 
           <path d="M3 10h18M3 6l9-3 9 3M5 10v4M9 10v4M13 10v4M17 10v4M3 18h18" />
         </svg>
       );
+    case "droplet":
+      return (
+        <svg {...baseProps} className={className}>
+          <path d="M12 2c-3 5 -7 8 -7 13a7 7 0 0 0 14 0c0 -5 -4 -8 -7 -13z" />
+        </svg>
+      );
   }
 }

@@ -9,8 +9,8 @@ import { getActiveCareers } from "@/lib/data/queries";
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "Careers — Jin Legal | PT Juris International Network",
-  description: "Join Jin Legal — open positions and internship opportunities.",
+  title: "Careers — JIN Legal Counsel",
+  description: "Join JIN Legal Counsel — open positions and internship opportunities.",
 };
 
 export default async function CareersPage() {
@@ -22,7 +22,7 @@ export default async function CareersPage() {
       <main>
         <PageHero
           eyebrow="Join Our Team"
-          title="Build a Career at Jin Legal"
+          title="Build a Career at JIN Legal Counsel"
           subtitle="We're looking for sharp, strategic, and curious legal professionals who want to do meaningful work."
         />
         <section className="bg-ivory px-5 py-12 md:px-[72px] md:py-20">

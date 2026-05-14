@@ -14,10 +14,10 @@ export function AboutStrip() {
           A <strong className="font-semibold text-gold">Modern Legal Partner</strong> for a Complex World
         </h2>
         <p className="font-sans text-sm font-light text-white/50 leading-[1.9] mb-4 tracking-wide">
-          Jin Legal — the practice of PT Juris International Network — was founded on the principle that exceptional legal counsel must be both strategically sharp and deeply human.
+          JIN Legal Counsel was founded on the principle that exceptional legal counsel must be both strategically sharp and deeply human.
         </p>
         <p className="font-sans text-sm font-light text-white/50 leading-[1.9] mb-4 tracking-wide">
-          We bring together six partners with deep expertise across corporate law, dispute resolution, emerging technologies, and specialized practice areas that define today&apos;s business landscape in Indonesia.
+          We bring together seven partners with deep expertise across corporate law, dispute resolution, emerging technologies, and specialized practice areas that define today&apos;s business landscape in Indonesia.
         </p>
         <Link
           href="/about"

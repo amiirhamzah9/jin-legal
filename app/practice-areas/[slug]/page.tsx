@@ -21,9 +21,9 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata> {
   const area = await getPracticeAreaBySlug(params.slug);
-  if (!area) return { title: "Not Found — Jin Legal" };
+  if (!area) return { title: "Not Found — JIN Legal Counsel" };
   return {
-    title: `${area.title} — Jin Legal | PT Juris International Network`,
+    title: `${area.title} — JIN Legal Counsel`,
     description: area.description,
   };
 }

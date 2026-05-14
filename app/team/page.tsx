@@ -9,9 +9,9 @@ import { getActiveTeamMembers } from "@/lib/data/queries";
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "Our Team — Jin Legal | PT Juris International Network",
+  title: "Our Team — JIN Legal Counsel",
   description:
-    "Six partners with deep expertise across corporate law, litigation, and specialized practice areas in Indonesia.",
+    "Seven partners with deep expertise across corporate law, litigation, and specialized practice areas in Indonesia.",
 };
 
 export default async function TeamPage() {
@@ -22,8 +22,8 @@ export default async function TeamPage() {
       <main>
         <PageHero
           eyebrow="Our People"
-          title="The Partners Behind Jin Legal"
-          subtitle="Six dedicated legal professionals committed to delivering sharp, strategic counsel for every client — from startups to corporations."
+          title="The Partners Behind JIN Legal Counsel"
+          subtitle="Seven dedicated legal professionals delivering sharp, strategic counsel — from individuals and entrepreneurs to startups, institutions, and multinational corporations."
         />
         <TeamPageBody partners={partners} />
         <CtaBanner />

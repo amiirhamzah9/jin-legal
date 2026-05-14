@@ -27,7 +27,7 @@ export function AdminShell({
           <Link href="/admin" className="flex items-center gap-2.5">
             <Image
               src="/logo/jin-logo.png"
-              alt="JIN Legal"
+              alt="JIN Legal Counsel"
               width={86}
               height={28}
               priority

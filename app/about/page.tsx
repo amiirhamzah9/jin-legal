@@ -7,9 +7,9 @@ import { Credentials } from "@/components/about/credentials";
 import { CtaBanner } from "@/components/homepage/cta-banner";
 
 export const metadata: Metadata = {
-  title: "About — Jin Legal | PT Juris International Network",
+  title: "About — JIN Legal Counsel",
   description:
-    "Jin Legal is the practice of PT Juris International Network — six partners delivering strategic legal counsel across 11 practice areas in Indonesia.",
+    "JIN Legal Counsel — seven partners delivering strategic legal counsel across 12 practice areas in Indonesia.",
 };
 
 export default function AboutPage() {

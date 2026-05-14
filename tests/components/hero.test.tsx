@@ -11,7 +11,7 @@ describe("Hero", () => {
 
   it("renders eyebrow with firm legal name", () => {
     render(<Hero />);
-    expect(screen.getByText(/PT Juris International Network/i)).toBeInTheDocument();
+    expect(screen.getByText(/JIN Legal Counsel/i)).toBeInTheDocument();
   });
 
   it("renders both CTAs", () => {
