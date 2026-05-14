@@ -20,7 +20,7 @@ export function Nav() {
         <Link href="/" className="block" onClick={() => setOpen(false)}>
           <Image
             src="/logo/jin-logo.png"
-            alt="JIN Legal"
+            alt="JIN Legal Counsel"
             width={86}
             height={28}
             priority
@@ -29,7 +29,7 @@ export function Nav() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex gap-10 items-center">
+        <div className="hidden lg:flex gap-7 xl:gap-10 items-center">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -46,7 +46,7 @@ export function Nav() {
         {/* Desktop CTA */}
         <Link
           href="/contact"
-          className="hidden md:inline-block font-sans text-[10px] font-semibold tracking-[2px] uppercase text-forest-deep bg-gold hover:bg-gold-light px-6 py-2.5 transition-colors"
+          className="hidden lg:inline-block font-sans text-[10px] font-semibold tracking-[2px] uppercase text-forest-deep bg-gold hover:bg-gold-light px-6 py-2.5 transition-colors"
         >
           Consult With Us
         </Link>
@@ -56,7 +56,7 @@ export function Nav() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
-          className="md:hidden flex flex-col justify-center items-center w-9 h-9 -mr-2"
+          className="lg:hidden flex flex-col justify-center items-center w-9 h-9 -mr-2"
         >
           <span
             className={`block w-6 h-px bg-white transition-transform duration-300 ${
@@ -78,7 +78,7 @@ export function Nav() {
 
       {/* Mobile menu panel */}
       <div
-        className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${
+        className={`lg:hidden overflow-hidden transition-[max-height] duration-300 ${
           open ? "max-h-96" : "max-h-0"
         }`}
       >

@@ -22,7 +22,7 @@ export function TeamPageBody({ partners }: { partners: TeamMember[] }) {
   }, [active, partners]);
 
   return (
-    <section className="bg-forest-deep px-5 py-12 md:px-[72px] md:py-20">
+    <section className="bg-forest-deep px-5 pt-0 pb-12 md:px-[72px] md:pt-0 md:pb-20">
       <div className="flex gap-1 mb-8 md:mb-12 border-b border-white/10 overflow-x-auto">
         {PRACTICE_GROUPS.map((group) => {
           const isActive = group.id === active;

@@ -146,9 +146,9 @@ export function TeamForm({
         <input
           id="photo_url"
           name="photo_url"
-          type="url"
+          type="text"
           defaultValue={member?.photo_url ?? ""}
-          placeholder="https://..."
+          placeholder="https://... or /team/filename.jpg"
           className={FIELD_BASE}
         />
         <p className="font-sans text-[11px] text-ink-muted mt-2">
