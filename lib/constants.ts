@@ -233,20 +233,20 @@ export const PRACTICE_AREAS = [
   },
   {
     num: "09",
-    title: "Criminal Defense & White Collar Crime",
+    title: "General & Special Criminal Law",
     slug: "criminal-defense-white-collar",
     icon: "lock",
     description:
-      "Rigorous criminal defense across general and special crimes — including corruption, fraud, and corporate offenses.",
+      "Defense across general criminal matters and special offenses — including corruption, money laundering, tax crimes, and narcotics.",
     fullContent:
-      "When facing criminal allegations, the stakes are personal and professional. Our criminal practice handles both general criminal matters and complex white collar cases — including corruption, money laundering, tax crimes, and corporate fraud. We provide vigorous defense at every stage, from investigation to appeal.",
+      "Indonesian criminal practice spans two distinct domains: tindak pidana umum (general criminal matters) under the KUHP, and tindak pidana khusus (special offenses) governed by sector-specific statutes covering corruption, money laundering, tax, narcotics, and financial crimes. Our criminal team handles both — providing rigorous defense at every stage from investigation through appeal, with deep familiarity in KPK, Kejaksaan, and Kepolisian proceedings.",
     services: [
-      "White Collar Defense",
-      "Anti-Corruption (Tipikor)",
-      "Money Laundering Defense",
-      "Tax Crimes",
+      "General Criminal Defense (Tindak Pidana Umum)",
+      "Anti-Corruption Defense (Tipikor)",
+      "Money Laundering Defense (TPPU)",
+      "Tax Crime Defense",
+      "Narcotics & Special Offenses",
       "Corporate Internal Investigations",
-      "General Criminal Defense",
     ],
   },
   {
