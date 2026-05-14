@@ -3,8 +3,12 @@ import type { Database } from "@/lib/supabase/types";
 
 type Career = Database["public"]["Tables"]["careers"]["Row"];
 
+const RECRUITMENT_EMAIL = "center@jin-legal.com";
+
 export function CareerCard({ career }: { career: Career }) {
-  const applyHref = `/contact?subject=${encodeURIComponent(career.title)}`;
+  const subject = `Application for ${career.title}`;
+  const body = `Dear JIN Legal Counsel Recruitment Team,\n\nI would like to apply for the ${career.title} position. Please find my CV attached.\n\nKind regards,`;
+  const applyHref = `mailto:${RECRUITMENT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   return (
     <article className="bg-white border-t-2 border-gold p-8 transition-all hover:shadow-[0_16px_40px_rgba(26,64,53,.08)] hover:-translate-y-0.5">
       <div className="flex items-center gap-3 mb-4">
