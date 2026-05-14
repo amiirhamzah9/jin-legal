@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cormorant, jost } from "./fonts";
 import "./globals.css";
+import { FirebaseAnalytics } from "@/components/analytics/firebase-analytics";
 
 export const metadata: Metadata = {
   title: "JIN Legal Counsel",
@@ -46,6 +47,7 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SpeedInsights />
+        <FirebaseAnalytics />
       </body>
     </html>
   );
