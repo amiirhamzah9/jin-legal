@@ -10,6 +10,7 @@ export type LeadNotification = {
   company?: string | null;
   subject?: string | null;
   message: string;
+  attachment?: { filename: string; content: Buffer } | null;
 };
 
 /**
@@ -41,6 +42,9 @@ export async function notifyNewLead(lead: LeadNotification): Promise<boolean> {
       subject: subjectLine,
       html: buildEmailHtml(lead),
       text: buildEmailText(lead),
+      attachments: lead.attachment
+        ? [{ filename: lead.attachment.filename, content: lead.attachment.content }]
+        : undefined,
     });
 
     if (error) {
@@ -61,6 +65,7 @@ function buildEmailHtml(lead: LeadNotification): string {
     { label: "Phone", value: lead.phone || "—" },
     { label: "Company", value: lead.company || "—" },
     { label: "Subject", value: lead.subject || "General Inquiry" },
+    { label: "Attachment", value: lead.attachment ? lead.attachment.filename : "—" },
   ];
   const rows = fields
     .map(
@@ -108,6 +113,7 @@ function buildEmailText(lead: LeadNotification): string {
     `Phone:   ${lead.phone || "—"}`,
     `Company: ${lead.company || "—"}`,
     `Subject: ${lead.subject || "General Inquiry"}`,
+    `Attachment: ${lead.attachment ? lead.attachment.filename : "—"}`,
     "",
     "Message:",
     "--------",

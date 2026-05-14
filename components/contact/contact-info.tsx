@@ -3,15 +3,11 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 const INFO_BLOCKS = [
   {
     label: "Office",
-    lines: ["Jakarta, Indonesia", "PT Juris International Network"],
+    lines: ["Jakarta, Indonesia", "JIN Legal Counsel"],
   },
   {
     label: "Email",
     lines: ["center@jin-legal.com"],
-  },
-  {
-    label: "Phone",
-    lines: ["+62 811-8780-078"],
   },
   {
     label: "Working Hours",

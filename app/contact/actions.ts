@@ -18,6 +18,9 @@ export async function submitContactForm(
   const company = String(formData.get("company") ?? "").trim() || null;
   const subject = String(formData.get("subject") ?? "").trim() || null;
   const message = String(formData.get("message") ?? "").trim();
+  const attachmentEntry = formData.get("attachment");
+  const attachmentFile =
+    attachmentEntry instanceof File && attachmentEntry.size > 0 ? attachmentEntry : null;
 
   // Basic validation
   if (!name || !email || !message) {
@@ -39,6 +42,21 @@ export async function submitContactForm(
     };
   }
 
+  // Attachment limits: max 10 MB
+  const MAX_ATTACHMENT_BYTES = 10 * 1024 * 1024;
+  if (attachmentFile && attachmentFile.size > MAX_ATTACHMENT_BYTES) {
+    return {
+      status: "error",
+      message: "Attachment is too large — max 10 MB.",
+    };
+  }
+
+  let attachment: { filename: string; content: Buffer } | null = null;
+  if (attachmentFile) {
+    const buffer = Buffer.from(await attachmentFile.arrayBuffer());
+    attachment = { filename: attachmentFile.name, content: buffer };
+  }
+
   const supabase = createClient();
   const { error } = await supabase.from("contact_leads").insert({
     name,
@@ -58,7 +76,7 @@ export async function submitContactForm(
   }
 
   // Fire-and-forget email notification — don't block or fail the form on email errors
-  void notifyNewLead({ name, email, phone, company, subject, message });
+  void notifyNewLead({ name, email, phone, company, subject, message, attachment });
 
   return {
     status: "success",

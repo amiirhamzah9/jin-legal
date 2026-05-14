@@ -72,15 +72,6 @@ export function ContactForm({
             </div>
             <div>
               <label
-                htmlFor="phone"
-                className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
-              >
-                Phone
-              </label>
-              <input id="phone" name="phone" type="tel" className={FIELD_BASE} />
-            </div>
-            <div>
-              <label
                 htmlFor="company"
                 className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
               >
@@ -128,6 +119,24 @@ export function ContactForm({
               required
               className={FIELD_BASE}
             />
+          </div>
+          <div>
+            <label
+              htmlFor="attachment"
+              className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
+            >
+              Attachment
+            </label>
+            <input
+              id="attachment"
+              name="attachment"
+              type="file"
+              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt"
+              className="block w-full text-[13px] text-ink font-sans file:mr-4 file:py-2.5 file:px-5 file:border-0 file:bg-forest file:text-white file:font-semibold file:text-[10px] file:tracking-[2px] file:uppercase hover:file:bg-forest-deep file:cursor-pointer cursor-pointer"
+            />
+            <p className="font-sans text-[11px] text-ink-muted mt-2">
+              Optional. PDF, DOC, JPG, or PNG. Max 10 MB.
+            </p>
           </div>
           <SubmitButton />
         </form>

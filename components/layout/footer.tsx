@@ -24,7 +24,7 @@ export function Footer() {
         <div>
           <Image
             src="/logo/jin-logo.png"
-            alt="JIN Legal"
+            alt="JIN Legal Counsel"
             width={74}
             height={24}
             className="h-6 w-auto brightness-0 invert"
@@ -33,7 +33,7 @@ export function Footer() {
             Strategic legal counsel for the modern world — delivered with precision, integrity, and results.
           </p>
           <div className="text-[10px] text-gold/55 mt-3.5 tracking-wide">
-            PT Juris International Network
+            JIN Legal Counsel
           </div>
         </div>
         <div>
@@ -79,13 +79,12 @@ export function Footer() {
           <ul className="list-none p-0 m-0">
             <li className="mb-2.5"><span className="font-sans text-xs font-light text-white/40">Jakarta, Indonesia</span></li>
             <li className="mb-2.5"><a href="mailto:center@jin-legal.com" className="font-sans text-xs font-light text-white/40 hover:text-gold transition-colors">center@jin-legal.com</a></li>
-            <li className="mb-2.5"><a href="tel:+628118780078" className="font-sans text-xs font-light text-white/40 hover:text-gold transition-colors">+62 811-8780-078</a></li>
           </ul>
         </div>
       </div>
       <div className="border-t border-white/5 pt-5 flex flex-col md:flex-row md:justify-between md:items-center gap-3">
         <p className="font-sans text-[11px] text-white/20">
-          © {year} <span className="text-gold">PT Juris International Network</span>. All rights reserved.
+          © {year} <span className="text-gold">JIN Legal Counsel</span>. All rights reserved.
         </p>
         <p className="font-sans text-[11px] text-white/20">Privacy Policy · Terms of Use</p>
       </div>
