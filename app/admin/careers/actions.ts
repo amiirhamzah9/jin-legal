@@ -10,9 +10,20 @@ export type CareerFormState = {
   message?: string;
 };
 
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 function getFields(formData: FormData) {
+  const title = String(formData.get("title") ?? "").trim();
   return {
-    title: String(formData.get("title") ?? "").trim(),
+    title,
+    slug: slugify(title),
     description: String(formData.get("description") ?? "").trim(),
     type: String(formData.get("type") ?? "").trim(),
     location: String(formData.get("location") ?? "").trim() || null,
@@ -47,6 +58,7 @@ export async function createCareer(
 
   revalidatePath("/admin/careers");
   revalidatePath("/careers");
+  revalidatePath(`/careers/${fields.slug}`);
   redirect(`/admin/careers/${data!.id}`);
 }
 
@@ -78,6 +90,7 @@ export async function updateCareer(
   revalidatePath("/admin/careers");
   revalidatePath(`/admin/careers/${careerId}`);
   revalidatePath("/careers");
+  revalidatePath(`/careers/${fields.slug}`);
   return { status: "success", message: "Career saved." };
 }
 

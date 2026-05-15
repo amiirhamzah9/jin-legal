@@ -6,6 +6,7 @@ const SAMPLE = [
   {
     id: "c1",
     title: "Senior Associate",
+    slug: "senior-associate",
     description: "Corporate law role",
     type: "Full-time",
     location: "Jakarta",
@@ -15,6 +16,7 @@ const SAMPLE = [
   {
     id: "c2",
     title: "Legal Intern",
+    slug: "legal-intern",
     description: "Summer program",
     type: "Internship",
     location: "Jakarta",

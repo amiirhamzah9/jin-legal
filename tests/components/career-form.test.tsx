@@ -30,6 +30,7 @@ describe("CareerForm", () => {
     const career = {
       id: "c1",
       title: "Senior Associate",
+      slug: "senior-associate",
       description: "Five+ years of experience required",
       type: "Full-time",
       location: "Jakarta",

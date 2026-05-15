@@ -5,6 +5,7 @@ import { CareerCard } from "@/components/careers/career-card";
 const FAKE_CAREER = {
   id: "c1",
   title: "Senior Associate — Corporate Law",
+  slug: "senior-associate-corporate-law",
   description: "We're seeking a Senior Associate with 5+ years of experience.",
   type: "Full-time",
   location: "Jakarta, Indonesia",
@@ -20,9 +21,9 @@ describe("CareerCard", () => {
     expect(screen.getByText("Jakarta, Indonesia")).toBeInTheDocument();
   });
 
-  it("renders apply CTA link", () => {
+  it("renders details + apply CTA link to job detail page", () => {
     render(<CareerCard career={FAKE_CAREER} />);
-    const link = screen.getByRole("link", { name: /apply/i });
-    expect(link).toHaveAttribute("href", "/contact?subject=Senior%20Associate%20%E2%80%94%20Corporate%20Law");
+    const link = screen.getByRole("link", { name: /view details/i });
+    expect(link).toHaveAttribute("href", "/careers/senior-associate-corporate-law");
   });
 });
