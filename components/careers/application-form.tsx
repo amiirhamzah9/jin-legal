@@ -1,7 +1,7 @@
 "use client";
 
 import { useFormState, useFormStatus } from "react-dom";
-import { submitApplication, type ApplicationFormState } from "@/app/careers/[slug]/apply/actions";
+import { submitApplication, type ApplicationFormState } from "@/app/[locale]/careers/[slug]/apply/actions";
 import { Button } from "@/components/ui/button";
 
 const INITIAL: ApplicationFormState = { status: "idle" };

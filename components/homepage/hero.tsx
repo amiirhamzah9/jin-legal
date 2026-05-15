@@ -1,7 +1,10 @@
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
 export function Hero() {
+  const t = useTranslations("Home");
+  const tNav = useTranslations("Nav");
   return (
     <section className="min-h-screen bg-forest-deep relative overflow-hidden flex items-center px-5 md:px-[72px]">
       <div
@@ -23,9 +26,11 @@ export function Hero() {
         }}
       />
       <div className="relative z-10 max-w-[740px]">
-        <Eyebrow withLine className="mb-8">JIN Legal Counsel</Eyebrow>
+        <Eyebrow withLine className="mb-8">
+          {t("heroEyebrow")}
+        </Eyebrow>
         <h1 className="font-serif text-[clamp(36px,8vw,82px)] font-light text-white leading-[1.18] tracking-tight mb-7">
-          Legal Excellence,
+          {t("heroTitle1")}
           <span className="block">
             <span
               className="font-normal bg-clip-text text-transparent pt-1.5 inline-block"
@@ -33,21 +38,27 @@ export function Hero() {
                 backgroundImage: "linear-gradient(135deg, #c9a84c 0%, #e2c97e 100%)",
               }}
             >
-              Strategic Results.
+              {t("heroTitle2")}
             </span>
           </span>
         </h1>
         <p className="text-[15px] font-light text-white/50 leading-[1.8] max-w-[480px] mb-11 tracking-[0.3px]">
-          A full-service legal consultancy serving corporations, institutions, and individuals across 12 practice areas throughout Indonesia and beyond.
+          {t("heroSubtitle")}
         </p>
         <div className="flex gap-3.5 flex-wrap">
-          <Button variant="gold" href="/contact">Consult With Us</Button>
-          <Button variant="ghost" href="/practice-areas">Explore Practice Areas</Button>
+          <Button variant="gold" href="/contact">
+            {tNav("consultWithUs")}
+          </Button>
+          <Button variant="ghost" href="/practice-areas">
+            {t("exploreAreas")}
+          </Button>
         </div>
       </div>
       <div className="hidden md:block absolute right-[72px] bottom-[52px] z-10 border border-gold/20 px-7 py-5 text-right bg-forest-deep/60 backdrop-blur">
         <div className="font-serif text-[44px] font-light text-white leading-none">12</div>
-        <div className="font-sans text-[9px] tracking-[3px] text-gold uppercase mt-1.5">Practice Areas</div>
+        <div className="font-sans text-[9px] tracking-[3px] text-gold uppercase mt-1.5">
+          {t("heroPracticeAreasLabel")}
+        </div>
       </div>
     </section>
   );

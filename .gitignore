@@ -53,3 +53,4 @@ test-results/
 # Editor
 .vscode/
 .idea/
+.claude/worktrees/

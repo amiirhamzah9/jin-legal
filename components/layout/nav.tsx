@@ -1,12 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { NAV_LINKS } from "@/lib/constants";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
+import { LanguageSwitcher } from "./language-switcher";
+
+const NAV_LINKS = [
+  { href: "/about", key: "about" },
+  { href: "/practice-areas", key: "practiceAreas" },
+  { href: "/team", key: "ourTeam" },
+  { href: "/insights", key: "insights" },
+  { href: "/careers", key: "careers" },
+] as const;
 
 export function Nav() {
+  const t = useTranslations("Nav");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -38,24 +47,26 @@ export function Nav() {
                 isActiveHref(link.href) ? "text-gold" : "text-white/55 hover:text-white/90"
               }`}
             >
-              {link.label}
+              {t(link.key)}
             </Link>
           ))}
         </div>
 
-        {/* Desktop CTA */}
-        <Link
-          href="/contact"
-          className="hidden lg:inline-block font-sans text-[10px] font-semibold tracking-[2px] uppercase text-forest-deep bg-gold hover:bg-gold-light px-6 py-2.5 transition-colors"
-        >
-          Consult With Us
-        </Link>
+        <div className="hidden lg:flex items-center gap-5">
+          <LanguageSwitcher />
+          <Link
+            href="/contact"
+            className="font-sans text-[10px] font-semibold tracking-[2px] uppercase text-forest-deep bg-gold hover:bg-gold-light px-6 py-2.5 transition-colors"
+          >
+            {t("consultWithUs")}
+          </Link>
+        </div>
 
         {/* Mobile hamburger */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? t("closeMenu") : t("openMenu")}
           className="lg:hidden flex flex-col justify-center items-center w-9 h-9 -mr-2"
         >
           <span
@@ -79,7 +90,7 @@ export function Nav() {
       {/* Mobile menu panel */}
       <div
         className={`lg:hidden overflow-hidden transition-[max-height] duration-300 ${
-          open ? "max-h-96" : "max-h-0"
+          open ? "max-h-[420px]" : "max-h-0"
         }`}
       >
         <div className="px-5 pb-6 pt-2 space-y-3 border-t border-white/5">
@@ -92,15 +103,18 @@ export function Nav() {
                 isActiveHref(link.href) ? "text-gold" : "text-white/70"
               }`}
             >
-              {link.label}
+              {t(link.key)}
             </Link>
           ))}
+          <div className="pt-2 border-t border-white/5 mt-2">
+            <LanguageSwitcher />
+          </div>
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
             className="block text-center font-sans text-[11px] font-semibold tracking-[2px] uppercase text-forest-deep bg-gold mt-4 py-3"
           >
-            Consult With Us
+            {t("consultWithUs")}
           </Link>
         </div>
       </div>

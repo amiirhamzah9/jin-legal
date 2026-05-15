@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cormorant, jost } from "./fonts";
@@ -16,7 +17,6 @@ export const metadata: Metadata = {
     title: "JIN Legal Counsel — Legal Excellence, Strategic Results",
     description: "Strategic legal counsel across 12 practice areas in Indonesia.",
     type: "website",
-    locale: "en_US",
     siteName: "JIN Legal Counsel",
     images: [
       {
@@ -36,13 +36,15 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // getLocale resolves to defaultLocale ("en") for non-localized routes (admin, api)
+  const locale = await getLocale();
   return (
-    <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
+    <html lang={locale} className={`${cormorant.variable} ${jost.variable}`}>
       <body className="grain-overlay">
         {children}
         <Analytics />

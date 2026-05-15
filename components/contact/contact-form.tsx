@@ -2,7 +2,7 @@
 
 import { useFormState, useFormStatus } from "react-dom";
 import { useSearchParams } from "next/navigation";
-import { submitContactForm, type ContactFormState } from "@/app/contact/actions";
+import { submitContactForm, type ContactFormState } from "@/app/[locale]/contact/actions";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
