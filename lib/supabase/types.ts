@@ -58,6 +58,7 @@ export type Database = {
         Row: {
           id: string;
           title: string;
+          slug: string;
           description: string;
           type: string;
           location: string | null;

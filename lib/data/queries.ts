@@ -84,6 +84,38 @@ export async function getActiveCareers(): Promise<Career[]> {
 }
 
 /**
+ * Get a single active career by slug. Returns null if not found.
+ */
+export async function getCareerBySlug(slug: string): Promise<Career | null> {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from("careers")
+    .select("*")
+    .eq("slug", slug)
+    .eq("is_active", true)
+    .single();
+  if (error) return null;
+  return data;
+}
+
+/**
+ * Get all active career slugs (for generateStaticParams).
+ */
+export async function getAllCareerSlugs(): Promise<string[]> {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from("careers")
+    .select("slug")
+    .eq("is_active", true)
+    .returns<Pick<Career, "slug">[]>();
+  if (error) {
+    console.error("getAllCareerSlugs error:", error);
+    return [];
+  }
+  return (data ?? []).map((r) => r.slug);
+}
+
+/**
  * Get all active team members, ordered by display_order.
  */
 export async function getActiveTeamMembers(limit?: number): Promise<TeamMember[]> {
