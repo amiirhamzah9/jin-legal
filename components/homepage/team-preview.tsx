@@ -1,16 +1,21 @@
-import Link from "next/link";
 import Image from "next/image";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { Link } from "@/i18n/navigation";
 import { getActiveTeamMembers } from "@/lib/data/queries";
+import type { Locale } from "@/i18n/routing";
 
 export async function TeamPreview() {
-  const featured = await getActiveTeamMembers(3);
+  const locale = (await getLocale()) as Locale;
+  const t = await getTranslations("Home");
+  const tNav = await getTranslations("Nav");
+  const featured = await getActiveTeamMembers(3, locale);
 
   return (
     <section className="bg-forest-deep px-5 py-16 md:px-[72px] md:py-24">
-      <Eyebrow className="mb-2.5">Our People</Eyebrow>
+      <Eyebrow className="mb-2.5">{t("teamEyebrow")}</Eyebrow>
       <h2 className="font-serif text-[28px] md:text-[40px] font-light text-white mb-12">
-        Meet the <em className="italic text-gold">Partners</em>
+        {t("teamTitle")}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[3px] mb-8">
         {featured.map((partner) => (
@@ -28,7 +33,9 @@ export async function TeamPreview() {
               <div className="font-sans text-[9px] tracking-[3px] text-gold font-bold uppercase mb-1">
                 {partner.role}
               </div>
-              <div className="font-serif text-xl text-white font-medium mb-0.5">{partner.name}</div>
+              <div className="font-serif text-xl text-white font-medium mb-0.5">
+                {partner.name}
+              </div>
               <div className="font-sans text-[10px] text-white/35">{partner.credentials}</div>
             </div>
             <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-[450ms]" />
@@ -40,7 +47,7 @@ export async function TeamPreview() {
           href="/team"
           className="inline-flex items-center gap-2.5 font-sans text-[10px] font-semibold tracking-[2px] uppercase text-gold border border-gold/30 px-8 py-3.5 no-underline hover:bg-gold hover:text-forest-deep transition-all"
         >
-          View All Partners →
+          {tNav("ourTeam")} →
         </Link>
       </div>
     </section>

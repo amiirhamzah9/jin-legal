@@ -1,16 +1,26 @@
 import { createClient } from "@/lib/supabase/server";
 import type { Database } from "@/lib/supabase/types";
+import type { Locale } from "@/i18n/routing";
+import {
+  localizePracticeArea,
+  localizeTeamMember,
+  localizeBlogPost,
+  localizeCareer,
+} from "./localize";
 
 type BlogPost = Database["public"]["Tables"]["blog_posts"]["Row"];
 type Career = Database["public"]["Tables"]["careers"]["Row"];
 type TeamMember = Database["public"]["Tables"]["team_members"]["Row"];
 type PracticeArea = Database["public"]["Tables"]["practice_areas"]["Row"];
 
-/**
- * Get published blog posts, newest first.
- * @param limit Max number of posts to return (default 12)
- */
-export async function getRecentBlogPosts(limit = 12): Promise<BlogPost[]> {
+const DEFAULT_LOCALE: Locale = "en";
+
+// ─── Blog Posts ────────────────────────────────────────────────────────────
+
+export async function getRecentBlogPosts(
+  limit = 12,
+  locale: Locale = DEFAULT_LOCALE
+): Promise<BlogPost[]> {
   const supabase = createClient();
   const { data, error } = await supabase
     .from("blog_posts")
@@ -23,13 +33,13 @@ export async function getRecentBlogPosts(limit = 12): Promise<BlogPost[]> {
     console.error("getRecentBlogPosts error:", error);
     return [];
   }
-  return data ?? [];
+  return (data ?? []).map((p) => localizeBlogPost(p, locale));
 }
 
-/**
- * Get a single published post by slug. Returns null if not found.
- */
-export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+export async function getBlogPostBySlug(
+  slug: string,
+  locale: Locale = DEFAULT_LOCALE
+): Promise<BlogPost | null> {
   const supabase = createClient();
   const { data, error } = await supabase
     .from("blog_posts")
@@ -39,17 +49,12 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
     .single();
 
   if (error) {
-    if (error.code !== "PGRST116") {
-      console.error("getBlogPostBySlug error:", error);
-    }
+    if (error.code !== "PGRST116") console.error("getBlogPostBySlug error:", error);
     return null;
   }
-  return data;
+  return localizeBlogPost(data, locale);
 }
 
-/**
- * Get all published blog post slugs (for generateStaticParams).
- */
 export async function getAllPublishedSlugs(): Promise<string[]> {
   const supabase = createClient();
   const { data, error } = await supabase
@@ -65,10 +70,11 @@ export async function getAllPublishedSlugs(): Promise<string[]> {
   return (data ?? []).map((r) => r.slug);
 }
 
-/**
- * Get all active careers, newest first.
- */
-export async function getActiveCareers(): Promise<Career[]> {
+// ─── Careers ───────────────────────────────────────────────────────────────
+
+export async function getActiveCareers(
+  locale: Locale = DEFAULT_LOCALE
+): Promise<Career[]> {
   const supabase = createClient();
   const { data, error } = await supabase
     .from("careers")
@@ -80,13 +86,13 @@ export async function getActiveCareers(): Promise<Career[]> {
     console.error("getActiveCareers error:", error);
     return [];
   }
-  return data ?? [];
+  return (data ?? []).map((c) => localizeCareer(c, locale));
 }
 
-/**
- * Get a single active career by slug. Returns null if not found.
- */
-export async function getCareerBySlug(slug: string): Promise<Career | null> {
+export async function getCareerBySlug(
+  slug: string,
+  locale: Locale = DEFAULT_LOCALE
+): Promise<Career | null> {
   const supabase = createClient();
   const { data, error } = await supabase
     .from("careers")
@@ -95,12 +101,9 @@ export async function getCareerBySlug(slug: string): Promise<Career | null> {
     .eq("is_active", true)
     .single();
   if (error) return null;
-  return data;
+  return localizeCareer(data, locale);
 }
 
-/**
- * Get all active career slugs (for generateStaticParams).
- */
 export async function getAllCareerSlugs(): Promise<string[]> {
   const supabase = createClient();
   const { data, error } = await supabase
@@ -115,10 +118,12 @@ export async function getAllCareerSlugs(): Promise<string[]> {
   return (data ?? []).map((r) => r.slug);
 }
 
-/**
- * Get all active team members, ordered by display_order.
- */
-export async function getActiveTeamMembers(limit?: number): Promise<TeamMember[]> {
+// ─── Team Members ──────────────────────────────────────────────────────────
+
+export async function getActiveTeamMembers(
+  limit?: number,
+  locale: Locale = DEFAULT_LOCALE
+): Promise<TeamMember[]> {
   const supabase = createClient();
   let query = supabase
     .from("team_members")
@@ -131,14 +136,14 @@ export async function getActiveTeamMembers(limit?: number): Promise<TeamMember[]
     console.error("getActiveTeamMembers error:", error);
     return [];
   }
-  return data ?? [];
+  return (data ?? []).map((m) => localizeTeamMember(m, locale));
 }
 
-/**
- * Get team members in a specific practice group (or all if 'all'). Active only.
- */
-export async function getTeamMembersByGroup(group: string): Promise<TeamMember[]> {
-  if (group === "all") return getActiveTeamMembers();
+export async function getTeamMembersByGroup(
+  group: string,
+  locale: Locale = DEFAULT_LOCALE
+): Promise<TeamMember[]> {
+  if (group === "all") return getActiveTeamMembers(undefined, locale);
   const supabase = createClient();
   const { data, error } = await supabase
     .from("team_members")
@@ -150,13 +155,13 @@ export async function getTeamMembersByGroup(group: string): Promise<TeamMember[]
     console.error("getTeamMembersByGroup error:", error);
     return [];
   }
-  return data ?? [];
+  return (data ?? []).map((m) => localizeTeamMember(m, locale));
 }
 
-/**
- * Get a team member by slug. Returns null if not found.
- */
-export async function getTeamMemberBySlug(slug: string): Promise<TeamMember | null> {
+export async function getTeamMemberBySlug(
+  slug: string,
+  locale: Locale = DEFAULT_LOCALE
+): Promise<TeamMember | null> {
   const supabase = createClient();
   const { data, error } = await supabase
     .from("team_members")
@@ -165,14 +170,12 @@ export async function getTeamMemberBySlug(slug: string): Promise<TeamMember | nu
     .eq("is_active", true)
     .single();
   if (error) return null;
-  return data;
+  return localizeTeamMember(data, locale);
 }
 
-/**
- * Get all team members assigned to a given practice area slug.
- */
 export async function getTeamMembersForPracticeArea(
-  practiceSlug: string
+  practiceSlug: string,
+  locale: Locale = DEFAULT_LOCALE
 ): Promise<TeamMember[]> {
   const supabase = createClient();
   const { data, error } = await supabase
@@ -185,13 +188,14 @@ export async function getTeamMembersForPracticeArea(
     console.error("getTeamMembersForPracticeArea error:", error);
     return [];
   }
-  return data ?? [];
+  return (data ?? []).map((m) => localizeTeamMember(m, locale));
 }
 
-/**
- * Get all practice areas, ordered by display_order.
- */
-export async function getAllPracticeAreas(): Promise<PracticeArea[]> {
+// ─── Practice Areas ────────────────────────────────────────────────────────
+
+export async function getAllPracticeAreas(
+  locale: Locale = DEFAULT_LOCALE
+): Promise<PracticeArea[]> {
   const supabase = createClient();
   const { data, error } = await supabase
     .from("practice_areas")
@@ -201,13 +205,13 @@ export async function getAllPracticeAreas(): Promise<PracticeArea[]> {
     console.error("getAllPracticeAreas error:", error);
     return [];
   }
-  return data ?? [];
+  return (data ?? []).map((a) => localizePracticeArea(a, locale));
 }
 
-/**
- * Get a practice area by slug. Returns null if not found.
- */
-export async function getPracticeAreaBySlug(slug: string): Promise<PracticeArea | null> {
+export async function getPracticeAreaBySlug(
+  slug: string,
+  locale: Locale = DEFAULT_LOCALE
+): Promise<PracticeArea | null> {
   const supabase = createClient();
   const { data, error } = await supabase
     .from("practice_areas")
@@ -215,5 +219,5 @@ export async function getPracticeAreaBySlug(slug: string): Promise<PracticeArea 
     .eq("slug", slug)
     .single();
   if (error) return null;
-  return data;
+  return localizePracticeArea(data, locale);
 }

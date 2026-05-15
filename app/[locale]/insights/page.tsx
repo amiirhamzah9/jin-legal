@@ -1,30 +1,44 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
 import { PageHero } from "@/components/ui/page-hero";
 import { InsightsGrid } from "@/components/insights/insights-grid";
 import { CtaBanner } from "@/components/homepage/cta-banner";
 import { getRecentBlogPosts } from "@/lib/data/queries";
+import type { Locale } from "@/i18n/routing";
 
-export const revalidate = 300; // 5-minute ISR
+export const revalidate = 300;
 
-export const metadata: Metadata = {
-  title: "Insights — JIN Legal Counsel",
-  description:
-    "Legal perspectives, regulatory updates, and analysis from JIN Legal Counsel's practice areas.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale, namespace: "Insights" });
+  return {
+    title: `${t("heroTitle")} — JIN Legal Counsel`,
+    description: t("heroSubtitle"),
+  };
+}
 
-export default async function InsightsPage() {
-  const posts = await getRecentBlogPosts(12);
+export default async function InsightsPage({
+  params,
+}: {
+  params: { locale: Locale };
+}) {
+  setRequestLocale(params.locale);
+  const t = await getTranslations("Insights");
+  const posts = await getRecentBlogPosts(12, params.locale);
 
   return (
     <>
       <Nav />
       <main>
         <PageHero
-          eyebrow="Latest Insights"
-          title="Legal Perspectives"
-          subtitle="Analysis, regulatory updates, and practical guidance from our practice areas across Indonesian law."
+          eyebrow={t("heroEyebrow")}
+          title={t("heroTitle")}
+          subtitle={t("heroSubtitle")}
         />
         <section className="bg-white px-5 py-12 md:px-[72px] md:py-20">
           <InsightsGrid posts={posts} />

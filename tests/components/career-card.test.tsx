@@ -11,6 +11,8 @@ const FAKE_CAREER = {
   location: "Jakarta, Indonesia",
   is_active: true,
   created_at: "2025-05-01T00:00:00Z",
+      title_id: null,
+      description_id: null,
 };
 
 describe("CareerCard", () => {

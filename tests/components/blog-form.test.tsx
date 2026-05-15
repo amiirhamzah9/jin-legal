@@ -47,6 +47,10 @@ describe("BlogForm", () => {
       published_at: null,
       is_published: false,
       created_at: "2025-01-01T00:00:00Z",
+      title_id: null,
+      excerpt_id: null,
+      content_id: null,
+      category_indo: null,
     };
     render(<BlogForm mode="edit" post={post} />);
     expect(screen.getByDisplayValue("Existing Title")).toBeInTheDocument();

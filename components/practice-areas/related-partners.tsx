@@ -1,17 +1,22 @@
 import Image from "next/image";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { getTeamMembersForPracticeArea } from "@/lib/data/queries";
+import type { Locale } from "@/i18n/routing";
 
 export async function RelatedPartners({ practiceSlug }: { practiceSlug: string }) {
-  const relevant = await getTeamMembersForPracticeArea(practiceSlug);
+  const locale = (await getLocale()) as Locale;
+  const t = await getTranslations("PracticeAreas");
+  const tHome = await getTranslations("Home");
+  const relevant = await getTeamMembersForPracticeArea(practiceSlug, locale);
   if (relevant.length === 0) return null;
 
   return (
     <section className="bg-forest-deep px-5 py-12 md:px-[72px] md:py-20">
       <div className="max-w-[1100px] mx-auto">
-        <Eyebrow className="mb-5">Our People</Eyebrow>
+        <Eyebrow className="mb-5">{tHome("teamEyebrow")}</Eyebrow>
         <h2 className="font-serif text-[32px] font-light text-white leading-tight mb-12">
-          Partners in This Practice
+          {t("relatedPartners")}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[3px]">
           {relevant.map((partner) => (

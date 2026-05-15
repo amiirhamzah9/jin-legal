@@ -45,6 +45,8 @@ describe("TeamForm", () => {
       display_order: 1,
       is_active: true,
       created_at: "2025-01-01T00:00:00Z",
+      bio_id: null,
+      role_id: null,
     };
     render(<TeamForm mode="edit" member={member} />);
     expect(screen.getByDisplayValue("Muhammad Subuh Rezki")).toBeInTheDocument();

@@ -6,21 +6,23 @@ import { Footer } from "@/components/layout/footer";
 import { CtaBanner } from "@/components/homepage/cta-banner";
 import { MarkdownContent } from "@/components/insights/markdown-content";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { setRequestLocale } from "next-intl/server";
 import { getBlogPostBySlug, getAllPublishedSlugs } from "@/lib/data/queries";
+import { routing, type Locale } from "@/i18n/routing";
 
 export const revalidate = 300;
 
 export async function generateStaticParams() {
   const slugs = await getAllPublishedSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return routing.locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string; locale: Locale };
 }): Promise<Metadata> {
-  const post = await getBlogPostBySlug(params.slug);
+  const post = await getBlogPostBySlug(params.slug, params.locale);
   if (!post) return { title: "Not Found — JIN Legal Counsel" };
   const ogImage = post.cover_image_url ?? "/og-image.png";
   return {
@@ -50,9 +52,9 @@ export async function generateMetadata({
   };
 }
 
-function formatDate(iso: string | null): string {
+function formatDate(iso: string | null, locale: Locale): string {
   if (!iso) return "";
-  return new Date(iso).toLocaleDateString("en-US", {
+  return new Date(iso).toLocaleDateString(locale === "id" ? "id-ID" : "en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -62,9 +64,10 @@ function formatDate(iso: string | null): string {
 export default async function InsightDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string; locale: Locale };
 }) {
-  const post = await getBlogPostBySlug(params.slug);
+  setRequestLocale(params.locale);
+  const post = await getBlogPostBySlug(params.slug, params.locale);
   if (!post) notFound();
 
   return (
@@ -82,7 +85,7 @@ export default async function InsightDetailPage({
               {post.title}
             </h1>
             <div className="font-sans text-[12px] text-white/40 tracking-wide">
-              {formatDate(post.published_at)}
+              {formatDate(post.published_at, params.locale)}
             </div>
           </div>
         </section>

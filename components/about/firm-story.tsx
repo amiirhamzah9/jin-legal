@@ -1,25 +1,31 @@
+import { useTranslations } from "next-intl";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { VALUES } from "@/lib/constants";
+
+const VALUE_KEYS = ["integrity", "precision", "innovation", "results"] as const;
 
 export function FirmStory() {
+  const t = useTranslations("About");
+  const tValues = useTranslations("Values");
+
   return (
     <section className="bg-ivory px-5 py-12 md:px-[72px] md:py-24">
       <div className="max-w-[1100px] mx-auto">
-        <Eyebrow className="mb-5">Who We Are</Eyebrow>
+        <Eyebrow className="mb-5">{t("whoEyebrow")}</Eyebrow>
         <h2 className="font-serif text-[32px] md:text-[42px] font-light text-forest leading-tight mb-12">
-          Our Story
+          {t("ourStory")}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-10 md:gap-20 mb-12 md:mb-20">
           <div className="space-y-5">
             <p className="font-sans text-[15px] font-light text-ink leading-[1.85]">
-              <strong className="font-semibold">JIN Legal Counsel</strong> was founded on a simple principle: exceptional legal counsel must be both strategically sharp and deeply human.
+              <strong className="font-semibold">JIN Legal Counsel</strong>{" "}
+              {t("story1").replace("JIN Legal Counsel ", "")}
             </p>
             <p className="font-sans text-[15px] font-light text-ink-muted leading-[1.85]">
-              We bring together seven partners with deep expertise across corporate law, dispute resolution, emerging technologies, and specialized practice areas that define today&apos;s business landscape in Indonesia. Our team has advised clients ranging from venture-backed startups to established multinationals.
+              {t("story2")}
             </p>
             <p className="font-sans text-[15px] font-light text-ink-muted leading-[1.85]">
-              What sets us apart isn&apos;t just our technical expertise — it&apos;s our commitment to understanding each client&apos;s commercial reality before we ever open a statute book. We measure success by the outcomes we achieve, not the hours we bill.
+              {t("story3")}
             </p>
           </div>
           <div className="relative">
@@ -33,28 +39,28 @@ export function FirmStory() {
             <div className="absolute -bottom-6 -left-6 bg-gold px-7 py-5 text-forest-deep">
               <div className="font-serif text-[32px] font-light leading-none">10+</div>
               <div className="font-sans text-[9px] tracking-[2.5px] uppercase mt-1 font-bold">
-                Years of Excellence
+                {t("yearsExcellence")}
               </div>
             </div>
           </div>
         </div>
 
         <div>
-          <Eyebrow className="mb-5">What We Stand For</Eyebrow>
+          <Eyebrow className="mb-5">{t("valuesEyebrow")}</Eyebrow>
           <h3 className="font-serif text-[22px] md:text-[28px] font-light text-forest leading-tight mb-10">
-            Our Core Values
+            {t("ourCoreValues")}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-            {VALUES.map((val) => (
+            {VALUE_KEYS.map((key) => (
               <div
-                key={val.title}
+                key={key}
                 className="bg-white border-t-2 border-gold p-7 hover:shadow-[0_12px_36px_rgba(26,64,53,.08)] transition-shadow"
               >
                 <h4 className="font-sans text-[11px] font-bold tracking-[2px] uppercase text-gold mb-3">
-                  {val.title}
+                  {tValues(`${key}Title`)}
                 </h4>
                 <p className="font-sans text-[13px] font-light text-ink-muted leading-[1.7]">
-                  {val.body}
+                  {tValues(`${key}Body`)}
                 </p>
               </div>
             ))}

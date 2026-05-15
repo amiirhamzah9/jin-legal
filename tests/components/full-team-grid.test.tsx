@@ -16,6 +16,8 @@ const SAMPLE_PARTNERS = [
     display_order: 1,
     is_active: true,
     created_at: "2025-01-01T00:00:00Z",
+      bio_id: null,
+      role_id: null,
   },
   {
     id: "2",
@@ -30,6 +32,8 @@ const SAMPLE_PARTNERS = [
     display_order: 2,
     is_active: true,
     created_at: "2025-01-01T00:00:00Z",
+      bio_id: null,
+      role_id: null,
   },
 ];
 

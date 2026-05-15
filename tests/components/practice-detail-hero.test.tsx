@@ -12,6 +12,10 @@ const AREA = {
   icon_name: "briefcase",
   display_order: 1,
   created_at: "2025-01-01T00:00:00Z",
+      title_id: null,
+      description_id: null,
+      full_content_id: null,
+      services_id: null,
 };
 
 describe("PracticeDetailHero", () => {

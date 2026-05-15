@@ -12,8 +12,20 @@ export type Database = {
           icon_name: string;
           display_order: number;
           created_at: string;
+          title_id: string | null;
+          description_id: string | null;
+          full_content_id: string | null;
+          services_id: string[] | null;
         };
-        Insert: Omit<Database["public"]["Tables"]["practice_areas"]["Row"], "id" | "created_at">;
+        Insert: Omit<
+          Database["public"]["Tables"]["practice_areas"]["Row"],
+          "id" | "created_at" | "title_id" | "description_id" | "full_content_id" | "services_id"
+        > & {
+          title_id?: string | null;
+          description_id?: string | null;
+          full_content_id?: string | null;
+          services_id?: string[] | null;
+        };
         Update: Partial<Database["public"]["Tables"]["practice_areas"]["Insert"]>;
         Relationships: [];
       };
@@ -31,8 +43,16 @@ export type Database = {
           display_order: number;
           is_active: boolean;
           created_at: string;
+          bio_id: string | null;
+          role_id: string | null;
         };
-        Insert: Omit<Database["public"]["Tables"]["team_members"]["Row"], "id" | "created_at">;
+        Insert: Omit<
+          Database["public"]["Tables"]["team_members"]["Row"],
+          "id" | "created_at" | "bio_id" | "role_id"
+        > & {
+          bio_id?: string | null;
+          role_id?: string | null;
+        };
         Update: Partial<Database["public"]["Tables"]["team_members"]["Insert"]>;
         Relationships: [];
       };
@@ -49,8 +69,20 @@ export type Database = {
           published_at: string | null;
           is_published: boolean;
           created_at: string;
+          title_id: string | null;
+          excerpt_id: string | null;
+          content_id: string | null;
+          category_indo: string | null;
         };
-        Insert: Omit<Database["public"]["Tables"]["blog_posts"]["Row"], "id" | "created_at">;
+        Insert: Omit<
+          Database["public"]["Tables"]["blog_posts"]["Row"],
+          "id" | "created_at" | "title_id" | "excerpt_id" | "content_id" | "category_indo"
+        > & {
+          title_id?: string | null;
+          excerpt_id?: string | null;
+          content_id?: string | null;
+          category_indo?: string | null;
+        };
         Update: Partial<Database["public"]["Tables"]["blog_posts"]["Insert"]>;
         Relationships: [];
       };
@@ -64,8 +96,16 @@ export type Database = {
           location: string | null;
           is_active: boolean;
           created_at: string;
+          title_id: string | null;
+          description_id: string | null;
         };
-        Insert: Omit<Database["public"]["Tables"]["careers"]["Row"], "id" | "created_at">;
+        Insert: Omit<
+          Database["public"]["Tables"]["careers"]["Row"],
+          "id" | "created_at" | "title_id" | "description_id"
+        > & {
+          title_id?: string | null;
+          description_id?: string | null;
+        };
         Update: Partial<Database["public"]["Tables"]["careers"]["Insert"]>;
         Relationships: [];
       };

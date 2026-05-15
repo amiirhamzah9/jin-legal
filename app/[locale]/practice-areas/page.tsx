@@ -1,29 +1,43 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
 import { PageHero } from "@/components/ui/page-hero";
 import { PracticeListGrid } from "@/components/practice-areas/practice-list-grid";
 import { CtaBanner } from "@/components/homepage/cta-banner";
 import { getAllPracticeAreas } from "@/lib/data/queries";
+import type { Locale } from "@/i18n/routing";
 
 export const revalidate = 300;
 
-export const metadata: Metadata = {
-  title: "Practice Areas — JIN Legal Counsel",
-  description:
-    "Twelve practice areas spanning corporate law, litigation, regulatory advisory, intellectual property, and specialized domains.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale, namespace: "PracticeAreas" });
+  return {
+    title: `${t("heroTitle")} — JIN Legal Counsel`,
+    description: t("heroSubtitle"),
+  };
+}
 
-export default async function PracticeAreasPage() {
-  const areas = await getAllPracticeAreas();
+export default async function PracticeAreasPage({
+  params,
+}: {
+  params: { locale: Locale };
+}) {
+  setRequestLocale(params.locale);
+  const t = await getTranslations("PracticeAreas");
+  const areas = await getAllPracticeAreas(params.locale);
   return (
     <>
       <Nav />
       <main>
         <PageHero
-          eyebrow="What We Do"
-          title="Our Practice Areas"
-          subtitle="Twelve focused practice areas spanning corporate transactions, dispute resolution, regulatory advisory, energy and infrastructure, and specialized industry expertise across Indonesia."
+          eyebrow={t("heroEyebrow")}
+          title={t("heroTitle")}
+          subtitle={t("heroSubtitle")}
         />
         <PracticeListGrid areas={areas} />
         <CtaBanner />

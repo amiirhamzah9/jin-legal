@@ -15,6 +15,10 @@ const POSTS = [
     published_at: "2025-05-08T00:00:00Z",
     is_published: true,
     created_at: "2025-05-08T00:00:00Z",
+      title_id: null,
+      excerpt_id: null,
+      content_id: null,
+      category_indo: null,
   },
   {
     id: "2",
@@ -28,6 +32,10 @@ const POSTS = [
     published_at: "2025-04-24T00:00:00Z",
     is_published: true,
     created_at: "2025-04-24T00:00:00Z",
+      title_id: null,
+      excerpt_id: null,
+      content_id: null,
+      category_indo: null,
   },
   {
     id: "3",
@@ -41,6 +49,10 @@ const POSTS = [
     published_at: "2025-04-10T00:00:00Z",
     is_published: true,
     created_at: "2025-04-10T00:00:00Z",
+      title_id: null,
+      excerpt_id: null,
+      content_id: null,
+      category_indo: null,
   },
 ];
 

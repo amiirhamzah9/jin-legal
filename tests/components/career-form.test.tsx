@@ -36,6 +36,8 @@ describe("CareerForm", () => {
       location: "Jakarta",
       is_active: true,
       created_at: "2025-01-01T00:00:00Z",
+      title_id: null,
+      description_id: null,
     };
     render(<CareerForm mode="edit" career={career} />);
     expect(screen.getByDisplayValue("Senior Associate")).toBeInTheDocument();

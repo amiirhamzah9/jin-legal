@@ -12,6 +12,8 @@ const SAMPLE = [
     location: "Jakarta",
     is_active: true,
     created_at: "2025-05-01T00:00:00Z",
+      title_id: null,
+      description_id: null,
   },
   {
     id: "c2",
@@ -22,6 +24,8 @@ const SAMPLE = [
     location: "Jakarta",
     is_active: true,
     created_at: "2025-04-15T00:00:00Z",
+      title_id: null,
+      description_id: null,
   },
 ];
 

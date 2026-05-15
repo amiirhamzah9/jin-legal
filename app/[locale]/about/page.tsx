@@ -1,26 +1,40 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
 import { PageHero } from "@/components/ui/page-hero";
 import { FirmStory } from "@/components/about/firm-story";
 // import { Credentials } from "@/components/about/credentials"; // hidden temporarily
 import { CtaBanner } from "@/components/homepage/cta-banner";
+import type { Locale } from "@/i18n/routing";
 
-export const metadata: Metadata = {
-  title: "About — JIN Legal Counsel",
-  description:
-    "JIN Legal Counsel — seven partners delivering strategic legal counsel across 12 practice areas in Indonesia.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale, namespace: "About" });
+  return {
+    title: `${t("heroTitle")} — JIN Legal Counsel`,
+    description: t("heroSubtitle"),
+  };
+}
 
-export default function AboutPage() {
+export default async function AboutPage({
+  params,
+}: {
+  params: { locale: Locale };
+}) {
+  setRequestLocale(params.locale);
+  const t = await getTranslations("About");
   return (
     <>
       <Nav />
       <main>
         <PageHero
-          eyebrow="About the Firm"
-          title="A Modern Legal Partner for a Complex World"
-          subtitle="Founded on the principle that exceptional legal counsel must be both strategically sharp and deeply human."
+          eyebrow={t("heroEyebrow")}
+          title={t("heroTitle")}
+          subtitle={t("heroSubtitle")}
         />
         <FirmStory />
         {/* <Credentials /> */}

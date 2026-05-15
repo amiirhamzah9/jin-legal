@@ -14,6 +14,10 @@ const FAKE_POST = {
   published_at: "2025-05-08T00:00:00Z",
   is_published: true,
   created_at: "2025-05-08T00:00:00Z",
+      title_id: null,
+      excerpt_id: null,
+      content_id: null,
+      category_indo: null,
 };
 
 describe("InsightCard", () => {
