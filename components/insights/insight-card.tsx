@@ -1,16 +1,29 @@
 import Image from "next/image";
-import Link from "next/link";
+import { getLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import type { Database } from "@/lib/supabase/types";
+import type { Locale } from "@/i18n/routing";
 
 type BlogPost = Database["public"]["Tables"]["blog_posts"]["Row"];
 
-function formatDate(iso: string | null): string {
+function formatDate(iso: string | null, locale: Locale): string {
   if (!iso) return "";
   const d = new Date(iso);
-  return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  return d.toLocaleDateString(locale === "id" ? "id-ID" : "en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }
 
-export function InsightCard({ post, featured = false }: { post: BlogPost; featured?: boolean }) {
+export async function InsightCard({
+  post,
+  featured = false,
+}: {
+  post: BlogPost;
+  featured?: boolean;
+}) {
+  const locale = (await getLocale()) as Locale;
   return (
     <Link href={`/insights/${post.slug}`} className="cursor-pointer group block">
       {post.cover_image_url && (
@@ -42,7 +55,7 @@ export function InsightCard({ post, featured = false }: { post: BlogPost; featur
         </p>
       )}
       <div className="font-sans text-[10px] text-ink-faint tracking-wide">
-        {formatDate(post.published_at)}
+        {formatDate(post.published_at, locale)}
       </div>
     </Link>
   );

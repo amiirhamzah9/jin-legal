@@ -1,26 +1,30 @@
+import { useTranslations } from "next-intl";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
-const INFO_BLOCKS = [
-  {
-    label: "Office",
-    lines: ["Jakarta, Indonesia", "JIN Legal Counsel"],
-  },
-  {
-    label: "Email",
-    lines: ["center@jin-legal.com"],
-  },
-  {
-    label: "Working Hours",
-    lines: ["Monday — Friday", "09:00 — 18:00 WIB"],
-  },
-];
-
 export function ContactInfo() {
+  const t = useTranslations("Contact");
+  const tFooter = useTranslations("Footer");
+
+  const INFO_BLOCKS = [
+    {
+      label: t("office"),
+      lines: [tFooter("city"), "JIN Legal Counsel"],
+    },
+    {
+      label: t("emailLabel"),
+      lines: ["center@jin-legal.com"],
+    },
+    {
+      label: t("workingHours"),
+      lines: [t("workingDays"), t("workingTime")],
+    },
+  ];
+
   return (
     <div>
-      <Eyebrow className="mb-5">Reach Us</Eyebrow>
+      <Eyebrow className="mb-5">{t("reachUsEyebrow")}</Eyebrow>
       <h2 className="font-serif text-[28px] font-light text-forest leading-tight mb-10">
-        Get in Touch
+        {t("getInTouch")}
       </h2>
       <div className="space-y-7">
         {INFO_BLOCKS.map((block) => (

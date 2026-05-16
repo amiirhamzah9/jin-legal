@@ -1,20 +1,22 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import { FullTeamGrid } from "./full-team-grid";
 import type { Database } from "@/lib/supabase/types";
 
 type TeamMember = Database["public"]["Tables"]["team_members"]["Row"];
 
 const PRACTICE_GROUPS = [
-  { id: "all", label: "All Partners" },
-  { id: "corporate-business", label: "Corporate & Business" },
-  { id: "litigation", label: "Litigation" },
-  { id: "specialties", label: "Specialties" },
+  { id: "all", labelKey: "filterAll" },
+  { id: "corporate-business", labelKey: "filterCorporate" },
+  { id: "litigation", labelKey: "filterLitigation" },
+  { id: "specialties", labelKey: "filterSpecialties" },
 ] as const;
 
 export function TeamPageBody({ partners }: { partners: TeamMember[] }) {
   const [active, setActive] = useState<string>("all");
+  const t = useTranslations("Team");
 
   const visible = useMemo(() => {
     if (active === "all") return partners;
@@ -37,7 +39,7 @@ export function TeamPageBody({ partners }: { partners: TeamMember[] }) {
                   : "text-white/40 border-transparent hover:text-white/70"
               }`}
             >
-              {group.label}
+              {t(group.labelKey)}
             </button>
           );
         })}

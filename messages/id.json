@@ -63,6 +63,12 @@
     "valuesEyebrow": "Apa yang Kami Junjung",
     "ourCoreValues": "Nilai Inti Kami"
   },
+  "Stats": {
+    "practiceAreas": "Bidang Praktik",
+    "seniorPartners": "Senior Partner",
+    "clientsServed": "Klien Terlayani",
+    "yearsExcellence": "Tahun Keunggulan"
+  },
   "Values": {
     "integrityTitle": "Integritas",
     "integrityBody": "Setiap penanganan kami pandu dengan standar etika yang teguh dan komunikasi yang transparan.",
@@ -120,7 +126,8 @@
     "coverLetterPlaceholder": "Ceritakan mengapa Anda cocok untuk posisi ini…",
     "submitting": "Mengirim…",
     "submitButton": "Kirim Lamaran",
-    "applicationReceivedHeading": "Lamaran Diterima"
+    "applicationReceivedHeading": "Lamaran Diterima",
+    "noOpeningsIntro": "Ingin tetap memperkenalkan diri? Hubungi kami di careers@jin-legal.com."
   },
   "Contact": {
     "heroEyebrow": "Hubungi Kami",

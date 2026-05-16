@@ -63,6 +63,12 @@
     "valuesEyebrow": "What We Stand For",
     "ourCoreValues": "Our Core Values"
   },
+  "Stats": {
+    "practiceAreas": "Practice Areas",
+    "seniorPartners": "Senior Partners",
+    "clientsServed": "Clients Served",
+    "yearsExcellence": "Years of Excellence"
+  },
   "Values": {
     "integrityTitle": "Integrity",
     "integrityBody": "Every engagement guided by unwavering ethical standards and transparent communication.",
@@ -120,7 +126,8 @@
     "coverLetterPlaceholder": "Tell us why you're a great fit for this role…",
     "submitting": "Submitting…",
     "submitButton": "Submit Application",
-    "applicationReceivedHeading": "Application Received"
+    "applicationReceivedHeading": "Application Received",
+    "noOpeningsIntro": "Want to introduce yourself anyway? Reach out to careers@jin-legal.com."
   },
   "Contact": {
     "heroEyebrow": "Get in Touch",

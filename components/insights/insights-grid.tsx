@@ -1,14 +1,17 @@
+import { getTranslations } from "next-intl/server";
 import { InsightCard } from "./insight-card";
 import type { Database } from "@/lib/supabase/types";
 
 type BlogPost = Database["public"]["Tables"]["blog_posts"]["Row"];
 
-export function InsightsGrid({ posts }: { posts: BlogPost[] }) {
+export async function InsightsGrid({ posts }: { posts: BlogPost[] }) {
+  const t = await getTranslations("Insights");
+
   if (posts.length === 0) {
     return (
       <div className="text-center py-20">
         <p className="font-sans text-[14px] font-light text-ink-muted">
-          No insights published yet — check back soon.
+          {t("noInsights")}
         </p>
       </div>
     );

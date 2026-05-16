@@ -1,17 +1,19 @@
+import { getTranslations } from "next-intl/server";
 import { CareerCard } from "./career-card";
 import type { Database } from "@/lib/supabase/types";
 
 type Career = Database["public"]["Tables"]["careers"]["Row"];
 
-export function CareersList({ careers }: { careers: Career[] }) {
+export async function CareersList({ careers }: { careers: Career[] }) {
+  const t = await getTranslations("Careers");
   if (careers.length === 0) {
     return (
       <div className="text-center py-20">
         <p className="font-sans text-[14px] font-light text-ink-muted mb-3">
-          No openings right now.
+          {t("noOpenings")}
         </p>
         <p className="font-sans text-[12px] font-light text-ink-faint">
-          Want to introduce yourself anyway? Reach out to careers@jin-legal.com.
+          {t("noOpeningsIntro")}
         </p>
       </div>
     );

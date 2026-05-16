@@ -1,9 +1,11 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import type { Database } from "@/lib/supabase/types";
 
 type Career = Database["public"]["Tables"]["careers"]["Row"];
 
-export function CareerCard({ career }: { career: Career }) {
+export async function CareerCard({ career }: { career: Career }) {
+  const t = await getTranslations("Careers");
   const detailHref = `/careers/${career.slug}`;
   return (
     <article className="bg-white border-t-2 border-gold p-8 transition-all hover:shadow-[0_16px_40px_rgba(26,64,53,.08)] hover:-translate-y-0.5">
@@ -25,7 +27,7 @@ export function CareerCard({ career }: { career: Career }) {
         href={detailHref}
         className="inline-flex items-center gap-2 font-sans text-[10px] font-bold tracking-[2px] uppercase text-gold hover:gap-3 transition-all"
       >
-        View Details & Apply →
+        {t("viewDetailsApply")}
       </Link>
     </article>
   );

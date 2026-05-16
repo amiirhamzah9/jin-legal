@@ -2,6 +2,7 @@
 
 import { useFormState, useFormStatus } from "react-dom";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { submitContactForm, type ContactFormState } from "@/app/[locale]/contact/actions";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -10,9 +11,10 @@ const INITIAL: ContactFormState = { status: "idle" };
 
 function SubmitButton() {
   const { pending } = useFormStatus();
+  const t = useTranslations("Contact");
   return (
     <Button variant="gold" type="submit" disabled={pending} className="px-9 py-4">
-      {pending ? "Sending…" : "Send Message"}
+      {pending ? t("sending") : t("sendButton")}
     </Button>
   );
 }
@@ -28,17 +30,18 @@ export function ContactForm({
   const searchParams = useSearchParams();
   const presetSubject = searchParams.get("subject") ?? "";
   const [state, formAction] = useFormState(submitContactForm, INITIAL);
+  const t = useTranslations("Contact");
 
   return (
     <div>
-      <Eyebrow className="mb-5">Tell Us About Your Matter</Eyebrow>
+      <Eyebrow className="mb-5">{t("tellUsEyebrow")}</Eyebrow>
       <h2 className="font-serif text-[28px] font-light text-forest leading-tight mb-10">
-        Send Us a Message
+        {t("sendMessage")}
       </h2>
       {state.status === "success" ? (
         <div className="border-l-2 border-gold bg-gold/5 p-7">
           <div className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-gold mb-3">
-            Message Sent
+            {t("messageSent")}
           </div>
           <p className="font-sans text-[14px] font-light text-ink leading-[1.7]">
             {state.message}
@@ -57,7 +60,7 @@ export function ContactForm({
                 htmlFor="name"
                 className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
               >
-                Name *
+                {t("name")}
               </label>
               <input id="name" name="name" type="text" required className={FIELD_BASE} />
             </div>
@@ -66,7 +69,7 @@ export function ContactForm({
                 htmlFor="email"
                 className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
               >
-                Email *
+                {t("email")}
               </label>
               <input id="email" name="email" type="email" required className={FIELD_BASE} />
             </div>
@@ -75,7 +78,7 @@ export function ContactForm({
                 htmlFor="company"
                 className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
               >
-                Company
+                {t("company")}
               </label>
               <input id="company" name="company" type="text" className={FIELD_BASE} />
             </div>
@@ -85,7 +88,7 @@ export function ContactForm({
               htmlFor="subject"
               className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
             >
-              Subject
+              {t("subject")}
             </label>
             <select
               id="subject"
@@ -93,7 +96,7 @@ export function ContactForm({
               defaultValue={presetSubject}
               className={FIELD_BASE}
             >
-              <option value="">General Inquiry</option>
+              <option value="">{t("generalInquiry")}</option>
               {practiceAreaOptions.map((area) => (
                 <option key={area.slug} value={area.title}>
                   {area.title}
@@ -110,7 +113,7 @@ export function ContactForm({
               htmlFor="message"
               className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
             >
-              Message *
+              {t("message")}
             </label>
             <textarea
               id="message"
@@ -125,7 +128,7 @@ export function ContactForm({
               htmlFor="attachment"
               className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
             >
-              Attachment
+              {t("attachment")}
             </label>
             <input
               id="attachment"
@@ -135,7 +138,7 @@ export function ContactForm({
               className="block w-full text-[13px] text-ink font-sans file:mr-4 file:py-2.5 file:px-5 file:border-0 file:bg-forest file:text-white file:font-semibold file:text-[10px] file:tracking-[2px] file:uppercase hover:file:bg-forest-deep file:cursor-pointer cursor-pointer"
             />
             <p className="font-sans text-[11px] text-ink-muted mt-2">
-              Optional. PDF, DOC, JPG, or PNG. Max 10 MB.
+              {t("attachmentHelp")}
             </p>
           </div>
           <SubmitButton />

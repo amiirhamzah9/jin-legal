@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { PracticeIcon } from "@/components/icons/practice-icons";
 import type { Database } from "@/lib/supabase/types";
 import type { IconName } from "@/lib/constants";
@@ -9,7 +10,8 @@ function formatNum(order: number): string {
   return String(order).padStart(2, "0");
 }
 
-export function PracticeDetailHero({ area }: { area: PracticeArea }) {
+export async function PracticeDetailHero({ area }: { area: PracticeArea }) {
+  const tNav = await getTranslations("Nav");
   const num = formatNum(area.display_order);
   return (
     <section className="bg-forest-deep pt-[100px] pb-12 px-5 md:pt-[120px] md:pb-20 md:px-[72px] relative overflow-hidden">
@@ -24,7 +26,7 @@ export function PracticeDetailHero({ area }: { area: PracticeArea }) {
       <div className="relative z-10 max-w-[1100px] mx-auto">
         <nav className="flex items-center gap-3 font-sans text-[10px] tracking-[2px] uppercase text-white/40 mb-10">
           <Link href="/practice-areas" className="hover:text-gold transition-colors">
-            Practice Areas
+            {tNav("practiceAreas")}
           </Link>
           <span className="text-gold/50">/</span>
           <span className="text-gold">{area.title}</span>
