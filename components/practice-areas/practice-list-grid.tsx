@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { PracticeIcon } from "@/components/icons/practice-icons";
 import type { Database } from "@/lib/supabase/types";
 import type { IconName } from "@/lib/constants";
@@ -9,7 +10,8 @@ function formatNum(order: number): string {
   return String(order).padStart(2, "0");
 }
 
-export function PracticeListGrid({ areas }: { areas: PracticeArea[] }) {
+export async function PracticeListGrid({ areas }: { areas: PracticeArea[] }) {
+  const t = await getTranslations("PracticeAreas");
   return (
     <section className="bg-ivory px-5 py-12 md:px-[72px] md:py-20">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
@@ -30,7 +32,7 @@ export function PracticeListGrid({ areas }: { areas: PracticeArea[] }) {
                 {area.description}
               </p>
               <div className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-gold inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                Learn More →
+                {t("learnMore")}
               </div>
             </div>
           </Link>
