@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "A full-service legal consultancy serving corporations, institutions, and individuals across 12 practice areas throughout Indonesia.",
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://jin-legal.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://jin-legal.com"
   ),
   openGraph: {
     title: "JIN Legal Counsel — Legal Excellence, Strategic Results",

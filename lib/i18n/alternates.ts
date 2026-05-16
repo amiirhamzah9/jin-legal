@@ -1,6 +1,6 @@
 import { routing, type Locale } from "@/i18n/routing";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jin-legal.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jin-legal.com";
 
 function localePath(locale: Locale, path: string): string {
   const normalized = path === "" || path === "/" ? "" : path.startsWith("/") ? path : `/${path}`;
