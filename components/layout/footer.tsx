@@ -3,12 +3,12 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 const PRACTICE_LINKS = [
-  { label: "Business & Corporate", slug: "business-corporate-law" },
-  { label: "Litigation", slug: "litigation-dispute-resolution" },
-  { label: "Employment Law", slug: "employment-law" },
-  { label: "Intellectual Property", slug: "intellectual-property" },
-  { label: "Banking & FinTech", slug: "banking-finance-fintech" },
-];
+  { key: "practiceBusiness", slug: "business-corporate-law" },
+  { key: "practiceLitigation", slug: "litigation-dispute-resolution" },
+  { key: "practiceEmployment", slug: "employment-law" },
+  { key: "practiceIp", slug: "intellectual-property" },
+  { key: "practiceBanking", slug: "banking-finance-fintech" },
+] as const;
 
 const COMPANY_LINKS = [
   { key: "about", href: "/about" },
@@ -50,7 +50,7 @@ export function Footer() {
                   href={`/practice-areas/${link.slug}`}
                   className="font-sans text-xs font-light text-white/40 hover:text-gold transition-colors"
                 >
-                  {link.label}
+                  {t(link.key)}
                 </Link>
               </li>
             ))}

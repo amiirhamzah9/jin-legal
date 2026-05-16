@@ -18,7 +18,12 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Use",
-    "city": "Jakarta, Indonesia"
+    "city": "Jakarta, Indonesia",
+    "practiceBusiness": "Business & Corporate",
+    "practiceLitigation": "Litigation",
+    "practiceEmployment": "Employment Law",
+    "practiceIp": "Intellectual Property",
+    "practiceBanking": "Banking & FinTech"
   },
   "LanguageSwitcher": {
     "label": "Language",
