@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/server";
 import type { Database } from "@/lib/supabase/types";
 import type { Locale } from "@/i18n/routing";
 import {
@@ -21,7 +21,7 @@ export async function getRecentBlogPosts(
   limit = 12,
   locale: Locale = DEFAULT_LOCALE
 ): Promise<BlogPost[]> {
-  const supabase = createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("blog_posts")
     .select("*")
@@ -40,7 +40,7 @@ export async function getBlogPostBySlug(
   slug: string,
   locale: Locale = DEFAULT_LOCALE
 ): Promise<BlogPost | null> {
-  const supabase = createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("blog_posts")
     .select("*")
@@ -56,7 +56,7 @@ export async function getBlogPostBySlug(
 }
 
 export async function getAllPublishedSlugs(): Promise<string[]> {
-  const supabase = createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("blog_posts")
     .select("slug")
@@ -75,7 +75,7 @@ export async function getAllPublishedSlugs(): Promise<string[]> {
 export async function getActiveCareers(
   locale: Locale = DEFAULT_LOCALE
 ): Promise<Career[]> {
-  const supabase = createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("careers")
     .select("*")
@@ -93,7 +93,7 @@ export async function getCareerBySlug(
   slug: string,
   locale: Locale = DEFAULT_LOCALE
 ): Promise<Career | null> {
-  const supabase = createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("careers")
     .select("*")
@@ -105,7 +105,7 @@ export async function getCareerBySlug(
 }
 
 export async function getAllCareerSlugs(): Promise<string[]> {
-  const supabase = createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("careers")
     .select("slug")
@@ -124,7 +124,7 @@ export async function getActiveTeamMembers(
   limit?: number,
   locale: Locale = DEFAULT_LOCALE
 ): Promise<TeamMember[]> {
-  const supabase = createClient();
+  const supabase = createPublicClient();
   let query = supabase
     .from("team_members")
     .select("*")
@@ -144,7 +144,7 @@ export async function getTeamMembersByGroup(
   locale: Locale = DEFAULT_LOCALE
 ): Promise<TeamMember[]> {
   if (group === "all") return getActiveTeamMembers(undefined, locale);
-  const supabase = createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("team_members")
     .select("*")
@@ -162,7 +162,7 @@ export async function getTeamMemberBySlug(
   slug: string,
   locale: Locale = DEFAULT_LOCALE
 ): Promise<TeamMember | null> {
-  const supabase = createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("team_members")
     .select("*")
@@ -177,7 +177,7 @@ export async function getTeamMembersForPracticeArea(
   practiceSlug: string,
   locale: Locale = DEFAULT_LOCALE
 ): Promise<TeamMember[]> {
-  const supabase = createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("team_members")
     .select("*")
@@ -196,7 +196,7 @@ export async function getTeamMembersForPracticeArea(
 export async function getAllPracticeAreas(
   locale: Locale = DEFAULT_LOCALE
 ): Promise<PracticeArea[]> {
-  const supabase = createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("practice_areas")
     .select("*")
@@ -212,7 +212,7 @@ export async function getPracticeAreaBySlug(
   slug: string,
   locale: Locale = DEFAULT_LOCALE
 ): Promise<PracticeArea | null> {
-  const supabase = createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("practice_areas")
     .select("*")

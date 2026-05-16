@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/homepage/hero";
@@ -11,6 +12,8 @@ import { CtaBanner } from "@/components/homepage/cta-banner";
 import type { Locale } from "@/i18n/routing";
 import { buildAlternates } from "@/lib/i18n/alternates";
 
+export const revalidate = 300;
+
 export function generateMetadata({
   params,
 }: {
@@ -21,7 +24,12 @@ export function generateMetadata({
   };
 }
 
-export default function HomePage() {
+export default function HomePage({
+  params,
+}: {
+  params: { locale: Locale };
+}) {
+  setRequestLocale(params.locale);
   return (
     <>
       <Nav />
