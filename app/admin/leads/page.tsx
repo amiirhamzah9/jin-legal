@@ -18,17 +18,17 @@ export default async function AdminLeadsPage() {
     <div>
       <div className="mb-10">
         <div className="font-sans text-[10px] font-bold tracking-[2.5px] uppercase text-gold mb-2">
-          Inbox
+          Kotak Masuk
         </div>
         <h1 className="font-serif text-[34px] font-light text-forest leading-tight">
-          Contact Leads
+          Lead Kontak
         </h1>
       </div>
 
       {list.length === 0 ? (
         <div className="text-center py-20 bg-white">
           <p className="font-sans text-[14px] font-light text-ink-muted">
-            No leads yet — when visitors submit the contact form they&apos;ll appear here.
+            Belum ada lead — pesan dari formulir kontak akan muncul di sini.
           </p>
         </div>
       ) : (

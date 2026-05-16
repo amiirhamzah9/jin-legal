@@ -47,34 +47,34 @@ export default async function AdminDashboardPage() {
     <div>
       <div className="mb-10">
         <div className="font-sans text-[10px] font-bold tracking-[2.5px] uppercase text-gold mb-2">
-          Overview
+          Ringkasan
         </div>
         <h1 className="font-serif text-[34px] font-light text-forest leading-tight">
-          Dashboard
+          Dasbor
         </h1>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-5 mb-12">
         <StatCard
-          label="Blog Posts"
+          label="Artikel Blog"
           value={counts.postsTotal}
-          helper={`${counts.postsPublished} published`}
+          helper={`${counts.postsPublished} dipublikasi`}
         />
         <StatCard
-          label="Contact Leads"
+          label="Lead Kontak"
           value={counts.leadsTotal}
-          helper={`${counts.leadsUnread} unread`}
+          helper={`${counts.leadsUnread} belum dibaca`}
         />
         <StatCard
-          label="Team Members"
+          label="Anggota Tim"
           value={counts.teamActive}
-          helper="active"
+          helper="aktif"
         />
         <StatCard
-          label="Active Careers"
+          label="Lowongan Aktif"
           value={counts.careersActive}
         />
-        <StatCard label="Practice Areas" value={counts.practiceAreas} />
+        <StatCard label="Bidang Praktik" value={counts.practiceAreas} />
       </div>
 
       <div className="grid grid-cols-3 gap-5">
@@ -83,10 +83,10 @@ export default async function AdminDashboardPage() {
           className="bg-forest text-white px-6 py-5 hover:bg-forest-mid transition-colors"
         >
           <div className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-gold mb-2">
-            Quick Action
+            Aksi Cepat
           </div>
           <div className="font-serif text-[18px] font-medium">
-            New Blog Post →
+            Artikel Baru →
           </div>
         </Link>
         <Link
@@ -94,19 +94,19 @@ export default async function AdminDashboardPage() {
           className="bg-forest text-white px-6 py-5 hover:bg-forest-mid transition-colors"
         >
           <div className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-gold mb-2">
-            Quick Action
+            Aksi Cepat
           </div>
-          <div className="font-serif text-[18px] font-medium">View Leads →</div>
+          <div className="font-serif text-[18px] font-medium">Lihat Lead →</div>
         </Link>
         <Link
           href="/admin/careers/new"
           className="bg-forest text-white px-6 py-5 hover:bg-forest-mid transition-colors"
         >
           <div className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-gold mb-2">
-            Quick Action
+            Aksi Cepat
           </div>
           <div className="font-serif text-[18px] font-medium">
-            Post a Job →
+            Posting Lowongan →
           </div>
         </Link>
       </div>

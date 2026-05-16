@@ -20,7 +20,7 @@ function SaveButton({ mode }: { mode: "create" | "edit" }) {
   const { pending } = useFormStatus();
   return (
     <Button variant="gold" type="submit" disabled={pending} className="px-9 py-3.5">
-      {pending ? "Saving…" : mode === "create" ? "Create Team Member" : "Save Changes"}
+      {pending ? "Menyimpan…" : mode === "create" ? "Buat Anggota Tim" : "Simpan Perubahan"}
     </Button>
   );
 }
@@ -57,7 +57,7 @@ export function TeamForm({
             htmlFor="name"
             className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
           >
-            Name *
+            Nama *
           </label>
           <input
             id="name"
@@ -73,14 +73,14 @@ export function TeamForm({
             htmlFor="credentials"
             className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
           >
-            Credentials
+            Gelar
           </label>
           <input
             id="credentials"
             name="credentials"
             type="text"
             defaultValue={member?.credentials ?? ""}
-            placeholder="e.g. S.H."
+            placeholder="cth. S.H."
             className={FIELD_BASE}
           />
         </div>
@@ -89,7 +89,7 @@ export function TeamForm({
             htmlFor="role"
             className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
           >
-            Role (English) *
+            Posisi (English) *
           </label>
           <input
             id="role"
@@ -97,7 +97,7 @@ export function TeamForm({
             type="text"
             required
             defaultValue={member?.role}
-            placeholder="e.g. Managing Partner"
+            placeholder="cth. Managing Partner"
             className={FIELD_BASE}
           />
         </div>
@@ -113,7 +113,7 @@ export function TeamForm({
             name="slug"
             type="text"
             defaultValue={member?.slug ?? ""}
-            placeholder="auto-generated from name if blank"
+            placeholder="otomatis dari nama jika kosong"
             className={FIELD_BASE}
           />
         </div>
@@ -124,14 +124,14 @@ export function TeamForm({
           htmlFor="bio"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Bio (English)
+          Biografi (English)
         </label>
         <textarea
           id="bio"
           name="bio"
           rows={4}
           defaultValue={member?.bio ?? ""}
-          placeholder="Short professional bio"
+          placeholder="Biografi profesional singkat"
           className={FIELD_BASE}
         />
       </div>
@@ -186,27 +186,27 @@ export function TeamForm({
           htmlFor="photo_url"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Photo URL
+          URL Foto
         </label>
         <input
           id="photo_url"
           name="photo_url"
           type="text"
           defaultValue={member?.photo_url ?? ""}
-          placeholder="https://... or /team/filename.jpg"
+          placeholder="https://... atau /team/filename.jpg"
           className={FIELD_BASE}
         />
         <p className="font-sans text-[11px] text-ink-muted mt-2">
-          Tip: upload to the{" "}
+          Tips: upload ke{" "}
           <a
             href="https://supabase.com/dashboard/project/ymerojltkwjauqhdhnzu/storage/buckets/team-photos"
             target="_blank"
             rel="noreferrer"
             className="text-gold hover:underline"
           >
-            team-photos bucket
+            bucket team-photos
           </a>{" "}
-          in Supabase, then paste the public URL here.
+          di Supabase, lalu tempel URL publiknya di sini.
         </p>
       </div>
 
@@ -216,7 +216,7 @@ export function TeamForm({
             htmlFor="practice_group"
             className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
           >
-            Practice Group
+            Grup Praktik
           </label>
           <select
             id="practice_group"
@@ -225,9 +225,9 @@ export function TeamForm({
             className={FIELD_BASE}
           >
             <option value="">—</option>
-            <option value="corporate-business">Corporate & Business</option>
-            <option value="litigation">Litigation</option>
-            <option value="specialties">Specialties</option>
+            <option value="corporate-business">Korporasi & Bisnis</option>
+            <option value="litigation">Litigasi</option>
+            <option value="specialties">Spesialisasi</option>
           </select>
         </div>
         <div className="md:col-span-2">
@@ -235,7 +235,7 @@ export function TeamForm({
             htmlFor="practice_areas"
             className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
           >
-            Practice Area Slugs (comma-separated)
+            Slug Bidang Praktik (pisahkan dengan koma)
           </label>
           <input
             id="practice_areas"
@@ -254,7 +254,7 @@ export function TeamForm({
             htmlFor="display_order"
             className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
           >
-            Display Order
+            Urutan Tampil
           </label>
           <input
             id="display_order"
@@ -273,7 +273,7 @@ export function TeamForm({
             className="w-4 h-4 accent-gold"
           />
           <span className="font-sans text-[11px] font-medium tracking-wide text-ink">
-            Active (visible on /team)
+            Aktif (tampil di /team)
           </span>
         </label>
       </div>

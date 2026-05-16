@@ -43,7 +43,7 @@ export async function createCareer(
   if (!fields.title || !fields.description || !fields.type) {
     return {
       status: "error",
-      message: "Title, description, and type are required.",
+      message: "Judul, deskripsi, dan tipe wajib diisi.",
     };
   }
 
@@ -75,7 +75,7 @@ export async function updateCareer(
   if (!fields.title || !fields.description || !fields.type) {
     return {
       status: "error",
-      message: "Title, description, and type are required.",
+      message: "Judul, deskripsi, dan tipe wajib diisi.",
     };
   }
 
@@ -93,7 +93,7 @@ export async function updateCareer(
   revalidatePath(`/admin/careers/${careerId}`);
   revalidatePath("/careers");
   revalidatePath(`/careers/${fields.slug}`);
-  return { status: "success", message: "Career saved." };
+  return { status: "success", message: "Lowongan tersimpan." };
 }
 
 export async function deleteCareer(careerId: string) {

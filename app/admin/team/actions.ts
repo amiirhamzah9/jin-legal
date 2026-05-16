@@ -50,7 +50,7 @@ export async function createTeamMember(
   const fields = getFields(formData);
 
   if (!fields.name || !fields.role) {
-    return { status: "error", message: "Name and role are required." };
+    return { status: "error", message: "Nama dan posisi wajib diisi." };
   }
   const slug = fields.slug || slugify(fields.name);
 
@@ -64,7 +64,7 @@ export async function createTeamMember(
   if (error) {
     return {
       status: "error",
-      message: error.code === "23505" ? "Slug already exists." : error.message,
+      message: error.code === "23505" ? "Slug sudah digunakan." : error.message,
     };
   }
 
@@ -83,7 +83,7 @@ export async function updateTeamMember(
   const fields = getFields(formData);
 
   if (!fields.name || !fields.role) {
-    return { status: "error", message: "Name and role are required." };
+    return { status: "error", message: "Nama dan posisi wajib diisi." };
   }
   const slug = fields.slug || slugify(fields.name);
 
@@ -96,7 +96,7 @@ export async function updateTeamMember(
   if (error) {
     return {
       status: "error",
-      message: error.code === "23505" ? "Slug already exists." : error.message,
+      message: error.code === "23505" ? "Slug sudah digunakan." : error.message,
     };
   }
 
@@ -104,7 +104,7 @@ export async function updateTeamMember(
   revalidatePath(`/admin/team/${memberId}`);
   revalidatePath("/team");
   revalidatePath("/");
-  return { status: "success", message: "Team member saved." };
+  return { status: "success", message: "Anggota tim tersimpan." };
 }
 
 export async function deleteTeamMember(memberId: string) {

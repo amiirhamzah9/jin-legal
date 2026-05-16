@@ -17,14 +17,14 @@ export async function loginAction(
   const redirectTo = String(formData.get("redirectTo") ?? "/admin");
 
   if (!email || !password) {
-    return { status: "error", message: "Email and password are required." };
+    return { status: "error", message: "Email dan kata sandi wajib diisi." };
   }
 
   const supabase = createClient();
   const { error } = await supabase.auth.signInWithPassword({ email, password });
 
   if (error) {
-    return { status: "error", message: "Invalid email or password." };
+    return { status: "error", message: "Email atau kata sandi salah." };
   }
 
   redirect(redirectTo);

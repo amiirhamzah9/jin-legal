@@ -29,19 +29,19 @@ export default async function EditCareerPage({
         href="/admin/careers"
         className="inline-flex items-center gap-2 font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted hover:text-gold transition-colors mb-8"
       >
-        ← Back to Careers
+        ← Kembali ke Karier
       </Link>
       <div className="flex items-start justify-between mb-10">
         <div>
           <div className="font-sans text-[10px] font-bold tracking-[2.5px] uppercase text-gold mb-2">
-            Edit Career
+            Sunting Lowongan
           </div>
           <h1 className="font-serif text-[28px] font-light text-forest leading-tight">
             {career.title}
           </h1>
         </div>
         <DeleteButton
-          label="Delete Career"
+          label="Hapus Lowongan"
           onConfirm={async () => {
             "use server";
             await deleteCareer(career.id);

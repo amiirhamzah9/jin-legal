@@ -4,8 +4,8 @@ import { useState } from "react";
 
 export function DeleteButton({
   onConfirm,
-  label = "Delete",
-  confirmText = "Are you sure? This cannot be undone.",
+  label = "Hapus",
+  confirmText = "Yakin? Aksi ini tidak dapat dibatalkan.",
 }: {
   onConfirm: () => Promise<void> | void;
   label?: string;
@@ -26,14 +26,14 @@ export function DeleteButton({
           type="submit"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-white bg-red-600 px-4 py-2 hover:bg-red-700 transition-colors"
         >
-          Confirm
+          Konfirmasi
         </button>
         <button
           type="button"
           onClick={() => setConfirming(false)}
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-2 hover:text-ink transition-colors"
         >
-          Cancel
+          Batal
         </button>
       </form>
     );

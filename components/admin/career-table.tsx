@@ -8,7 +8,7 @@ export function CareerTable({ careers }: { careers: Career[] }) {
     return (
       <div className="bg-white py-16 text-center">
         <p className="font-sans text-[14px] font-light text-ink-muted">
-          No careers posted. Create one above.
+          Belum ada lowongan. Buat lowongan di atas.
         </p>
       </div>
     );
@@ -18,13 +18,13 @@ export function CareerTable({ careers }: { careers: Career[] }) {
       <thead>
         <tr className="border-b border-ivory-dark">
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-6 py-4">
-            Title
+            Judul
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
-            Type
+            Tipe
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
-            Location
+            Lokasi
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
             Status
@@ -59,7 +59,7 @@ export function CareerTable({ careers }: { careers: Career[] }) {
                     : "bg-ivory-dark text-ink-muted"
                 }`}
               >
-                {career.is_active ? "Active" : "Inactive"}
+                {career.is_active ? "Aktif" : "Nonaktif"}
               </span>
             </td>
           </tr>

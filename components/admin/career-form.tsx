@@ -20,7 +20,7 @@ function SaveButton({ mode }: { mode: "create" | "edit" }) {
   const { pending } = useFormStatus();
   return (
     <Button variant="gold" type="submit" disabled={pending} className="px-9 py-3.5">
-      {pending ? "Saving…" : mode === "create" ? "Create Career" : "Save Changes"}
+      {pending ? "Menyimpan…" : mode === "create" ? "Buat Lowongan" : "Simpan Perubahan"}
     </Button>
   );
 }
@@ -57,7 +57,7 @@ export function CareerForm({
           htmlFor="title"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Title (English) *
+          Judul (English) *
         </label>
         <input
           id="title"
@@ -74,7 +74,7 @@ export function CareerForm({
           htmlFor="description"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Description (English) *
+          Deskripsi (English) *
         </label>
         <textarea
           id="description"
@@ -92,7 +92,7 @@ export function CareerForm({
             htmlFor="type"
             className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
           >
-            Type *
+            Tipe *
           </label>
           <select
             id="type"
@@ -101,11 +101,11 @@ export function CareerForm({
             defaultValue={career?.type}
             className={FIELD_BASE}
           >
-            <option value="">Choose…</option>
+            <option value="">Pilih…</option>
             <option value="Full-time">Full-time</option>
             <option value="Part-time">Part-time</option>
-            <option value="Contract">Contract</option>
-            <option value="Internship">Internship</option>
+            <option value="Contract">Kontrak</option>
+            <option value="Internship">Magang</option>
           </select>
         </div>
         <div>
@@ -113,7 +113,7 @@ export function CareerForm({
             htmlFor="location"
             className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
           >
-            Location
+            Lokasi
           </label>
           <input
             id="location"
@@ -179,7 +179,7 @@ export function CareerForm({
           className="w-4 h-4 accent-gold"
         />
         <span className="font-sans text-[11px] font-medium tracking-wide text-ink">
-          Active (visible on /careers)
+          Aktif (tampil di /careers)
         </span>
       </label>
 

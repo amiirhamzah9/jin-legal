@@ -5,12 +5,12 @@ import { AdminNavLink } from "./admin-nav-link";
 import { SignOutButton } from "./sign-out-button";
 
 const NAV_ITEMS = [
-  { href: "/admin", label: "Dashboard" },
-  { href: "/admin/leads", label: "Leads" },
-  { href: "/admin/blog", label: "Blog Posts" },
-  { href: "/admin/team", label: "Team" },
-  { href: "/admin/practice-areas", label: "Practice Areas" },
-  { href: "/admin/careers", label: "Careers" },
+  { href: "/admin", label: "Dasbor" },
+  { href: "/admin/leads", label: "Lead" },
+  { href: "/admin/blog", label: "Artikel Blog" },
+  { href: "/admin/team", label: "Tim" },
+  { href: "/admin/practice-areas", label: "Bidang Praktik" },
+  { href: "/admin/careers", label: "Karier" },
 ];
 
 export function AdminShell({
@@ -45,7 +45,7 @@ export function AdminShell({
         </nav>
         <div className="px-6 py-5 border-t border-white/5">
           <div className="font-sans text-[10px] text-white/35 mb-2">
-            Signed in as
+            Masuk sebagai
           </div>
           <div className="font-sans text-[10px] md:text-[12px] text-white/70 mb-4 break-all">
             {userEmail}

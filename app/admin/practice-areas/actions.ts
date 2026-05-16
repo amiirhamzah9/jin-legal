@@ -42,7 +42,7 @@ export async function updatePracticeArea(
   const fields = getFields(formData);
 
   if (!fields.title || !fields.description) {
-    return { status: "error", message: "Title and description are required." };
+    return { status: "error", message: "Judul dan deskripsi wajib diisi." };
   }
 
   const supabase = createClient();
@@ -67,5 +67,5 @@ export async function updatePracticeArea(
   revalidatePath("/practice-areas");
   if (existing?.slug) revalidatePath(`/practice-areas/${existing.slug}`);
   revalidatePath("/");
-  return { status: "success", message: "Practice area saved." };
+  return { status: "success", message: "Bidang praktik tersimpan." };
 }

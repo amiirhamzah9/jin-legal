@@ -34,11 +34,11 @@ export default async function LeadDetailPage({
         href="/admin/leads"
         className="inline-flex items-center gap-2 font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted hover:text-gold transition-colors mb-8"
       >
-        ← Back to Inbox
+        ← Kembali ke Kotak Masuk
       </Link>
 
       <div className="font-sans text-[10px] font-bold tracking-[2.5px] uppercase text-gold mb-3">
-        {lead.subject ?? "General Inquiry"}
+        {lead.subject ?? "Pertanyaan Umum"}
       </div>
       <h1 className="font-serif text-[34px] font-light text-forest leading-tight mb-2">
         {lead.name}
@@ -55,12 +55,12 @@ export default async function LeadDetailPage({
         <div className="font-sans text-[13px] text-ink-muted mb-1">{lead.company}</div>
       )}
       <div className="font-sans text-[11px] text-ink-faint mt-3">
-        Received {new Date(lead.created_at).toLocaleString("en-US")}
+        Diterima {new Date(lead.created_at).toLocaleString("id-ID")}
       </div>
 
       <div className="my-8 bg-white p-8 border-l-2 border-gold">
         <div className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-gold mb-4">
-          Message
+          Pesan
         </div>
         <p className="font-sans text-[15px] font-light text-ink leading-[1.85] whitespace-pre-wrap">
           {lead.message}
@@ -70,7 +70,7 @@ export default async function LeadDetailPage({
       <div className="flex items-center gap-4">
         <MarkReadButton leadId={lead.id} isRead={lead.is_read} />
         <DeleteButton
-          label="Delete Lead"
+          label="Hapus Lead"
           onConfirm={async () => {
             "use server";
             await deleteLead(lead.id);

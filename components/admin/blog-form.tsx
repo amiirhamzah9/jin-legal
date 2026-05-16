@@ -21,7 +21,7 @@ function SaveButton({ mode }: { mode: "create" | "edit" }) {
   const { pending } = useFormStatus();
   return (
     <Button variant="gold" type="submit" disabled={pending} className="px-9 py-3.5">
-      {pending ? "Saving…" : mode === "create" ? "Create Post" : "Save Changes"}
+      {pending ? "Menyimpan…" : mode === "create" ? "Buat Artikel" : "Simpan Perubahan"}
     </Button>
   );
 }
@@ -61,7 +61,7 @@ export function BlogForm({
 
         <div>
           <label htmlFor="title" className={LABEL_BASE}>
-            Title (English) *
+            Judul (English) *
           </label>
           <input
             id="title"
@@ -82,21 +82,21 @@ export function BlogForm({
             name="slug"
             type="text"
             defaultValue={post?.slug}
-            placeholder="auto-generated from title if blank"
+            placeholder="otomatis dari judul jika kosong"
             className={FIELD_BASE}
           />
         </div>
 
         <div>
           <label htmlFor="excerpt" className={LABEL_BASE}>
-            Excerpt (English)
+            Ringkasan (English)
           </label>
           <input
             id="excerpt"
             name="excerpt"
             type="text"
             defaultValue={post?.excerpt ?? ""}
-            placeholder="Short summary shown on the listing page"
+            placeholder="Ringkasan singkat untuk halaman daftar"
             className={FIELD_BASE}
           />
         </div>
@@ -104,14 +104,14 @@ export function BlogForm({
         <div>
           <div className="flex justify-between items-center mb-2">
             <label htmlFor="content" className={LABEL_BASE.replace("mb-2", "")}>
-              Content English (Markdown) *
+              Konten (English — Markdown) *
             </label>
             <button
               type="button"
               onClick={() => setShowPreview((v) => !v)}
               className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-gold hover:underline"
             >
-              {showPreview ? "Hide Preview" : "Show Preview"}
+              {showPreview ? "Sembunyikan Preview" : "Tampilkan Preview"}
             </button>
           </div>
           <textarea
@@ -138,7 +138,7 @@ export function BlogForm({
             Bahasa Indonesia
           </div>
           <p className="font-sans text-[12px] text-ink-muted mb-6">
-            Optional. Leave blank to fall back to the English version on{" "}
+            Opsional. Kosongkan untuk fallback ke versi English pada{" "}
             <code>/id</code>.
           </p>
 
@@ -212,14 +212,14 @@ export function BlogForm({
       <aside className="space-y-5">
         <div>
           <label htmlFor="category" className={LABEL_BASE}>
-            Category (English)
+            Kategori (English)
           </label>
           <input
             id="category"
             name="category"
             type="text"
             defaultValue={post?.category ?? ""}
-            placeholder="e.g. Corporate Law"
+            placeholder="cth. Corporate Law"
             className={FIELD_BASE}
           />
         </div>
@@ -240,7 +240,7 @@ export function BlogForm({
 
         <div>
           <label htmlFor="cover_image_url" className={LABEL_BASE}>
-            Cover Image URL
+            URL Gambar Sampul
           </label>
           <input
             id="cover_image_url"
@@ -260,7 +260,7 @@ export function BlogForm({
             className="w-4 h-4 accent-gold"
           />
           <span className="font-sans text-[11px] font-medium tracking-wide text-ink">
-            Published
+            Dipublikasi
           </span>
         </label>
 

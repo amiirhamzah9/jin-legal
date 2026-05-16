@@ -26,11 +26,11 @@ export default async function EditPracticeAreaPage({
         href="/admin/practice-areas"
         className="inline-flex items-center gap-2 font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted hover:text-gold transition-colors mb-8"
       >
-        ← Back to Practice Areas
+        ← Kembali ke Bidang Praktik
       </Link>
       <div className="mb-10">
         <div className="font-sans text-[10px] font-bold tracking-[2.5px] uppercase text-gold mb-2">
-          Edit Practice Area
+          Sunting Bidang Praktik
         </div>
         <h1 className="font-serif text-[28px] font-light text-forest leading-tight">
           {area.title}

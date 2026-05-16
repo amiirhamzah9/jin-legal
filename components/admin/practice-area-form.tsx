@@ -19,7 +19,7 @@ function SaveButton() {
   const { pending } = useFormStatus();
   return (
     <Button variant="gold" type="submit" disabled={pending} className="px-9 py-3.5">
-      {pending ? "Saving…" : "Save Changes"}
+      {pending ? "Menyimpan…" : "Simpan Perubahan"}
     </Button>
   );
 }
@@ -52,7 +52,7 @@ export function PracticeAreaForm({ area }: { area: PracticeArea }) {
         </div>
         <div className="font-mono text-[13px] text-ink">{area.slug}</div>
         <p className="font-sans text-[11px] text-ink-muted mt-1">
-          Slug cannot be changed — it&apos;s tied to the public URL{" "}
+          Slug tidak bisa diubah — terhubung dengan URL publik{" "}
           <code>/practice-areas/{area.slug}</code>.
         </p>
       </div>
@@ -62,7 +62,7 @@ export function PracticeAreaForm({ area }: { area: PracticeArea }) {
           htmlFor="title"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Title (English) *
+          Judul (English) *
         </label>
         <input
           id="title"
@@ -79,7 +79,7 @@ export function PracticeAreaForm({ area }: { area: PracticeArea }) {
           htmlFor="description"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Short Description (English) *
+          Deskripsi Singkat (English) *
         </label>
         <textarea
           id="description"
@@ -87,7 +87,7 @@ export function PracticeAreaForm({ area }: { area: PracticeArea }) {
           required
           rows={2}
           defaultValue={area.description}
-          placeholder="One-sentence summary shown on listing card and detail hero"
+          placeholder="Ringkasan satu kalimat untuk listing card dan detail hero"
           className={FIELD_BASE}
         />
       </div>
@@ -97,14 +97,14 @@ export function PracticeAreaForm({ area }: { area: PracticeArea }) {
           htmlFor="full_content"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Full Content English (Our Approach paragraph)
+          Konten Lengkap (English — paragraf Pendekatan Kami)
         </label>
         <textarea
           id="full_content"
           name="full_content"
           rows={8}
           defaultValue={area.full_content ?? ""}
-          placeholder="Detailed explanation shown on the practice area detail page"
+          placeholder="Penjelasan detail untuk halaman detail bidang praktik"
           className={FIELD_BASE}
         />
       </div>
@@ -114,14 +114,14 @@ export function PracticeAreaForm({ area }: { area: PracticeArea }) {
           htmlFor="services"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Services English (one per line)
+          Layanan (English — satu per baris)
         </label>
         <textarea
           id="services"
           name="services"
           rows={6}
           defaultValue={servicesInput}
-          placeholder={"Service 1\nService 2\nService 3"}
+          placeholder={"Layanan 1\nLayanan 2\nLayanan 3"}
           className={`${FIELD_BASE} font-mono`}
         />
       </div>
@@ -211,7 +211,7 @@ export function PracticeAreaForm({ area }: { area: PracticeArea }) {
           htmlFor="display_order"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Display Order
+          Urutan Tampil
         </label>
         <input
           id="display_order"

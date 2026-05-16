@@ -47,11 +47,11 @@ export async function createPost(
   const fields = getCommonFields(formData);
 
   if (!fields.title || !fields.content) {
-    return { status: "error", message: "Title and content are required." };
+    return { status: "error", message: "Judul dan konten wajib diisi." };
   }
   const slug = fields.slug || slugify(fields.title);
   if (!slug) {
-    return { status: "error", message: "Could not generate a valid slug." };
+    return { status: "error", message: "Slug tidak dapat dibuat." };
   }
 
   const supabase = createClient();
@@ -78,7 +78,7 @@ export async function createPost(
   if (error) {
     return {
       status: "error",
-      message: error.code === "23505" ? "Slug already exists." : error.message,
+      message: error.code === "23505" ? "Slug sudah digunakan." : error.message,
     };
   }
 
@@ -95,7 +95,7 @@ export async function updatePost(
   await requireAdmin();
   const fields = getCommonFields(formData);
   if (!fields.title || !fields.content) {
-    return { status: "error", message: "Title and content are required." };
+    return { status: "error", message: "Judul dan konten wajib diisi." };
   }
   const slug = fields.slug || slugify(fields.title);
 
@@ -121,7 +121,7 @@ export async function updatePost(
   if (error) {
     return {
       status: "error",
-      message: error.code === "23505" ? "Slug already exists." : error.message,
+      message: error.code === "23505" ? "Slug sudah digunakan." : error.message,
     };
   }
 
@@ -129,7 +129,7 @@ export async function updatePost(
   revalidatePath(`/admin/blog/${postId}`);
   revalidatePath("/insights");
   revalidatePath(`/insights/${slug}`);
-  return { status: "success", message: "Post saved." };
+  return { status: "success", message: "Artikel tersimpan." };
 }
 
 export async function deletePost(postId: string) {

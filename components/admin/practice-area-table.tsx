@@ -8,7 +8,7 @@ export function PracticeAreaTable({ areas }: { areas: PracticeArea[] }) {
     return (
       <div className="bg-white py-16 text-center">
         <p className="font-sans text-[14px] font-light text-ink-muted">
-          No practice areas configured.
+          Belum ada bidang praktik.
         </p>
       </div>
     );
@@ -21,13 +21,13 @@ export function PracticeAreaTable({ areas }: { areas: PracticeArea[] }) {
             #
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
-            Title
+            Judul
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
             Slug
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
-            Services
+            Layanan
           </th>
         </tr>
       </thead>
@@ -50,7 +50,7 @@ export function PracticeAreaTable({ areas }: { areas: PracticeArea[] }) {
             </td>
             <td className="px-4 py-4 font-mono text-[12px] text-ink-muted">{area.slug}</td>
             <td className="px-4 py-4 font-sans text-[12px] text-ink-muted">
-              {area.services?.length ?? 0} listed
+              {area.services?.length ?? 0} tercantum
             </td>
           </tr>
         ))}

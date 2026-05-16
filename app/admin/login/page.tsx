@@ -12,7 +12,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button variant="gold" type="submit" disabled={pending} className="w-full py-4 text-[11px]">
-      {pending ? "Signing in…" : "Sign In"}
+      {pending ? "Memproses…" : "Masuk"}
     </Button>
   );
 }
@@ -53,7 +53,7 @@ function LoginForm() {
             htmlFor="password"
             className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
           >
-            Password
+            Kata Sandi
           </label>
           <input
             id="password"
@@ -75,10 +75,10 @@ export default function LoginPage() {
     <main className="min-h-screen bg-forest-deep flex items-center justify-center px-6">
       <div className="w-full max-w-[420px] bg-white p-12">
         <div className="font-sans text-[9px] tracking-[3px] text-gold font-bold uppercase mb-3">
-          JIN Legal Counsel Admin
+          Admin JIN Legal Counsel
         </div>
         <h1 className="font-serif text-[34px] font-light text-forest leading-tight mb-10">
-          Sign In
+          Masuk
         </h1>
 
         <Suspense fallback={null}>

@@ -5,7 +5,7 @@ type Lead = Database["public"]["Tables"]["contact_leads"]["Row"];
 
 function formatRelative(iso: string): string {
   const d = new Date(iso);
-  return d.toLocaleString("en-US", {
+  return d.toLocaleString("id-ID", {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -32,7 +32,7 @@ export function LeadRow({ lead }: { lead: Lead }) {
           </span>
           {!lead.is_read && (
             <span className="font-sans text-[8px] font-bold tracking-[2px] uppercase text-gold bg-gold/10 px-2 py-0.5">
-              New
+              Baru
             </span>
           )}
         </div>

@@ -12,14 +12,14 @@ export default async function NewBlogPostPage() {
         href="/admin/blog"
         className="inline-flex items-center gap-2 font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted hover:text-gold transition-colors mb-8"
       >
-        ← Back to Posts
+        ← Kembali ke Artikel
       </Link>
       <div className="mb-10">
         <div className="font-sans text-[10px] font-bold tracking-[2.5px] uppercase text-gold mb-2">
-          New Post
+          Artikel Baru
         </div>
         <h1 className="font-serif text-[34px] font-light text-forest leading-tight">
-          Create Blog Post
+          Buat Artikel Blog
         </h1>
       </div>
       <BlogForm mode="create" />

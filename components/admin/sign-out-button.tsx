@@ -9,7 +9,7 @@ export function SignOutButton() {
         type="submit"
         className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-white/55 hover:text-gold transition-colors"
       >
-        Sign Out
+        Keluar
       </button>
     </form>
   );

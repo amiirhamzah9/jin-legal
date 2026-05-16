@@ -16,14 +16,14 @@ export default async function AdminPracticeAreasPage() {
     <div>
       <div className="mb-10">
         <div className="font-sans text-[10px] font-bold tracking-[2.5px] uppercase text-gold mb-2">
-          Content
+          Konten
         </div>
         <h1 className="font-serif text-[34px] font-light text-forest leading-tight">
-          Practice Areas
+          Bidang Praktik
         </h1>
         <p className="font-sans text-[13px] font-light text-ink-muted mt-3 max-w-[700px]">
-          Edit the descriptions, content, and services for each practice area. Slugs are
-          fixed — they&apos;re tied to the public URLs (e.g.{" "}
+          Sunting deskripsi, konten, dan layanan untuk setiap bidang praktik. Slug
+          bersifat tetap — terhubung dengan URL publik (mis.{" "}
           <code className="text-forest">/practice-areas/business-corporate-law</code>).
         </p>
       </div>

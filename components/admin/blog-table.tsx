@@ -5,7 +5,7 @@ type Post = Database["public"]["Tables"]["blog_posts"]["Row"];
 
 function formatDate(iso: string | null): string {
   if (!iso) return "—";
-  return new Date(iso).toLocaleDateString("en-US", {
+  return new Date(iso).toLocaleDateString("id-ID", {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -17,7 +17,7 @@ export function BlogTable({ posts }: { posts: Post[] }) {
     return (
       <div className="bg-white py-16 text-center">
         <p className="font-sans text-[14px] font-light text-ink-muted">
-          No posts yet. Create your first one above.
+          Belum ada artikel. Buat artikel pertama di atas.
         </p>
       </div>
     );
@@ -28,16 +28,16 @@ export function BlogTable({ posts }: { posts: Post[] }) {
       <thead>
         <tr className="border-b border-ivory-dark">
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-6 py-4">
-            Title
+            Judul
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
-            Category
+            Kategori
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
             Status
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
-            Published
+            Dipublikasi
           </th>
         </tr>
       </thead>
@@ -66,7 +66,7 @@ export function BlogTable({ posts }: { posts: Post[] }) {
                     : "bg-ivory-dark text-ink-muted"
                 }`}
               >
-                {post.is_published ? "Published" : "Draft"}
+                {post.is_published ? "Terbit" : "Draf"}
               </span>
             </td>
             <td className="px-4 py-4 font-sans text-[12px] text-ink-muted">

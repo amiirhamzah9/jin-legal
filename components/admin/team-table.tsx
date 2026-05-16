@@ -9,7 +9,7 @@ export function TeamTable({ members }: { members: TeamMember[] }) {
     return (
       <div className="bg-white py-16 text-center">
         <p className="font-sans text-[14px] font-light text-ink-muted">
-          No team members yet. Create the first one above.
+          Belum ada anggota tim. Buat anggota pertama di atas.
         </p>
       </div>
     );
@@ -19,19 +19,19 @@ export function TeamTable({ members }: { members: TeamMember[] }) {
       <thead>
         <tr className="border-b border-ivory-dark">
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-6 py-4">
-            Photo
+            Foto
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
-            Name
+            Nama
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
-            Role
+            Posisi
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
-            Group
+            Grup
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
-            Order
+            Urutan
           </th>
           <th className="text-left font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted px-4 py-4">
             Status
@@ -81,7 +81,7 @@ export function TeamTable({ members }: { members: TeamMember[] }) {
                   m.is_active ? "bg-gold/10 text-gold" : "bg-ivory-dark text-ink-muted"
                 }`}
               >
-                {m.is_active ? "Active" : "Inactive"}
+                {m.is_active ? "Aktif" : "Nonaktif"}
               </span>
             </td>
           </tr>
