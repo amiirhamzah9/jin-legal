@@ -28,6 +28,8 @@ function getFields(formData: FormData) {
     type: String(formData.get("type") ?? "").trim(),
     location: String(formData.get("location") ?? "").trim() || null,
     is_active: formData.get("is_active") === "on",
+    title_id: String(formData.get("title_id") ?? "").trim() || null,
+    description_id: String(formData.get("description_id") ?? "").trim() || null,
   };
 }
 

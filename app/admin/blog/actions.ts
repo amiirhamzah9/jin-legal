@@ -32,6 +32,10 @@ function getCommonFields(formData: FormData) {
     cover_image_url: String(formData.get("cover_image_url") ?? "").trim() || null,
     category: String(formData.get("category") ?? "").trim() || null,
     is_published: formData.get("is_published") === "on",
+    title_id: String(formData.get("title_id") ?? "").trim() || null,
+    excerpt_id: String(formData.get("excerpt_id") ?? "").trim() || null,
+    content_id: String(formData.get("content_id") ?? "").trim() || null,
+    category_indo: String(formData.get("category_indo") ?? "").trim() || null,
   };
 }
 
@@ -63,6 +67,10 @@ export async function createPost(
       author_id: null,
       is_published: fields.is_published,
       published_at: fields.is_published ? new Date().toISOString() : null,
+      title_id: fields.title_id,
+      excerpt_id: fields.excerpt_id,
+      content_id: fields.content_id,
+      category_indo: fields.category_indo,
     })
     .select("id")
     .single();
@@ -103,6 +111,10 @@ export async function updatePost(
       category: fields.category,
       is_published: fields.is_published,
       published_at: fields.is_published ? new Date().toISOString() : null,
+      title_id: fields.title_id,
+      excerpt_id: fields.excerpt_id,
+      content_id: fields.content_id,
+      category_indo: fields.category_indo,
     })
     .eq("id", postId);
 

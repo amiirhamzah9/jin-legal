@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { getCareerBySlug, getAllCareerSlugs } from "@/lib/data/queries";
 import { routing, type Locale } from "@/i18n/routing";
+import { buildAlternates } from "@/lib/i18n/alternates";
 
 export const revalidate = 300;
 
@@ -28,6 +29,7 @@ export async function generateMetadata({
   return {
     title: `${career.title} — Careers — JIN Legal Counsel`,
     description: `${career.title} (${career.type}, ${career.location ?? "Indonesia"}).`,
+    alternates: buildAlternates(params.locale, `/careers/${params.slug}`),
   };
 }
 

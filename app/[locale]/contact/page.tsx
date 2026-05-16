@@ -8,18 +8,20 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { ContactInfo } from "@/components/contact/contact-info";
 import { getAllPracticeAreas } from "@/lib/data/queries";
 import type { Locale } from "@/i18n/routing";
+import { buildAlternates } from "@/lib/i18n/alternates";
 
 export const revalidate = 300;
 
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: { locale: Locale };
 }): Promise<Metadata> {
   const t = await getTranslations({ locale: params.locale, namespace: "Contact" });
   return {
     title: `${t("heroTitle")} — JIN Legal Counsel`,
     description: t("heroSubtitle"),
+    alternates: buildAlternates(params.locale, "/contact"),
   };
 }
 

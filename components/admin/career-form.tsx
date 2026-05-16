@@ -57,7 +57,7 @@ export function CareerForm({
           htmlFor="title"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Title *
+          Title (English) *
         </label>
         <input
           id="title"
@@ -74,7 +74,7 @@ export function CareerForm({
           htmlFor="description"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Description *
+          Description (English) *
         </label>
         <textarea
           id="description"
@@ -122,6 +122,52 @@ export function CareerForm({
             defaultValue={career?.location ?? ""}
             className={FIELD_BASE}
           />
+        </div>
+      </div>
+
+      <div className="pt-8 border-t-2 border-gold/30">
+        <div className="font-sans text-[11px] font-bold tracking-[2.5px] uppercase text-gold mb-1">
+          Bahasa Indonesia
+        </div>
+        <p className="font-sans text-[12px] text-ink-muted mb-6">
+          Opsional. Kosongkan untuk fallback ke versi English pada{" "}
+          <code>/id/careers</code>.
+        </p>
+
+        <div className="space-y-5">
+          <div>
+            <label
+              htmlFor="title_id"
+              className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
+            >
+              Judul (Bahasa Indonesia)
+            </label>
+            <input
+              id="title_id"
+              name="title_id"
+              type="text"
+              defaultValue={career?.title_id ?? ""}
+              placeholder="Terjemahan judul lowongan"
+              className={FIELD_BASE}
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="description_id"
+              className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
+            >
+              Deskripsi (Bahasa Indonesia)
+            </label>
+            <textarea
+              id="description_id"
+              name="description_id"
+              rows={10}
+              defaultValue={career?.description_id ?? ""}
+              placeholder="Terjemahan deskripsi lengkap (Markdown didukung)"
+              className={FIELD_BASE}
+            />
+          </div>
         </div>
       </div>
 

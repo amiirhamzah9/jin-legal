@@ -7,18 +7,20 @@ import { TeamPageBody } from "@/components/team/team-filter-tabs";
 import { CtaBanner } from "@/components/homepage/cta-banner";
 import { getActiveTeamMembers } from "@/lib/data/queries";
 import type { Locale } from "@/i18n/routing";
+import { buildAlternates } from "@/lib/i18n/alternates";
 
 export const revalidate = 300;
 
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: { locale: Locale };
 }): Promise<Metadata> {
   const t = await getTranslations({ locale: params.locale, namespace: "Team" });
   return {
     title: `${t("heroTitle")} — JIN Legal Counsel`,
     description: t("heroSubtitle"),
+    alternates: buildAlternates(params.locale, "/team"),
   };
 }
 

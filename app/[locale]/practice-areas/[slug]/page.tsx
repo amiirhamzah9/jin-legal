@@ -10,6 +10,7 @@ import { CtaBanner } from "@/components/homepage/cta-banner";
 import { getAllPracticeAreas, getPracticeAreaBySlug } from "@/lib/data/queries";
 import type { Locale } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
+import { buildAlternates } from "@/lib/i18n/alternates";
 
 export const revalidate = 300;
 
@@ -30,6 +31,7 @@ export async function generateMetadata({
   return {
     title: `${area.title} — JIN Legal Counsel`,
     description: area.description,
+    alternates: buildAlternates(params.locale, `/practice-areas/${params.slug}`),
   };
 }
 

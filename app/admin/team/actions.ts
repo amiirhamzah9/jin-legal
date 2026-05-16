@@ -37,6 +37,8 @@ function getFields(formData: FormData) {
     practice_areas: practiceAreasRaw.length ? practiceAreasRaw : null,
     display_order: Number(formData.get("display_order") ?? 0),
     is_active: formData.get("is_active") === "on",
+    role_id: String(formData.get("role_id") ?? "").trim() || null,
+    bio_id: String(formData.get("bio_id") ?? "").trim() || null,
   };
 }
 

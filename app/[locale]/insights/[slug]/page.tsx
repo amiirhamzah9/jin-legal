@@ -9,6 +9,7 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import { setRequestLocale } from "next-intl/server";
 import { getBlogPostBySlug, getAllPublishedSlugs } from "@/lib/data/queries";
 import { routing, type Locale } from "@/i18n/routing";
+import { buildAlternates } from "@/lib/i18n/alternates";
 
 export const revalidate = 300;
 
@@ -46,9 +47,7 @@ export async function generateMetadata({
       description: post.excerpt ?? undefined,
       images: [ogImage],
     },
-    alternates: {
-      canonical: `/insights/${post.slug}`,
-    },
+    alternates: buildAlternates(params.locale, `/insights/${post.slug}`),
   };
 }
 

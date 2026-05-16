@@ -14,6 +14,9 @@ const INITIAL: BlogFormState = { status: "idle" };
 const FIELD_BASE =
   "w-full bg-white border border-ivory-dark px-4 py-3 font-sans text-[13px] text-ink focus:border-gold focus:outline-none transition-colors";
 
+const LABEL_BASE =
+  "font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block";
+
 function SaveButton({ mode }: { mode: "create" | "edit" }) {
   const { pending } = useFormStatus();
   return (
@@ -38,7 +41,9 @@ export function BlogForm({
   );
 
   const [content, setContent] = useState(post?.content ?? "");
+  const [contentId, setContentId] = useState(post?.content_id ?? "");
   const [showPreview, setShowPreview] = useState(false);
+  const [showPreviewId, setShowPreviewId] = useState(false);
 
   return (
     <form action={formAction} className="grid grid-cols-[2fr_1fr] gap-8">
@@ -55,11 +60,8 @@ export function BlogForm({
         )}
 
         <div>
-          <label
-            htmlFor="title"
-            className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
-          >
-            Title *
+          <label htmlFor="title" className={LABEL_BASE}>
+            Title (English) *
           </label>
           <input
             id="title"
@@ -72,10 +74,7 @@ export function BlogForm({
         </div>
 
         <div>
-          <label
-            htmlFor="slug"
-            className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
-          >
+          <label htmlFor="slug" className={LABEL_BASE}>
             Slug
           </label>
           <input
@@ -89,11 +88,8 @@ export function BlogForm({
         </div>
 
         <div>
-          <label
-            htmlFor="excerpt"
-            className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
-          >
-            Excerpt
+          <label htmlFor="excerpt" className={LABEL_BASE}>
+            Excerpt (English)
           </label>
           <input
             id="excerpt"
@@ -107,11 +103,8 @@ export function BlogForm({
 
         <div>
           <div className="flex justify-between items-center mb-2">
-            <label
-              htmlFor="content"
-              className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted"
-            >
-              Content (Markdown) *
+            <label htmlFor="content" className={LABEL_BASE.replace("mb-2", "")}>
+              Content English (Markdown) *
             </label>
             <button
               type="button"
@@ -139,15 +132,87 @@ export function BlogForm({
             </div>
           )}
         </div>
+
+        <div className="pt-8 border-t-2 border-gold/30">
+          <div className="font-sans text-[11px] font-bold tracking-[2.5px] uppercase text-gold mb-1">
+            Bahasa Indonesia
+          </div>
+          <p className="font-sans text-[12px] text-ink-muted mb-6">
+            Optional. Leave blank to fall back to the English version on{" "}
+            <code>/id</code>.
+          </p>
+
+          <div className="space-y-5">
+            <div>
+              <label htmlFor="title_id" className={LABEL_BASE}>
+                Judul (Bahasa Indonesia)
+              </label>
+              <input
+                id="title_id"
+                name="title_id"
+                type="text"
+                defaultValue={post?.title_id ?? ""}
+                placeholder="Terjemahan judul"
+                className={FIELD_BASE}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="excerpt_id" className={LABEL_BASE}>
+                Ringkasan (Bahasa Indonesia)
+              </label>
+              <input
+                id="excerpt_id"
+                name="excerpt_id"
+                type="text"
+                defaultValue={post?.excerpt_id ?? ""}
+                placeholder="Ringkasan singkat untuk halaman /id/insights"
+                className={FIELD_BASE}
+              />
+            </div>
+
+            <div>
+              <div className="flex justify-between items-center mb-2">
+                <label
+                  htmlFor="content_id"
+                  className={LABEL_BASE.replace("mb-2", "")}
+                >
+                  Isi Konten (Markdown — Bahasa Indonesia)
+                </label>
+                <button
+                  type="button"
+                  onClick={() => setShowPreviewId((v) => !v)}
+                  className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-gold hover:underline"
+                >
+                  {showPreviewId ? "Sembunyikan Preview" : "Tampilkan Preview"}
+                </button>
+              </div>
+              <textarea
+                id="content_id"
+                name="content_id"
+                rows={20}
+                value={contentId}
+                onChange={(e) => setContentId(e.target.value)}
+                placeholder="Terjemahan konten dalam Bahasa Indonesia"
+                className={`${FIELD_BASE} font-mono`}
+              />
+              {showPreviewId && contentId && (
+                <div className="mt-5 bg-ivory p-7 border-l-2 border-gold">
+                  <div className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-gold mb-4">
+                    Live Preview (ID)
+                  </div>
+                  <MarkdownContent source={contentId} />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
 
       <aside className="space-y-5">
         <div>
-          <label
-            htmlFor="category"
-            className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
-          >
-            Category
+          <label htmlFor="category" className={LABEL_BASE}>
+            Category (English)
           </label>
           <input
             id="category"
@@ -160,10 +225,21 @@ export function BlogForm({
         </div>
 
         <div>
-          <label
-            htmlFor="cover_image_url"
-            className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
-          >
+          <label htmlFor="category_indo" className={LABEL_BASE}>
+            Kategori (Bahasa Indonesia)
+          </label>
+          <input
+            id="category_indo"
+            name="category_indo"
+            type="text"
+            defaultValue={post?.category_indo ?? ""}
+            placeholder="cth. Hukum Korporasi"
+            className={FIELD_BASE}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="cover_image_url" className={LABEL_BASE}>
             Cover Image URL
           </label>
           <input

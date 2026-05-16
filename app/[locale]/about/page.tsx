@@ -7,16 +7,18 @@ import { FirmStory } from "@/components/about/firm-story";
 // import { Credentials } from "@/components/about/credentials"; // hidden temporarily
 import { CtaBanner } from "@/components/homepage/cta-banner";
 import type { Locale } from "@/i18n/routing";
+import { buildAlternates } from "@/lib/i18n/alternates";
 
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: { locale: Locale };
 }): Promise<Metadata> {
   const t = await getTranslations({ locale: params.locale, namespace: "About" });
   return {
     title: `${t("heroTitle")} — JIN Legal Counsel`,
     description: t("heroSubtitle"),
+    alternates: buildAlternates(params.locale, "/about"),
   };
 }
 

@@ -89,7 +89,7 @@ export function TeamForm({
             htmlFor="role"
             className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
           >
-            Role *
+            Role (English) *
           </label>
           <input
             id="role"
@@ -124,7 +124,7 @@ export function TeamForm({
           htmlFor="bio"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Bio
+          Bio (English)
         </label>
         <textarea
           id="bio"
@@ -134,6 +134,51 @@ export function TeamForm({
           placeholder="Short professional bio"
           className={FIELD_BASE}
         />
+      </div>
+
+      <div className="pt-8 border-t-2 border-gold/30">
+        <div className="font-sans text-[11px] font-bold tracking-[2.5px] uppercase text-gold mb-1">
+          Bahasa Indonesia
+        </div>
+        <p className="font-sans text-[12px] text-ink-muted mb-6">
+          Opsional. Kosongkan untuk fallback ke versi English pada{" "}
+          <code>/id/team</code>.
+        </p>
+
+        <div className="grid grid-cols-1 gap-5">
+          <div>
+            <label
+              htmlFor="role_id"
+              className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
+            >
+              Posisi/Role (Bahasa Indonesia)
+            </label>
+            <input
+              id="role_id"
+              name="role_id"
+              type="text"
+              defaultValue={member?.role_id ?? ""}
+              placeholder="cth. Managing Partner"
+              className={FIELD_BASE}
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="bio_id"
+              className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
+            >
+              Biografi (Bahasa Indonesia)
+            </label>
+            <textarea
+              id="bio_id"
+              name="bio_id"
+              rows={4}
+              defaultValue={member?.bio_id ?? ""}
+              placeholder="Biografi profesional singkat"
+              className={FIELD_BASE}
+            />
+          </div>
+        </div>
       </div>
 
       <div>

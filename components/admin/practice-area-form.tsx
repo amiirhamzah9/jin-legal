@@ -62,7 +62,7 @@ export function PracticeAreaForm({ area }: { area: PracticeArea }) {
           htmlFor="title"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Title *
+          Title (English) *
         </label>
         <input
           id="title"
@@ -79,7 +79,7 @@ export function PracticeAreaForm({ area }: { area: PracticeArea }) {
           htmlFor="description"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Short Description *
+          Short Description (English) *
         </label>
         <textarea
           id="description"
@@ -97,7 +97,7 @@ export function PracticeAreaForm({ area }: { area: PracticeArea }) {
           htmlFor="full_content"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Full Content (Our Approach paragraph)
+          Full Content English (Our Approach paragraph)
         </label>
         <textarea
           id="full_content"
@@ -114,7 +114,7 @@ export function PracticeAreaForm({ area }: { area: PracticeArea }) {
           htmlFor="services"
           className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
         >
-          Services (one per line)
+          Services English (one per line)
         </label>
         <textarea
           id="services"
@@ -124,6 +124,86 @@ export function PracticeAreaForm({ area }: { area: PracticeArea }) {
           placeholder={"Service 1\nService 2\nService 3"}
           className={`${FIELD_BASE} font-mono`}
         />
+      </div>
+
+      <div className="pt-8 border-t-2 border-gold/30">
+        <div className="font-sans text-[11px] font-bold tracking-[2.5px] uppercase text-gold mb-1">
+          Bahasa Indonesia
+        </div>
+        <p className="font-sans text-[12px] text-ink-muted mb-6">
+          Opsional. Kosongkan untuk fallback ke versi English pada{" "}
+          <code>/id/practice-areas</code>.
+        </p>
+
+        <div className="space-y-5">
+          <div>
+            <label
+              htmlFor="title_id"
+              className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
+            >
+              Judul (Bahasa Indonesia)
+            </label>
+            <input
+              id="title_id"
+              name="title_id"
+              type="text"
+              defaultValue={area.title_id ?? ""}
+              placeholder="Terjemahan judul"
+              className={FIELD_BASE}
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="description_id"
+              className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
+            >
+              Deskripsi Singkat (Bahasa Indonesia)
+            </label>
+            <textarea
+              id="description_id"
+              name="description_id"
+              rows={2}
+              defaultValue={area.description_id ?? ""}
+              placeholder="Ringkasan satu kalimat untuk listing card dan detail hero"
+              className={FIELD_BASE}
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="full_content_id"
+              className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
+            >
+              Konten Lengkap (Bahasa Indonesia)
+            </label>
+            <textarea
+              id="full_content_id"
+              name="full_content_id"
+              rows={8}
+              defaultValue={area.full_content_id ?? ""}
+              placeholder="Penjelasan detail untuk halaman detail practice area"
+              className={FIELD_BASE}
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="services_id"
+              className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-ink-muted mb-2 block"
+            >
+              Layanan (Bahasa Indonesia — satu per baris)
+            </label>
+            <textarea
+              id="services_id"
+              name="services_id"
+              rows={6}
+              defaultValue={(area.services_id ?? []).join("\n")}
+              placeholder={"Layanan 1\nLayanan 2\nLayanan 3"}
+              className={`${FIELD_BASE} font-mono`}
+            />
+          </div>
+        </div>
       </div>
 
       <div>

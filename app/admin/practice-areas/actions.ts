@@ -15,12 +15,21 @@ function getFields(formData: FormData) {
     .map((s) => s.trim())
     .filter(Boolean);
 
+  const servicesIdRaw = String(formData.get("services_id") ?? "")
+    .split("\n")
+    .map((s) => s.trim())
+    .filter(Boolean);
+
   return {
     title: String(formData.get("title") ?? "").trim(),
     description: String(formData.get("description") ?? "").trim(),
     full_content: String(formData.get("full_content") ?? "").trim() || null,
     services: servicesRaw.length ? servicesRaw : null,
     display_order: Number(formData.get("display_order") ?? 0),
+    title_id: String(formData.get("title_id") ?? "").trim() || null,
+    description_id: String(formData.get("description_id") ?? "").trim() || null,
+    full_content_id: String(formData.get("full_content_id") ?? "").trim() || null,
+    services_id: servicesIdRaw.length ? servicesIdRaw : null,
   };
 }
 
