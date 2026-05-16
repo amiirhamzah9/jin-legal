@@ -4,6 +4,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { useTranslations } from "next-intl";
 import { submitApplication, type ApplicationFormState } from "@/app/[locale]/careers/[slug]/apply/actions";
 import { Button } from "@/components/ui/button";
+import { FilePicker } from "@/components/ui/file-picker";
 
 const INITIAL: ApplicationFormState = { status: "idle" };
 
@@ -81,13 +82,13 @@ export function ApplicationForm({ slug }: { slug: string }) {
         >
           {t("cvResume")}
         </label>
-        <input
+        <FilePicker
           id="cv"
           name="cv"
-          type="file"
           accept=".pdf,.doc,.docx"
           required
-          className="block w-full text-[13px] text-ink font-sans file:mr-4 file:py-2.5 file:px-5 file:border-0 file:bg-forest file:text-white file:font-semibold file:text-[10px] file:tracking-[2px] file:uppercase hover:file:bg-forest-deep file:cursor-pointer cursor-pointer"
+          chooseLabel={t("chooseFile")}
+          emptyLabel={t("noFileChosen")}
         />
         <p className="font-sans text-[11px] text-ink-muted mt-2">
           {t("cvHelp")}

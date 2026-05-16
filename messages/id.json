@@ -120,14 +120,16 @@
     "fullName": "Nama Lengkap *",
     "email": "Email *",
     "phone": "Telepon",
-    "cvResume": "CV / Resume *",
+    "cvResume": "CV / Daftar Riwayat Hidup *",
     "cvHelp": "PDF, DOC, atau DOCX. Maksimal 10 MB.",
     "coverLetter": "Surat Lamaran",
     "coverLetterPlaceholder": "Ceritakan mengapa Anda cocok untuk posisi ini…",
     "submitting": "Mengirim…",
     "submitButton": "Kirim Lamaran",
     "applicationReceivedHeading": "Lamaran Diterima",
-    "noOpeningsIntro": "Ingin tetap memperkenalkan diri? Hubungi kami di careers@jin-legal.com."
+    "noOpeningsIntro": "Ingin tetap memperkenalkan diri? Hubungi kami di careers@jin-legal.com.",
+    "chooseFile": "Pilih File",
+    "noFileChosen": "Belum ada file dipilih"
   },
   "Contact": {
     "heroEyebrow": "Hubungi Kami",
@@ -152,7 +154,9 @@
     "emailLabel": "Email",
     "workingHours": "Jam Kerja",
     "workingDays": "Senin — Jumat",
-    "workingTime": "09:00 — 18:00 WIB"
+    "workingTime": "09:00 — 18:00 WIB",
+    "chooseFile": "Pilih File",
+    "noFileChosen": "Belum ada file dipilih"
   },
   "CtaBanner": {
     "title": "Siap berkolaborasi dengan kami?",

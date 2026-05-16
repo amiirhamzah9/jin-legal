@@ -127,7 +127,9 @@
     "submitting": "Submitting…",
     "submitButton": "Submit Application",
     "applicationReceivedHeading": "Application Received",
-    "noOpeningsIntro": "Want to introduce yourself anyway? Reach out to careers@jin-legal.com."
+    "noOpeningsIntro": "Want to introduce yourself anyway? Reach out to careers@jin-legal.com.",
+    "chooseFile": "Choose File",
+    "noFileChosen": "No file chosen"
   },
   "Contact": {
     "heroEyebrow": "Get in Touch",
@@ -152,7 +154,9 @@
     "emailLabel": "Email",
     "workingHours": "Working Hours",
     "workingDays": "Monday — Friday",
-    "workingTime": "09:00 — 18:00 WIB"
+    "workingTime": "09:00 — 18:00 WIB",
+    "chooseFile": "Choose File",
+    "noFileChosen": "No file chosen"
   },
   "CtaBanner": {
     "title": "Ready to work with us?",

@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { submitContactForm, type ContactFormState } from "@/app/[locale]/contact/actions";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { FilePicker } from "@/components/ui/file-picker";
 
 const INITIAL: ContactFormState = { status: "idle" };
 
@@ -130,12 +131,12 @@ export function ContactForm({
             >
               {t("attachment")}
             </label>
-            <input
+            <FilePicker
               id="attachment"
               name="attachment"
-              type="file"
               accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt"
-              className="block w-full text-[13px] text-ink font-sans file:mr-4 file:py-2.5 file:px-5 file:border-0 file:bg-forest file:text-white file:font-semibold file:text-[10px] file:tracking-[2px] file:uppercase hover:file:bg-forest-deep file:cursor-pointer cursor-pointer"
+              chooseLabel={t("chooseFile")}
+              emptyLabel={t("noFileChosen")}
             />
             <p className="font-sans text-[11px] text-ink-muted mt-2">
               {t("attachmentHelp")}
